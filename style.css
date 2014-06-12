@@ -1,0 +1,175 @@
+global{
+	width: 790px;
+	height: 100%;
+	background-color: #C9C7C7;
+	
+}
+
+body{
+		
+width: 790px;
+margin: auto;
+
+}
+#header, #contenu, #menu{
+/*background-color: #C9C7C7;*/
+	
+}
+.deco{
+	font-size: 13px;
+	text-align: right;
+	font-family: "Arial Black", Arial, Verdana, serif;
+	float:right;
+	margin-right: 5px;
+	margin-top: 25px;
+}
+
+#facebook
+{
+position: fixed;
+bottom: 20px;
+right:4%;
+}
+
+#header{
+	margin: auto;
+	width: 790px;
+	padding-bottom: 105px;
+}
+
+.logo{
+	width: 200px;
+	height: 90px;
+	background-image: url("images/logo.png");
+	margin-top: 20px;
+	float: left;
+}
+
+.edition{
+	text-align: right;
+	font-family: "Arial Black", Arial, Verdana, serif;
+	font-size: 80%;
+	float:right;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.lieu{
+padding-top: 10px;
+font-size: 85%;
+font-family: Arial;
+}
+
+#menu{
+width: 790px;
+height: 45px;
+margin-top:40px;
+background-color: #656565;
+display: block;
+
+}
+
+#menu tr#liens{
+	color: #C0C0C0;
+	font-size: 19px;
+	height: 43px;
+	
+}
+#menu table{
+	border-spacing: 0px;
+	height: 43px;
+	
+}
+#menu tr#liens td {
+	height: 43px;
+	cursor: pointer;
+	width: 158px;
+	text-align: center;	
+}
+#menu tr a{
+	line-height: 19px;
+	text-decoration: none;
+	color: #C9C7C7;
+}
+#menu td:hover {
+	background-color: #1E90FF;
+	color: #FFFFFF;
+	border-bottom: 1px solid #ff0000;
+}
+#menu td.encours{
+	background-color: #1E90FF;
+	color: #FFFFFF;
+	border-bottom: 1px solid #ff0000;
+}
+#contenu{
+margin: auto;
+width: 785px;
+text-align: justify;
+font-family: Arial, Verdana, serif;
+font-size: 80%;
+margin-top:20px;
+margin-bottom: 20px;
+}
+
+#compte{
+margin: auto;
+width: 785px;
+text-align: justify;
+font-family: Arial, Verdana, serif;
+font-size: 80%;
+margin-top:20px;
+margin-bottom: 20px;
+}
+
+#compte table{
+margin: auto;
+margin-top: 30px;
+margin-bottom: 50px;
+width:600px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+background-color: #c9c7c7;
+border: 1px solid #656565;
+height : 100px;
+padding-left:20px;
+}
+
+#inscription table{
+margin-top: 60px;
+}
+
+#inscription td{
+padding-left: 70px;
+}
+
+#entreprises table{
+margin:auto;
+text-align: center;
+}
+#contenu #entreprises td img{
+	width: 100px;
+}
+#entreprises td{
+padding:10px;
+}
+
+#formulaire{
+margin-top: 30px;
+}
+
+#formulaire td{
+padding-left: 60px;
+padding-bottom: 5px;
+}
+
+#footer{
+margin: auto;
+width: 600px;
+margin-top: 30px;
+margin-bottom: 5px;
+padding-top: 5px;
+border-top: 1px inset black;
+text-align: center;
+font-family: Arial;
+font-size:70%;
+}

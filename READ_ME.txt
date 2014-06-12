@@ -1,0 +1,1 @@
+Pour toute information, concernant la conception du site internet Polytech'Dating, contactez l'administrateur � l'adresse benslima@polytech.unice.fr ou pinel.fabien@gmail.com
