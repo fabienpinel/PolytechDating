@@ -1,19 +1,8 @@
-<?php session_start(); 
-$encours="contact";
+<?php 
+	session_start(); 
+	$encours="contact";
+	include("header.php") 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech'Dating - Contact</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-	<script type="text/javascript" src="verifForm.js"></script>
-</head>
-<body>
-	
-
-	<?php include("header.php") ?>
 	
 	<div id="contenu">
 

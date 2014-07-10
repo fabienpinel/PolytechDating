@@ -1,17 +1,8 @@
-<?php session_start(); 
-$encours="entreprises";
+<?php 
+	session_start(); 
+	$encours="entreprises";
+	include("header.php") 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech'Dating - Les entreprises</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-</head>
-<body>
-
-	<?php include("header.php") ?>
 	
 	<div id="contenu">
 		<div id="entreprises">

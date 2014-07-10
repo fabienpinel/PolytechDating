@@ -1,17 +1,7 @@
-<?php session_start(); $encours="moncompte"; ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech'Dating - Les entreprises</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-	<script type="text/javascript" src="verifForm.js"></script>
-</head>
-<body>
-
-	
-	<?php include("header.php");
+<?php 
+	session_start(); 
+	$encours="moncompte";
+	include("header.php");
 	try
 	{
 		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');

@@ -1,4 +1,15 @@
 <?php
+	function connect_database(){
+	try
+	{
+		$bdd = new PDO('mysql:host='.$host.';dbname='.$bdd, $user, $mdp);
+	}
+	catch(Exception $e)
+	{
+		die('Erreur : '.$e->getMessage());
+	}
+	return $bdd;
+}
 function entParPromo($promotion, $bdd)
 {
 	$sql = 'SELECT * FROM entreprise WHERE promotion = "' . $promotion . '"';

@@ -1,7 +1,20 @@
-<?php include('function.php') ?>
+<?php 
+	include('variables.php');
+	include('function.php');
+ ?>
 <!--
 	Site développé par Amir Ben Slimane et Fabien Pinel
 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Polytech'Dating - Les entreprises</title>
+	<link rel="stylesheet" href="style.css" />
+	<link rel="icon" type="image/png" href="/images/icon.ico" />
+</head>
+<body>
+
 <global>
 <div id="header">
 	<div class="logo" style="margin-left: 10px;" onclick="document.location='index.php'">

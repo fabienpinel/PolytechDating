@@ -1,15 +1,8 @@
-<?php session_start(); $encours="index"; ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech'Dating</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-</head>
-<body>
-
-	<?php include("header.php") ?>
+<?php 
+	session_start(); 
+	$encours="index"; 
+	include("header.php");
+?>
 	
 	<!--<center><img src="/images/en_maintenance.jpg" /></center>-->
 	
