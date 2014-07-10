@@ -1,5 +1,4 @@
 <?php 
-	include('variables.php');
 	include('function.php');
  ?>
 <!--

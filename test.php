@@ -1,14 +1,7 @@
 	<?php include("header.php") ?>
 	
 	<?php
-	try
-	{
-			$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	
 	
 	

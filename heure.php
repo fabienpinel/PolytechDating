@@ -1,15 +1,7 @@
 <?php 
 	session_start();
 	include("header.php");
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-		
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{

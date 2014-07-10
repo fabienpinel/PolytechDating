@@ -1,27 +1,11 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech'Dating</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-</head>
-<body>
 <?php 
+	session_start();
 	include("header.php");
 	
 	ini_set ('session.bug_compat_42', 0); 
 	ini_set ('session.bug_compat_warn', 0); 
 
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	// V�rification des identifiants
 	$req = $bdd->prepare('SELECT id FROM membre WHERE mail = "' .$_POST['mail']. '" AND pass = "' .$_POST['pass']. '"');
 	$req->execute(array(

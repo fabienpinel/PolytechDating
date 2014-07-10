@@ -1,8 +1,9 @@
 <?php
-	function connect_database(){
+function connect_database(){
+	include('variables.php');
 	try
 	{
-		$bdd = new PDO('mysql:host='.$host.';dbname='.$bdd, $user, $mdp);
+		$bdd = new PDO('mysql:host='.$host.';dbname='.$bdd.'', $user,$mdp);
 	}
 	catch(Exception $e)
 	{

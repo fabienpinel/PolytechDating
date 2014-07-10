@@ -2,14 +2,7 @@
 	session_start();
 	include("header.php");
 	
-		try
-		{
-			$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-		}
-		catch(Exception $e)
-		{
-			die('Erreur : '.$e->getMessage());
-		}
+		$bdd = connect_database();
 
 	
 		echo  $_SESSION['nom']. ' ' .$_SESSION['prenom']. ', &eacute;tant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous propose la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';

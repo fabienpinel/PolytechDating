@@ -2,15 +2,7 @@
 	session_start(); 
 	$encours="moncompte";
 	include("header.php");
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-		
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	
 	//echo '<center><img src="/images/en_maintenance.jpg" style="width:80%;height:80%;"/></center>';
 	/*

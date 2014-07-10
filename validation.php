@@ -4,14 +4,7 @@
 							
 	echo '<p>Vous avez rendez vous avec ' .$_POST['entreprise'] . ' &agrave; ' .$_POST['heure']. '</p>';
 	
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	
 	$bdd->exec(	'UPDATE heure
 				INNER JOIN entreprise

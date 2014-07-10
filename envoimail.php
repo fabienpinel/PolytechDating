@@ -2,14 +2,7 @@
 	session_start();
  	include("header.php");
 
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	$bdd = connect_database();
 	
 	$bdd->exec( 'INSERT INTO message
 				VALUES (NULL, "' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['promotion']. '", "' .$_POST['mail']. '@polytech.unice.fr", "' .$_POST['message']. '")');
