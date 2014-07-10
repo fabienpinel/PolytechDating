@@ -8,7 +8,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Polytech'Dating - Les entreprises</title>
+	<title>Polytech Dating 2014</title>
 	<link rel="stylesheet" href="style.css" />
 	<link rel="icon" type="image/png" href="/images/icon.ico" />
 </head>
