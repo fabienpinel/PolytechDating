@@ -25,7 +25,7 @@
 		?>
 	</div>
 	<div class="edition">
-		Edition 2013
+		Edition 2014
 		<div class="lieu">
 		Le Jeudi 5 décembre de 14h à 18h, au campus Templiers de Polytech'Nice-Sophia.
 		<?php tempsRestantEvenement() ?>

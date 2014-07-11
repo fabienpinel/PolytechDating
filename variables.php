@@ -1,6 +1,11 @@
 <?php
 $host="localhost";
-$bdd="technewsdating";
+$bdd="polytechdating";
 $user="root";
-$mdp="root"
+$mdp="root";
+
+/*$host="mysql51-101.perso";
+$bdd="technewsdating";
+$user="technewsdating";
+$mdp="polytech5";*/
 ?>
