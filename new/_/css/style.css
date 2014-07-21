@@ -1,0 +1,152 @@
+global{
+	width: 790px;
+	height: 100%;
+	background-color: #C9C7C7;
+	
+}
+/* nouveau CSS -> Bootstrap */
+#header .container{
+	height: 100px;
+}
+.navbar-brand {
+	margin-top: -10px;
+	height: 0;
+}
+.loginForm{
+	margin-top: 30px;
+}
+
+#vignettes{
+	margin-left: 18%;
+
+}
+#vignette-inscription{
+	text-align: center;
+}
+.vignette-desc{
+	text-align: justify;
+	font-size: 18px;
+}
+#long-desc{
+	margin-left: 50px;
+	max-width: 90%;
+	text-align: justify;
+}
+#menuTop{
+	float: left;
+	position: fixed;
+	margin-top: 20px;
+	margin-left: 250px;
+	height: 100%;
+	font-size: 20px;
+}
+ul#listeMenu{
+	margin-top: -20px;
+}
+ul#listeMenu li{
+	padding: 0;
+	height: 100px;
+}
+ul#listeMenu li a{
+	height: 100px;
+	padding-top: 40px;
+}
+#connected{
+	vertical-align: middle;
+	color: white;
+}
+.form-signin{
+	max-width: 350px;
+	margin: auto;
+}
+#compte{
+	text-align: center;
+}
+/* END  nouveau CSS -> Bootstrap */
+/*body{
+		
+width: 790px;
+margin: auto;
+
+}*/
+#header, #contenu, #menu{
+/*background-color: #C9C7C7;*/
+	
+}
+
+#header{
+	margin: auto;
+	width: 790px;
+	padding-bottom: 105px;
+}
+
+.logo{
+	width: 200px;
+	height: 90px;
+	background-image: url("images/logo.png");
+	margin-top: 20px;
+	float: left;
+}
+
+.edition{
+	text-align: right;
+	font-family: "Arial Black", Arial, Verdana, serif;
+	font-size: 80%;
+	float:right;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.lieu{
+padding-top: 10px;
+font-size: 85%;
+font-family: Arial;
+}
+
+
+#container{
+margin: auto;
+max-width: 785px;
+text-align: justify;
+font-family: Arial, Verdana, serif;
+font-size: 80%;
+margin-top:20px;
+margin-bottom: 20px;
+}
+
+
+#inscription table{
+margin-top: 60px;
+}
+
+#inscription td{
+padding-left: 70px;
+}
+
+#entreprises table{
+margin:auto;
+text-align: center;
+}
+#entreprises td img{
+	width: 100px;
+}
+#entreprises td{
+padding:10px;
+}
+
+#formulaire{
+margin-top: 30px;
+}
+
+#formulaire td{
+padding-left: 60px;
+padding-bottom: 5px;
+}
+
+footer{
+
+border-top: 1px inset black;
+text-align: center;
+font-family: Arial;
+font-size:80%;
+}
