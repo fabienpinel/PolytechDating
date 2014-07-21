@@ -9,47 +9,31 @@
 
 		<div id="formulaire">
 		
-		<!-- D�but du formulaire -->
-		<table>
-			<form action="envoimail.php" method="post" onSubmit="return verifForm(this, 1)">
-		
-			<!-- Nom -->
-			<tr>
-				<td>
+			<form class="form-horizontal" role="form" action="envoimail.php" method="post" onSubmit="return verifForm(this, 1)">
+  				<div class="form-group row" >
+
+					<!-- Nom -->
+					<div class="form-group">
 					<label for="nom">Nom</label>
-				</td>
-				<td>
-					<input type="text" style="width:300px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #c9c7c7; border: 1px solid #656565; height : 20px; padding-left:5px;" name="nom" id="nom" />
-				</td>
-			</tr>
+					<input type="text" class="form-control" name="nom" id="nom" />
+					</div>
 
-			<!-- Pr�nom -->
-			<tr>
-				<td>
+					<!-- Prénom -->
+					<div class="form-group">
 					<label for="prenom">Pr&eacute;nom</label>
-				</td>
-				<td>
-					<input type="text" style="width:300px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #c9c7c7; border: 1px solid #656565; height : 20px; padding-left:5px;" name="prenom" id="prenom" />
-				</td>
-			</tr>
+					<input type="text" class="form-control" name="prenom" id="prenom" />
+					</div>
 
-			<!-- E-mail -->
-			<tr>
-				<td>
+					<!-- EMAIL -->
+					<div class="form-group">
 					<label for="mail">E-mail</label>
-				</td>
-				<td>
-					<input type="text" style="width:150px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #c9c7c7; border: 1px solid #656565; height : 20px; padding-left:5px;" name="mail" id="mail" />@polytech.unice.fr
-				</td>
-			</tr>
+					<input type="text" class="form-control" name="mail" id="mail" />@polytech.unice.fr
+					</div>
 
-			<!-- Promotion -->
-			<tr>
-				<td>
+					<!-- Promotion -->
+					<div class="form-group">
 					<label for="promotion">Votre promotion</label>
-				</td>
-				<td>
-					<select style="width:300px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #c9c7c7; border: 1px solid #656565; height : 25px" name="promotion" id="promotion">
+					<select  name="promotion" id="promotion" class="form-control">
 						<option value=""></option>
 						<option value="SI5">INGENIEUR INFORMATIQUE</option>
 						<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
@@ -57,32 +41,22 @@
 						<option value="IFI">M2 IFI</option>
 						<option value = "Autre"> Autre (merci de pr&eacute;ciser dans le message)</option>
 					</select>
-				</td>
-			</tr>
-
-			<!-- Message -->
-			<tr>
-				<td>
-					<label for="message">Message</label>
-				</td>
-				<td>
-					<textarea name="message" id="message" style="width:500px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; background-color: #c9c7c7; border: 1px solid #656565; height : 100px; padding-left:5px;"></textarea>
-				</td>
-			</tr>
-
-			<!-- Envoi ou remise � z�ro -->
-			<tr>
-				<td>
-				</td>
-				<td>
-					<div style="text-align: right">
-					<input class="submit2" name="send" type="submit" value="Envoyer" /><input class="submit22" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
 					</div>
-				</td>
-			</tr>
-		</form>
 
-		</table>
+					<!-- Message -->
+					<div class="form-group">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" class="form-control" ></textarea>
+					</div>
+
+					<!-- Envoi ou remise � z�ro -->
+					<div>
+						<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
+						<input class="btn btn-primary" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
+					</div>
+				</div>
+		</form>
+		</div>
 		<!-- Fin du formulaire -->
 		
 		</div>

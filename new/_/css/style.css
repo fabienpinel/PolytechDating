@@ -68,6 +68,10 @@ ul#listeMenu li a{
 #loginButton{
 	display: none;
 }
+#formulaire{
+	max-width: 500px;
+	margin: auto;
+}
 /* END  nouveau CSS -> Bootstrap */
 /*body{
 		
@@ -139,16 +143,6 @@ text-align: center;
 #entreprises td{
 padding:10px;
 }
-
-#formulaire{
-margin-top: 30px;
-}
-
-#formulaire td{
-padding-left: 60px;
-padding-bottom: 5px;
-}
-
 footer{
 
 border-top: 1px inset black;
