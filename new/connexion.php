@@ -55,8 +55,5 @@
 		document.location.replace("moncompte.php");
 	</script>';
 	include("footer.php") ?>
-
-</body>
-</html>
 	
 ?>	

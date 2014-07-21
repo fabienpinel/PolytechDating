@@ -29,6 +29,3 @@
 	include("footer.php");
 	redirect("moncompte.php", "1");
 	?>
-
-</body>
-</html>

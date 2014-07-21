@@ -14,26 +14,36 @@
 
 					<!-- Nom -->
 					<div class="form-group">
-					<label for="nom">Nom</label>
-					<input type="text" class="form-control" name="nom" id="nom" />
+					<label for="nom" class="col-sm-2 control-label">Nom</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" />
+					</div>
 					</div>
 
 					<!-- Prénom -->
 					<div class="form-group">
-					<label for="prenom">Pr&eacute;nom</label>
-					<input type="text" class="form-control" name="prenom" id="prenom" />
+					<label for="prenom" class="col-sm-2 control-label">Pr&eacute;nom</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" />
+					</div>
 					</div>
 
 					<!-- EMAIL -->
 					<div class="form-group">
-					<label for="mail">E-mail</label>
-					<input type="text" class="form-control" name="mail" id="mail" />@polytech.unice.fr
+					<label for="mail" class="col-sm-2 control-label">E-mail</label>
+					<div class="col-sm-5">	
+						<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" />
+						
+					</div>
+					<div class="col-md-2 control-label">
+						<label>@polytech.unice.fr</label>
+					</div>
 					</div>
 
 					<!-- Promotion -->
 					<div class="form-group">
-					<label for="promotion">Votre promotion</label>
-					<select  name="promotion" id="promotion" class="form-control">
+					<label for="promotion" class="col-sm-2 control-label">Votre promotion</label>
+					<select  name="promotion" id="promotion" class="form-control col-sm-6">
 						<option value=""></option>
 						<option value="SI5">INGENIEUR INFORMATIQUE</option>
 						<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
@@ -45,8 +55,10 @@
 
 					<!-- Message -->
 					<div class="form-group">
-					<label for="message">Message</label>
-					<textarea name="message" id="message" class="form-control" ></textarea>
+					<label for="message" class="col-sm-2 control-label">Message</label>
+					<div class="col-sm-10">
+						<textarea name="message" id="message" class="form-control" placeholder="Message" rows="6"></textarea>
+					</div>
 					</div>
 
 					<!-- Envoi ou remise � z�ro -->
