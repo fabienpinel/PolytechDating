@@ -68,17 +68,18 @@
 			}else{ 
 			//not connected
 		?>
-        <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right loginForm" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
+        <div class="navbar-collapse collapse" >
+          <form class="navbar-form navbar-right loginForm" id="loginFields" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
             <div class="form-group">
               <input type="text" placeholder="Email" class="form-control input-sm" name="mail" id="mail" style="width: 110px;">
             </div>
             <div class="form-group">
               <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control input-sm" style="width: 95px;">
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Connexion</button>
           </form>
+          <a href="./connexion.php" id="loginButton" class=" navbar-right loginForm"><button class="btn btn-primary">Connexion</button></a>
         </div><!--/.navbar-collapse -->
         <?php } ?>
       </div>

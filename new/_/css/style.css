@@ -62,6 +62,12 @@ ul#listeMenu li a{
 #compte{
 	text-align: center;
 }
+#loginFields{
+	display: block;
+}
+#loginButton{
+	display: none;
+}
 /* END  nouveau CSS -> Bootstrap */
 /*body{
 		
@@ -149,4 +155,22 @@ border-top: 1px inset black;
 text-align: center;
 font-family: Arial;
 font-size:80%;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+#loginFields{
+	display: none;
+}
+#loginButton{
+	display: block;
+}
+}
+
+@media screen and (max-width: 1000px) {
+#loginButton{
+	display: none;
+}
+
 }
