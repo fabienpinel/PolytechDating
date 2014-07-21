@@ -119,6 +119,7 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>-->
+        <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
       </form>
 

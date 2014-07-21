@@ -76,7 +76,8 @@
             <div class="form-group">
               <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control input-sm" style="width: 95px;">
             </div>
-            <button type="submit" class="btn btn-success">Connexion</button>
+            
+            <button type="submit" class="btn btn-primary">Connexion</button>
           </form>
         </div><!--/.navbar-collapse -->
         <?php } ?>

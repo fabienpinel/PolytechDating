@@ -22,7 +22,7 @@
           <u>Entreprises participantes</u>
           <p>Retrouvez toutes les entreprises présentent lors de l'évènement dans l'onglet <a href="./entreprises.php">Entreprises</a>.</p>
 
-        <p><a class="btn btn-primary btn-lg" role="button" href="./inscription.php">Je m'inscris »</a></p>
+        <p><a class="btn btn-success btn-lg" role="button" href="./inscription.php">Je m'inscris »</a></p>
       </div>
       </div>
     </div>
