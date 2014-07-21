@@ -10,9 +10,44 @@ global{
 }
 .navbar-brand {
 	margin-top: -10px;
+	height: 0;
 }
 #loginForm{
 	margin-top: 30px;
+}
+
+#vignettes{
+	margin-left: 18%;
+
+}
+#vignette-inscription{
+	text-align: center;
+}
+.vignette-desc{
+	text-align: justify;
+	font-size: 18px;
+}
+#long-desc{
+	margin-left: 50px;
+	max-width: 90%;
+	text-align: justify;
+}
+#menuTop{
+	float: left;
+	margin-left: 300px;
+	height: 100%;
+	font-size: 20px;
+}
+ul#listeMenu{
+	margin-top: -20px;
+}
+ul#listeMenu li{
+	padding: 0;
+	height: 100px;
+}
+ul#listeMenu li a{
+	height: 100px;
+	padding-top: 40px;
 }
 /* END  nouveau CSS -> Bootstrap */
 /*body{
@@ -172,14 +207,10 @@ padding-left: 60px;
 padding-bottom: 5px;
 }
 
-#footer{
-margin: auto;
-width: 600px;
-margin-top: 30px;
-margin-bottom: 5px;
-padding-top: 5px;
+footer{
+
 border-top: 1px inset black;
 text-align: center;
 font-family: Arial;
-font-size:70%;
+font-size:80%;
 }

@@ -6,6 +6,7 @@
 	
 	<!--<center><img src="/images/en_maintenance.jpg" /></center>-->
 	<br />
+	<p class="bg-primary">test</p>
 	<div id="contenu">
 	<p>Le Dating Polytech est réalisé sous la forme bien connue d'un Job Dating qui permet aux recruteurs et candidats d'échanger et initier une première prise de contact, ils peuvent se recontacter pour un second entretien plus approfondi par la suite.</p>
 	<p>Le planning du Dating Polytech est organisé à l'avance. Chaque candidat est préalablement inscrit sur un créneau horaire précis avec une ou plusieurs entreprises. La durée totale de l'entretien est de 20 minutes.</p>
