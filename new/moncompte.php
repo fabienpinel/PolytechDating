@@ -1,9 +1,11 @@
 <?php 
 	session_start(); 
-	$encours="moncompte";
+	$encours="compte";
 	include("header.php");
 	$bdd = connect_database();
-	
+	echo '  
+    	<div class="jumbotron">
+      	<div class="container">';
 	//echo '<center><img src="/images/en_maintenance.jpg" style="width:80%;height:80%;"/></center>';
 	/*
 	*	Si les identifiants sont corrects
@@ -106,37 +108,22 @@
 	else
 	{
 		echo '<div id="compte">
-		Cette rubrique va vous permettre de gérer vos rendez-vous : 
+		<h3>Cette rubrique va vous permettre de gérer vos rendez-vous.</h3>
 		
-		<table>
-			<form action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
-			<tr>
-				<td>
-					<label for="mail">E-mail :</label>
-				</td>
-				<td>
-					<input style="width:150px" type="text" name="mail" id="mail" />@polytech.unice.fr
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="pass">Mot de passe :</label>
-				</td>
-				<td>
-					<input style="width:150px" type="password" name="pass" id="pass" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-				</td>
-				<td>
-					<input class="submit" name="send" type="submit" value="Connexion" />
-				</td>
-			</tr>
-		</table>
+		<form class="form-signin" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
+        <h2 class="form-signin-heading">Connectez vous</h2>
+        <input type="text" class="form-control" placeholder="Email" name="mail" id="mail" required="" autofocus="">
+        <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" required="">
+       <!-- <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+      </form>
+
 		</div>';
 	}
-	include("footer.php") ?>
 
-</body>
-</html>
+	echo '</div></div>';
+	include("footer.php"); ?>

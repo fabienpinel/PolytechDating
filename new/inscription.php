@@ -11,6 +11,7 @@
 	}else{ ?>
 		Les inscriptions sont fermées pour le moment. 
 		<?php formulaire('compteCree') ?>
+		
 	<?php	
 	}
 		?>

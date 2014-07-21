@@ -49,7 +49,7 @@
 			//3. strtolower met l'extension en minuscules.
 			$extension_upload = strtolower(substr(strrchr($_FILES['cv']['name'], '.')  ,1)  );
 			if (in_array($extension_upload,$extensions_valides) ){
-				$dossier = './cv/';
+				$dossier = './_/cv/';
 				$fichier = $_POST['nom'].'-'.$_POST['prenom'].'-'.$_POST['promotion'].'.pdf';
 				$resultat = move_uploaded_file($_FILES['cv']['tmp_name'], $dossier.$fichier);
 				if ($resultat){

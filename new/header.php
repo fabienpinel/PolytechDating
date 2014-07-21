@@ -1,48 +1,85 @@
 <?php 
-	include('function.php');
+  include('function.php');
  ?>
 <!--
-	Site développé par Amir Ben Slimane et Fabien Pinel
+  Site développé par Amir Ben Slimane et Fabien Pinel
 -->
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<title>Polytech Dating 2014</title>
-	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="icon" type="image/png" href="/images/icon.ico" />
-</head>
-<body>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="/images/icon.ico" />
 
-<global>
-<div id="header">
-	<div class="logo" style="margin-left: 10px;" onclick="document.location='index.php'">
-	</div>
-	<div class="deco">
-	<?php
-		if (isset($_SESSION['id']))
-			echo 'Bienvenue ' .$_SESSION['nom']. ' ' .$_SESSION['prenom']. ' <a href="deconnexion.php">(Se deconnecter)</a>';
+    <title>Polytech Dating 2014</title>
+
+    <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="_/css/style.css" />
+  <link rel="icon" type="image/png" href="/images/icon.ico" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="header">
+      
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="_/images/logo.png" /></a>
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar">Accueil</span>
+            <span class="icon-bar">Mon compte</span>
+            <span class="icon-bar">Entreprises</span>
+             <span class="icon-bar">Contact</span>
+          </button>
+
+          <nav class="navbar-collapse collapse" role="navigation" id="menuTop">
+            <ul class="nav navbar-nav" id="listeMenu">
+              <li <?php if(isset($encours) && $encours == 'index'){echo 'class="active"';}    ?>><a href="./index.php">Accueil</a></li>
+              <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./moncompte.php">Mon compte</a></li>
+              <li <?php if(isset($encours) && $encours == 'entreprises'){echo 'class="active"';}    ?>><a href="./entreprises.php">Entreprises</a></li>
+              <li <?php if(isset($encours) && $encours == 'contact'){echo 'class="active"';}    ?>><a href="./contact.php">Contact</a></li>
+            </ul>
+          </nav>
+
+        </div>
+        <?php
+        if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
+		{
+			//connected
 		?>
-	</div>
-	<div class="edition">
-		Edition 2014
-		<div class="lieu">
-		Le Jeudi 5 décembre de 14h à 18h, au campus Templiers de Polytech'Nice-Sophia.
-		<?php tempsRestantEvenement() ?>
+		<div class="navbar-collapse collapse">
+          <div class="navbar-form navbar-right loginForm" id="connected">
+
+				<p>Bienvenue <?php echo $_SESSION['prenom']; ?> !</p>
+				<p><a href="deconnexion.php">(Se deconnecter)</a></p>
+			</div>
 		</div>
-	</div>
-</div>
-<!--<center><p style="color:red;font-size:15px;">Fin des prises de rendez-vous!</p></center>-->
-<div id="menu">
-	<table>
-	<tr id="liens">
-		
-			<td <?php if($encours == 'index'){echo ' class="encours "';}    ?> onclick="document.location='index.php'">Accueil</td>
-			<td <?php if($encours == 'inscription'){echo ' class="encours" ';}    ?> onclick="document.location='inscription.php'">Inscription</td>
-			<td <?php if($encours == 'moncompte'){echo ' class="encours" ';}    ?> onclick="document.location='moncompte.php'">Mon compte</td>
-			<td <?php if($encours == 'entreprises'){echo ' class="encours" ';}    ?> onclick="document.location='entreprises.php'">Entreprises</td>
-			<td  <?php if($encours == 'contact'){echo ' class="encours" ';}    ?> onclick="document.location='contact.php'">Contact</td>
-	</tr></table>
-	
-</div>
+		<?php 
+			}else{ 
+			//not connected
+		?>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right loginForm" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control input-sm" name="mail" id="mail" style="width: 110px;">
+            </div>
+            <div class="form-group">
+              <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control input-sm" style="width: 95px;">
+            </div>
+            <button type="submit" class="btn btn-success">Connexion</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+        <?php } ?>
+      </div>
+    </div>
+  </div>

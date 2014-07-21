@@ -8,7 +8,7 @@
 	$bdd = connect_database();
 	// V�rification des identifiants
 	$pass = md5($_POST['password']);
-	$req = $bdd->prepare('SELECT id FROM membre WHERE mail = "' .$_POST['mail']. '" AND pass = "' .$_POST['pass']. '"');
+	$req = $bdd->prepare('SELECT id FROM membre WHERE mail = "' .$_POST['mail']. '" AND pass = "' .md5($_POST['pass']). '"');
 	$req->execute(array(
 		'mail' => $_POST['mail'],
 		'pass' => $pass));

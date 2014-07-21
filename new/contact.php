@@ -4,7 +4,8 @@
 	include("header.php") 
 ?>
 	
-	<div id="contenu">
+	<div class="jumbotron">
+      <div class="container">
 
 		<div id="formulaire">
 		
@@ -88,6 +89,3 @@
 	</div>
 	
 	<?php include("footer.php") ?>
-
-</body>
-</html>
