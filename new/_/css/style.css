@@ -6,7 +6,7 @@ global{
 }
 /* nouveau CSS -> Bootstrap */
 #header .container{
-	height: 100px;
+	height: 80px;
 }
 .navbar-brand {
 	margin-top: -10px;
@@ -45,11 +45,11 @@ ul#listeMenu{
 }
 ul#listeMenu li{
 	padding: 0;
-	height: 100px;
+	height: 80px;
 }
 ul#listeMenu li a{
-	height: 100px;
-	padding-top: 40px;
+	height: 80px;
+	padding-top: 30px;
 }
 #connected{
 	vertical-align: middle;
@@ -71,6 +71,9 @@ ul#listeMenu li a{
 #formulaire{
 	max-width: 500px;
 	margin: auto;
+}
+#mainLogo{
+	max-height: 70px;
 }
 /* END  nouveau CSS -> Bootstrap */
 /*body{

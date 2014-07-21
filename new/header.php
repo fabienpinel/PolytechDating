@@ -33,7 +33,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><img src="_/images/logo.png" /></a>
+          <a class="navbar-brand" href="#"><img src="_/images/logo.png" id="mainLogo" /></a>
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"></span>
             <span class="icon-bar">Accueil</span>
