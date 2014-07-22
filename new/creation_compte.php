@@ -35,7 +35,8 @@
                    echo "Le fichier que vous avez envoyé a une taille nulle ! <br />"; 
                    break;     
           } 
-		  echo "<p>Redirection vers la page d'inscription.</p><br />";
+		  echo '<p>Redirection vers la page d\'inscription.</p>
+		  	<br /><p>Si la redirection échoue vous pouvez cliquer <a href="./inscription.php">ici</a>.';
 		  redirect("./inscription.php", "3");
 		  break;    
 		}     
@@ -69,7 +70,7 @@
 							VALUES("' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['mail']. '", "' .md5($_POST['pass']). '", "' .$_POST['promotion'].'", "'.$parcours.'", "'.$_POST['motcles1'].'", "'.$_POST['motcles2'].'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
-						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "Mon compte". Vous y serez redirigé(e) dans 3 secondes.</p>';
+						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';
 						redirect("./compte.php", "3");
 					}
 					else{
