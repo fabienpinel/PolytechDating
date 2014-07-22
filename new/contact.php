@@ -60,7 +60,7 @@
 					<div class="form-group">
 					<label for="message" class="col-sm-2 control-label">Message</label>
 					<div class="col-sm-10">
-						<textarea name="message" id="message" class="form-control" placeholder="Message" rows="6"></textarea>
+						<textarea name="message" id="message" class="form-control" placeholder="Message" rows="10"></textarea>
 					</div>
 					</div>
 

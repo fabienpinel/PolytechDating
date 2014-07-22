@@ -86,15 +86,6 @@ margin: auto;
 	width: 790px;
 	padding-bottom: 105px;
 }
-
-.logo{
-	width: 200px;
-	height: 90px;
-	background-image: url("images/logo.png");
-	margin-top: 20px;
-	float: left;
-}
-
 .edition{
 	text-align: right;
 	font-family: "Arial Black", Arial, Verdana, serif;
@@ -111,33 +102,23 @@ font-family: Arial;
 }
 
 
-#container{
-margin: auto;
-max-width: 785px;
-text-align: justify;
-font-family: Arial, Verdana, serif;
-font-size: 80%;
-margin-top:20px;
-margin-bottom: 20px;
-}
-
 
 #entreprises table{
-margin:auto;
-text-align: center;
+	max-width: 80%;
+	margin:auto;
+	text-align: center;
 }
 #entreprises td img{
 	width: 100px;
 }
 #entreprises td{
-padding:10px;
+	padding:10px;
 }
 footer{
-
-border-top: 1px inset black;
-text-align: center;
-font-family: Arial;
-font-size:80%;
+	border-top: 1px inset black;
+	text-align: center;
+	font-family: Arial;
+	font-size:80%;
 }
 
 
@@ -149,13 +130,21 @@ font-size:80%;
 #loginButton{
 	display: block;
 }
+#header .container{
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+
+}
 }
 /*   tablette  */
 @media screen and (max-width: 1000px) {
 #loginButton{
 	display: none;
 }
-
+#menuTop{
+	margin-left: 170px;
+}
 }
 /*  mobile  */
 @media screen and (max-width: 770px) {
