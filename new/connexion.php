@@ -4,6 +4,9 @@
 	
 	ini_set ('session.bug_compat_42', 0); 
 	ini_set ('session.bug_compat_warn', 0); 
+	echo '  
+    	<div class="jumbotron">
+      	<div class="container">';
 
 	$bdd = connect_database();
 	// V�rification des identifiants
@@ -18,7 +21,7 @@
 	// Si erreur de connexion
 	if (!$resultat)
 	{
-		echo 'Mauvais identifiant ou mot de passe !<br/>Vous allez etre redirige dans 3 secondes vers <strong>Mon compte</strong>.';
+		echo '<p>Mauvais identifiant ou mot de passe !<br/>Vous allez etre redirige dans 3 secondes vers <strong>Mon compte</strong>.</p>';
 		redirect("compte.php", "3");
 	}
 	//Si les identifiants sont exacts
@@ -54,6 +57,9 @@
 	echo '<script language="Javascript">
 		document.location.replace("compte.php");
 	</script>';
+
+	echo '</div>
+		</div>';
 	include("footer.php") ?>
 	
 ?>	
