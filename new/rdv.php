@@ -29,7 +29,7 @@ echo'<div class="jumbotron">
 		echo 
 		'<form method="post" action="heure.php">
 			<p>
-				Voici la liste des entreprises que nous avons s&eacute;l&eacute;ctionn&eacutees; pour vous.<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :<br/>';	
+				Voici la liste des entreprises que nous avons s&eacute;l&eacute;ctionn&eacutees pour vous.<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :<br/>';	
 		
 		while($donnes = $entreprise->fetch())
 			echo'	<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '"/>
