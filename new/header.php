@@ -33,7 +33,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#"><img src="_/images/logo.png" id="mainLogo" /></a>
+          <a class="navbar-brand" href="./index.php"><img src="_/images/logo.png" id="mainLogo" /></a>
            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"></span>
             <span class="icon-bar">Accueil</span>
@@ -71,10 +71,10 @@
         <div class="navbar-collapse collapse" >
           <form class="navbar-form navbar-right loginForm" id="loginFields" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
             <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control input-sm" name="mail" id="mail" style="width: 110px;">
+              <input type="text" placeholder="Email" class="form-control input-sm" name="mail" id="mail" style="width: 110px;" required>
             </div>
             <div class="form-group">
-              <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control input-sm" style="width: 95px;">
+              <input type="password" name="pass" id="pass" placeholder="Mot de passe" class="form-control input-sm" style="width: 95px;" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Connexion</button>
