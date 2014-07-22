@@ -73,7 +73,7 @@
 						<p>ST Microelectronics</p>
 					</td>
 					<td>
-						<a target="_blanck" href="https://www.thalesgroup.com"><img src="images/entreprises/thales_us.jpg"></a>
+						<a target="_blanck" href="https://www.thalesgroup.com"><img src="_/images/entreprises/thales_us.jpg"></a>
 						<p>THALES Underwater System</p>
 					</td>
 					

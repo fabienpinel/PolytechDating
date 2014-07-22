@@ -64,7 +64,7 @@
 				// Si aucune prise de rendez vous
 				if(!isset($donnes['entreprise']) || !isset($donnes['heure']))
 				{
-					echo'	Vous n\'avez pas encore pris(e) de rendez-vous.
+					echo'	<p>Vous n\'avez pas encore pris(e) de rendez-vous.</p>
 							<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="nouveaurdv.php">ici</a>.</p>';		
 				}
 				// Si prise de rendez vous
