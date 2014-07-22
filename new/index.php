@@ -7,6 +7,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
+          <div class="alert alert-danger" role="alert">
+            Ce site est en développement !
+          </div>
         <h1>Polytech Dating édition 2014 !</h1>
         <br />
         <div id="long-desc">

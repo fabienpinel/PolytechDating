@@ -1,9 +1,7 @@
 <?php 
 	session_start();
 	include("header.php");
-
 	$bdd = connect_database();
-	
 	$membre = $bdd->query('SELECT * FROM membre');
 	$existant = false;
 	while($donnees = $membre->fetch())

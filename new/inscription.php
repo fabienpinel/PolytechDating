@@ -55,22 +55,22 @@
 			
 					<!-- Nom -->
 					<div class="form-group">
-						<label for="nom" class="col-sm-2 control-label">Nom</label>
-						<div class="col-sm-10">
+						<label for="nom" class="col-sm-4 control-label">Nom</label>
+						<div class="col-sm-8">
 							<input type="text" name="nom" id="nom" class="form-control" />
 						</div>
 					</div>
 					<!-- Pr�nom -->
 					<div class="form-group">
-						<label for="prenom" class="col-sm-2 control-label">Pr&eacute;nom</label>
-						<div class="col-sm-10">
+						<label for="prenom" class="col-sm-4 control-label">Pr&eacute;nom</label>
+						<div class="col-sm-8">
 							<input type="text" name="prenom" id="prenom" class="form-control" />
 						</div>
 					</div>
 					<!-- Promotion -->
 					<div class="form-group">
-						<label for="promotion" class="col-sm-2 control-label">Promotion</label>
-						<div class="col-sm-10">
+						<label for="promotion" class="col-sm-4 control-label">Promotion</label>
+						<div class="col-sm-8">
 							<select name="promotion" id="promotion"  onchange="changerspe()" class="form-control">
 								<option value=""></option>
 								<option value="SI5">INGENIEUR INFORMATIQUE</option>
@@ -83,8 +83,8 @@
 					</div>
 					<!-- Parcours -->
 					<div class="form-group" id="parcoursMAM" style="display: none;">
-							<label for="parcoursMAM" class="col-sm-2 control-label">Parcours</label>
-							<div class="col-sm-10">	
+							<label for="parcoursMAM" class="col-sm-4 control-label">Parcours</label>
+							<div class="col-sm-8">	
 								<select name="parcoursMAM" id="parcoursMAM" class="form-control" >
 									<option value=""></option>
 									<option value="IMAFA">IMAFA</option>
@@ -95,8 +95,8 @@
 					</div>
 					<!-- Parcours -->
 					<div class="form-group" id="parcoursSI" style="display: none;">
-							<label for="parcoursSI" class="col-sm-2 control-label">Parcours</label>
-							<div class="col-sm-10">
+							<label for="parcoursSI" class="col-sm-4 control-label">Parcours</label>
+							<div class="col-sm-8">
 								<select name="parcoursSI" id="parcoursSI" class="form-control" >
 									<option value=""></option>
 									<option value="IAM">IAM</option>
@@ -112,8 +112,8 @@
 					</div>
 					<!-- Parcours -->
 					<div class="form-group" id="parcoursELEC" style="display: none;">
-							<label for="parcoursELEC" class="col-sm-2 control-label">Parcours</label>
-							<div class="col-sm-10">
+							<label for="parcoursELEC" class="col-sm-4 control-label">Parcours</label>
+							<div class="col-sm-8">
 								<select name="parcoursELEC" id="parcoursELEC" class="form-control" >
 									<option value=""></option>
 									<option value="GSE">GSE</option>
@@ -124,17 +124,20 @@
 							</div>
 					</div>
 			
-					<!-- E-mail -->
+					<!-- EMAIL -->
 					<div class="form-group">
-						<label for="mail" class="col-sm-2 control-label">E-mail</label>
-						<div class="col-sm-10">
-							<input type="text" name="mail" id="mail"class="form-control" /> @polytech.unice.fr
+						<label for="mail" class="col-sm-4 control-label">E-mail</label>
+						<div class="col-sm-4">	
+							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" />
+						</div>
+						<div class="col-md-3 control-label">
+							<label>@polytech.unice.fr</label>
 						</div>
 					</div>
 					<!-- CV input -->
 					<div class="form-group">
-						<label for="cv" class="col-sm-2 control-label">CV (en .pdf)</label>
-				 		<div class="col-sm-10">
+						<label for="cv" class="col-sm-4 control-label">CV (en .pdf)</label>
+				 		<div class="col-sm-8">
 				 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" class="form-control" />
 							<input type="file" name="cv" id="cv"/>
 						</div>
@@ -151,15 +154,15 @@
 					</div>
 					<!-- Mot de passe -->
 					<div class="form-group">
-						<label for="pass" class="col-sm-2 control-label">Mot de passe</label>
-						<div class="col-sm-10">
+						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
+						<div class="col-sm-8">
 							<input type="password" name="pass" id="pass" class="form-control" />
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
-						<label for="pass2" class="col-sm-2 control-label">Confirmation</label>
-						<div class="col-sm-10">
+						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
+						<div class="col-sm-8">
 							<input type="password" name="pass2" id="pass2" class="form-control" />
 						</div>
 					</div>
