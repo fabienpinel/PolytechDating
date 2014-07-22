@@ -21,7 +21,7 @@
 	// Si erreur de connexion
 	if (!$resultat)
 	{
-		echo '<p>Mauvais identifiant ou mot de passe !<br/>Vous allez etre redirige dans 3 secondes vers <strong>Mon compte</strong>.</p>';
+		echo '<p>Mauvais identifiant ou mot de passe !<br/>Vous allez etre redirigé dans 3 secondes vers <strong>Mon compte</strong>.</p>';
 		redirect("compte.php", "3");
 	}
 	//Si les identifiants sont exacts
