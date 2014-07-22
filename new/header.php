@@ -46,7 +46,7 @@
           <div class="navbar-collapse collapse" id="menuTop">
             <ul class="nav navbar-nav" role="menu" id="listeMenu">
               <li <?php if(isset($encours) && $encours == 'index'){echo 'class="active"';}    ?>><a href="./index.php">Accueil</a></li>
-              <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./moncompte.php">Mon compte</a></li>
+              <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./compte.php">Mon compte</a></li>
               <li <?php if(isset($encours) && $encours == 'entreprises'){echo 'class="active"';}    ?>><a href="./entreprises.php">Entreprises</a></li>
               <li <?php if(isset($encours) && $encours == 'contact'){echo 'class="active"';}    ?>><a href="./contact.php">Contact</a></li>
             </ul>

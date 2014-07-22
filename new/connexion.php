@@ -19,7 +19,7 @@
 	if (!$resultat)
 	{
 		echo 'Mauvais identifiant ou mot de passe !<br/>Vous allez etre redirige dans 3 secondes vers <strong>Mon compte</strong>.';
-		redirect("moncompte.php", "3");
+		redirect("compte.php", "3");
 	}
 	//Si les identifiants sont exacts
 	else
@@ -45,14 +45,14 @@
 		$_SESSION['heure'] = $entreprise['heure'];
 	
 		echo'
-		<form method="post" action="moncompte.php">
+		<form method="post" action="compte.php">
 			<input type="hidden" name="mail" value="' .$_POST['mail']. '"/>
 			<input type="hidden" name="pass" value="' .$_POST['pass']. '"/>
 		</form>';
 	}
 		
 	echo '<script language="Javascript">
-		document.location.replace("moncompte.php");
+		document.location.replace("compte.php");
 	</script>';
 	include("footer.php") ?>
 	
