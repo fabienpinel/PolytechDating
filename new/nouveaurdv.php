@@ -3,9 +3,10 @@
 	include("header.php");
 	
 		$bdd = connect_database();
-
+echo'<div class="jumbotron">
+      	<div class="container">';
 	
-		echo  $_SESSION['nom']. ' ' .$_SESSION['prenom']. ', &eacute;tant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous propose la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
+		echo  '<p>'.$_SESSION['nom']. ' ' .$_SESSION['prenom']. ', &eacute;tant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
 		
 		if($_SESSION['promotion']=="SI5" || $_SESSION['promotion']=="IFI"){
 			$entreprise = $bdd->query('SELECT * FROM entreprise WHERE com="SI" ORDER BY nom');
@@ -34,8 +35,8 @@
 			echo'	<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '"/>
 					<label for="' .$donnes['nom']. '">' .$donnes['nom']. '</label><br/>';
 			
-		echo'	<input class="submit" name="send" type="submit" value="Envoyer" />
+		echo'	<input class="submit btn btn-primary" name="send" type="submit" value="Envoyer" />
 			</p>
 		</form>';
-		
+	echo '</div></div>';
 	include("footer.php") ?>

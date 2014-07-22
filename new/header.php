@@ -58,11 +58,12 @@
 			//connected
 		?>
 		<div class="navbar-collapse collapse">
-          <div class="navbar-form navbar-right loginForm" id="connected">
-
-				<p>Bienvenue <?php echo $_SESSION['prenom']; ?> !</p>
-				<p><a href="deconnexion.php">(Se deconnecter)</a></p>
-			</div>
+          <div class="navbar-form navbar-right" id="connected" >
+            <div class="connectedText">
+				    <p>Bienvenue <?php echo $_SESSION['prenom']; ?> !</p>
+				    <p><a href="deconnexion.php">(Se deconnecter)</a></p>
+			      </div>
+      </div>
 		</div>
 		<?php 
 			}else{ 
