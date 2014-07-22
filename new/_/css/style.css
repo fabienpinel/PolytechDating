@@ -165,10 +165,24 @@ font-size:80%;
 	display: block;
 }
 }
-
+/*   tablette  */
 @media screen and (max-width: 1000px) {
 #loginButton{
 	display: none;
 }
 
+}
+/*  mobile  */
+@media screen and (max-width: 770px) {
+#menuTop{
+	float: none;
+	position: relative;
+	margin-top: 0px;
+	margin-left: 0px;
+	font-size: 20px;
+	height: auto;
+	background-color: black;
+	margin-top: 30px;
+	width: 100%;
+}
 }

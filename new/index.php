@@ -42,3 +42,4 @@
       </div>
 
       <hr>
+  <?php include("footer.php"); ?>

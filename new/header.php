@@ -34,24 +34,24 @@
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="./index.php"><img src="_/images/logo.png" id="mainLogo" /></a>
-           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only"></span>
-            <span class="icon-bar">Accueil</span>
-            <span class="icon-bar">Mon compte</span>
-            <span class="icon-bar">Entreprises</span>
-             <span class="icon-bar">Contact</span>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
           </button>
+        </div>
 
-          <nav class="navbar-collapse collapse" role="navigation" id="menuTop">
-            <ul class="nav navbar-nav" id="listeMenu">
+
+          <div class="navbar-collapse collapse" id="menuTop">
+            <ul class="nav navbar-nav" role="menu" id="listeMenu">
               <li <?php if(isset($encours) && $encours == 'index'){echo 'class="active"';}    ?>><a href="./index.php">Accueil</a></li>
               <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./moncompte.php">Mon compte</a></li>
               <li <?php if(isset($encours) && $encours == 'entreprises'){echo 'class="active"';}    ?>><a href="./entreprises.php">Entreprises</a></li>
               <li <?php if(isset($encours) && $encours == 'contact'){echo 'class="active"';}    ?>><a href="./contact.php">Contact</a></li>
             </ul>
-          </nav>
+          </div>
 
-        </div>
         <?php
         if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 		{
