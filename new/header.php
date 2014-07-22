@@ -5,7 +5,8 @@
   Site développé par Amir Ben Slimane et Fabien Pinel
 -->
 <!DOCTYPE html>
-<html lang="fr"><head>
+<html lang="fr">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,11 +53,10 @@
             </ul>
           </div>
 
-        <?php
-        if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
-		{
-			//connected
-		?>
+      <?php
+        if (isset($_SESSION['id']) AND isset($_SESSION['mail'])){
+			  //connected
+		  ?>
 		<div class="navbar-collapse collapse">
           <div class="navbar-form navbar-right" id="connected" >
 				    <p>Bienvenue <?php echo $_SESSION['prenom']; ?> !</p>

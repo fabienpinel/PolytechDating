@@ -110,7 +110,7 @@
 		echo '<div id="compte">
 		<h3>Cette rubrique va vous permettre de gérer vos rendez-vous.</h3>
 		
-		<form class="form-signin" role="form" action="connexion.php" method="post" onSubmit="return verifForm(this, 2)">
+		<form class="form-signin" role="form" action="connexion.php" method="post">
         <h2 class="form-signin-heading">Connectez vous</h2>
         <input type="text" class="form-control" placeholder="Email" name="mail" id="mail" required="" autofocus="">
         <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" required="">

@@ -3,8 +3,10 @@
 	$encours="inscription"; 
 	include("header.php");
 ?>
+
 <div class="jumbotron">
     <div class="container">
+
 	<?php if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{
 		echo "<p>Vous êtes connecté.</p>";
@@ -12,9 +14,26 @@
 	<div class="alert alert-danger" role="alert">
 		Les inscriptions sont fermées pour le moment. 
 	</div>
-
-
-
+		<?php 
+			if(!isset($_GET['type'])){
+				//le type est indéfini
+				//on affiche le choix de type (etudiant // entreprise)
+				?>
+				<div class="row" id="choixType">
+					<div class="col-sm-5">
+						<a href='?type=etudiant'>
+						<button type="button" class="btn btn-success btn-lg">Je suis étudiant</button>
+						</a>
+					</div>
+					<div class="col-sm-5">
+						<a href='?type=entreprise'>	
+						<button type="button" class="btn btn-warning btn-lg">Je suis une entreprise</button>
+						</a>
+					</div>
+				</div>
+				<?php
+			}else{
+		?>
 		<?php
 			$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
 			$elec = array('GSE','TNS', 'CCS', 'TR');
@@ -51,27 +70,27 @@
 
 		<div id="inscription">
 		<!-- Debut du formulaire -->
-			<form role="form" class="form-horizontal" id="formPhaseI" action="creation_compte.php" method="post" onSubmit="return verifForm(this, 0)" enctype="multipart/form-data">
+			<form data-toggle="validator" role="form" class="form-horizontal" id="formPhaseI" action="creation_compte.php" method="post" onSubmit="return verifForm(this, 0)" enctype="multipart/form-data">
 			
 					<!-- Nom -->
 					<div class="form-group">
 						<label for="nom" class="col-sm-4 control-label">Nom</label>
 						<div class="col-sm-8">
-							<input type="text" name="nom" id="nom" class="form-control" />
+							<input type="text" name="nom" id="nom" class="form-control" required/>
 						</div>
 					</div>
 					<!-- Pr�nom -->
 					<div class="form-group">
 						<label for="prenom" class="col-sm-4 control-label">Pr&eacute;nom</label>
 						<div class="col-sm-8">
-							<input type="text" name="prenom" id="prenom" class="form-control" />
+							<input type="text" name="prenom" id="prenom" class="form-control" required/>
 						</div>
 					</div>
 					<!-- Promotion -->
 					<div class="form-group">
 						<label for="promotion" class="col-sm-4 control-label">Promotion</label>
 						<div class="col-sm-8">
-							<select name="promotion" id="promotion"  onchange="changerspe()" class="form-control">
+							<select name="promotion" id="promotion"  onchange="changerspe()" class="form-control" required>
 								<option value=""></option>
 								<option value="SI5">INGENIEUR INFORMATIQUE</option>
 								<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
@@ -128,7 +147,7 @@
 					<div class="form-group">
 						<label for="mail" class="col-sm-4 control-label">E-mail</label>
 						<div class="col-sm-4">	
-							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" />
+							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
 						</div>
 						<div class="col-md-3 control-label">
 							<label>@polytech.unice.fr</label>
@@ -139,37 +158,38 @@
 						<label for="cv" class="col-sm-4 control-label">CV (en .pdf)</label>
 				 		<div class="col-sm-8">
 				 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" class="form-control" />
-							<input type="file" name="cv" id="cv"/>
+							<input type="file" name="cv" id="cv" required/>
 						</div>
 					</div>
 					<!-- 2 mots caractéristiques  -->
 					<div class="form-group">
 						<label for="motscles" class="col-sm-4 control-label">2 mots qui vous caractérisent (libre expression)</label>
 				 		<div class="col-sm-4">
-				 			<input type="text" name="motcles1" id="motcles1" class="form-control" />
+				 			<input type="text" name="motcles1" id="motcles1" class="form-control" required/>
 				 		</div>
 				 		<div class="col-sm-4">
-				 			<input type="text" name="motcles2" id="motcles2" class="form-control" />
+				 			<input type="text" name="motcles2" id="motcles2" class="form-control" required/>
 						</div>
 					</div>
 					<!-- Mot de passe -->
 					<div class="form-group">
 						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass" id="pass" class="form-control" />
+							<input type="password" name="pass" id="pass" class="form-control" required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" class="form-control" />
+							<input type="password" name="pass2" id="pass2" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
+						<div class="help-block with-errors col-sm-4"></div>
 					</div>
 					<!-- Envoi ou remise � z�ro -->
 					<div style="text-align: right">
 						<input class="submit2 btn btn-primary" name="send" type="submit" value="Envoyer" />
-						<input class="submit22 btn btn-primary" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
+						<input class="submit22 btn btn-default" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
 					</div>
 		</form>
 		<!-- Fin du formulaire -->
@@ -178,9 +198,9 @@
 	</div>
 		
 	<?php	
-	}
+	}//fin du else (isset(type))
+}//fin du else (connecté)
 		?>
 	</div><!-- container -->
 </div><!-- jumbotron -->
-	
 <?php include("footer.php") ?>

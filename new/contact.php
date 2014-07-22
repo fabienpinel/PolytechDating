@@ -9,7 +9,7 @@
 
 		<div id="formulaire">
 		
-			<form class="form-horizontal" role="form" action="envoimail.php" method="post" onSubmit="return verifForm(this, 1)">
+			<form class="form-horizontal" role="form" action="envoimail.php" method="post">
   				<div class="form-group row" >
 
 					<!-- Nom -->
@@ -67,7 +67,7 @@
 					<!-- Envoi ou remise � z�ro -->
 					<div style="float: right;">
 						<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
-						<input class="btn btn-primary" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
+						<input class="btn btn-default" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
 					</div>
 				</div>
 		</form>

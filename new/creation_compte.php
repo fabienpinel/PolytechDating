@@ -11,7 +11,7 @@
 	{
 		if($donnees['mail'] == $_POST['mail'])
 		{
-			echo'<p>Vous avez déjà crée votre compte. Allez sur l\'onglet <strong><a href="./compte.php">Mon compte</a></strong>.</p>';
+			echo'<p>Vous avez déjà crée votre compte. Allez dans l\'onglet <strong><a href="./compte.php">Mon compte</a></strong>.</p>';
 			$existant = true;
 			break;
 		}

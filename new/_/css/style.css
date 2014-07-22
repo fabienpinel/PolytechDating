@@ -7,7 +7,7 @@
 	height: 0;
 }
 .loginForm{
-	margin-top: 30px;
+	margin-top: 22px;
 }
 
 #vignettes{
@@ -74,6 +74,14 @@ ul#listeMenu li a{
 	max-width: 500px;
 	margin: auto;
 }
+/* inscription.php */
+
+#choixType{
+	width: 500px;
+	margin: auto;
+}
+
+/*  FIN inscription.php	*/
 /* END  nouveau CSS -> Bootstrap */
 /*body{
 		
