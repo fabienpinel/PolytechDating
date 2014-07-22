@@ -42,8 +42,10 @@
 
 					<!-- Promotion -->
 					<div class="form-group">
+						
 					<label for="promotion" class="col-sm-2 control-label">Votre promotion</label>
-					<select  name="promotion" id="promotion" class="form-control col-sm-6">
+					<div class="col-md-10">
+					<select  data-width="100%" name="promotion" id="promotion" class="form-control col-sm-8">
 						<option value=""></option>
 						<option value="SI5">INGENIEUR INFORMATIQUE</option>
 						<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
@@ -51,6 +53,7 @@
 						<option value="IFI">M2 IFI</option>
 						<option value = "Autre"> Autre (merci de pr&eacute;ciser dans le message)</option>
 					</select>
+					</div>
 					</div>
 
 					<!-- Message -->
@@ -62,7 +65,7 @@
 					</div>
 
 					<!-- Envoi ou remise � z�ro -->
-					<div>
+					<div style="float: right;">
 						<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
 						<input class="btn btn-primary" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
 					</div>
