@@ -11,7 +11,7 @@
 	{
 		if($donnees['mail'] == $_POST['mail'])
 		{
-			echo'<p>Vous avez d&egrave;j&aacute; cr&egrave;e votre compte. Allez sur l\'onglet <strong><a href="./compte.php">Mon compte</a></strong>.</p>';
+			echo'<p>Vous avez déjà crée votre compte. Allez sur l\'onglet <strong><a href="./compte.php">Mon compte</a></strong>.</p>';
 			$existant = true;
 			break;
 		}
@@ -69,7 +69,7 @@
 							VALUES("' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['mail']. '", "' .md5($_POST['pass']). '", "' .$_POST['promotion'].'", "'.$parcours.'", "'.$_POST['motcles1'].'", "'.$_POST['motcles2'].'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
-						echo '<p> Votre compte a bien &egrave;t&egrave; cr&egrave;e.<br/>Vous pouvez d&eacute;sormais vous y connecter via l\'onglet "Mon compte". Vous y serez redirig&eacute;(e) dans 3 secondes.</p>';
+						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "Mon compte". Vous y serez redirigé(e) dans 3 secondes.</p>';
 						redirect("./compte.php", "3");
 					}
 					else{

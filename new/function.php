@@ -11,11 +11,15 @@ function connect_database(){
 	}
 	return $bdd;
 }
+
+
+
+
 function entParPromo($promotion, $bdd)
 {
 	$sql = 'SELECT * FROM entreprise WHERE promotion = "' . $promotion . '"';
 	$entreprise = $bdd->query($sql);
-	echo 'Voici la liste des entreprises que nous avons s&eacute;l&eacute;ctionn&eacute; pour vous :<br/><ul>';	
+	echo 'Voici la liste des entreprises que nous avons sélectionné pour vous :<br/><ul>';	
 	while($donnes = $entreprise->fetch())
 	{
 			echo '<li>' . $donnes['nom'] . '</li>';
@@ -65,7 +69,7 @@ function tempsRestantEvenement()
 	$d_restants = floor($d_restants); // Jours restants
 	
 	echo '	<p>Nous sommes le '. strftime('<strong>%d %B %Y</strong>, et il est <strong>%Hh%M</strong>') .'.<br />
-			Il reste <strong>'. $d_restants .' jours</strong> et <strong>'. $H_restantes .' heures</strong> avant l\'&eacute;v&eacute;nement.</p>';
+			Il reste <strong>'. $d_restants .' jours</strong> et <strong>'. $H_restantes .' heures</strong> avant l\'évènement.</p>';
 }
 
 function toStringFormPhases()
@@ -80,14 +84,14 @@ function toStringFormPhases()
 		elseif($jour > 17 && $jour < 25)
 			formulaire('phase2');
 		else
-			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est ferm�. Elle ouvrira d�s le 18 octobre 2012.</p>';
+			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est fermé. Elle ouvrira dès le 18 octobre 2012.</p>';
 	}
 	else
 	{
 		if($mois < 10)
-			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est ferm�. Elle ouvrira d�s le 18 octobre 2012.</p>';
+			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est fermé. Elle ouvrira dès le 18 octobre 2012.</p>';
 		else
-			echo 'Les phases d\'inscriptions sont d�sormais termin�es. Cependant vous avez la possibilit� de prendre contact avec les organisateurs via l\'onglet Contact. Merci de votre compr�hension.';
+			echo 'Les phases d\'inscriptions sont désormais terminées. Cependant vous avez la possibilité de prendre contact avec les organisateurs via l\'onglet Contact. Merci de votre compréhension.';
 	}
 }
 
@@ -110,7 +114,7 @@ function connexion($bdd)
 		session_start();
 		$_SESSION['id'] = $resultat['id'];
 		$_SESSION['mail'] = $_POST ['mail'];
-		echo 'Vous �tes connect� !';
+		echo 'Vous êtes connecté !';
 	}
 
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
