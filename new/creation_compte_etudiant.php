@@ -52,7 +52,7 @@
 			//Vérification de la validité de l'extension
 			if (in_array($extension_upload,$extensions_valides)){
 				$dossier = './_/cv/';
-				$fichier = $_POST['nom'].'-'.$_POST['prenom'].'-'.$_POST['promotion'].$extension_upload;
+				$fichier = $_POST['nom'].'-'.$_POST['prenom'].'-'.$_POST['promotion'].'.'.$extension_upload;
 				$resultat = move_uploaded_file($_FILES['cv']['tmp_name'], $dossier.$fichier);
 				if ($resultat){
 					//La copie s'est bien déroulée

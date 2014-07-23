@@ -51,8 +51,8 @@
 			$extension_upload = strtolower(substr(strrchr($_FILES['logo']['name'], '.')  ,1)  );
 			//Vérification de la validité de l'extension
 			if (in_array($extension_upload,$extensions_valides)){
-				$dossier = './_/images/entreprises';
-				$fichier = $_POST['nom'].$extension_upload;
+				$dossier = './_/images/entreprises/';
+				$fichier = $_POST['nom'].'.'.$extension_upload;
 				$resultat = move_uploaded_file($_FILES['logo']['tmp_name'], $dossier.$fichier);
 				if ($resultat){
 					//La copie s'est bien déroulée
