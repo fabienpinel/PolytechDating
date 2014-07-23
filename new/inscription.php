@@ -174,16 +174,16 @@
 					</div>
 					<!-- Mot de passe -->
 					<div class="form-group">
-						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
+						<label for="passEtudiant" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass" id="pass" class="form-control" placeholder="Mot de passe" required/>
+							<input type="password" name="passEtudiant" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
-						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
+						<label for="pass2Etudiant" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" placeholder="Confirmation" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="password" name="pass2Etudiant" id="pass2Etudiant" placeholder="Confirmation" class="form-control" data-match="#passEtudiant" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
 						<div class="help-block with-errors col-sm-4"></div>
 					</div>
@@ -244,7 +244,7 @@
 					</div>
 					<!-- Mot de passe -->
 					<div class="form-group">
-						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
+						<label for="passEntreprise" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
 							<input type="text" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
 						</div>

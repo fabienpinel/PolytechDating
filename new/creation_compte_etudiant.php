@@ -67,7 +67,7 @@
 						$parcours=$_POST['parcoursSI'];
 					}
 					$req = $bdd->exec('	INSERT INTO membre(nom, prenom, mail, pass, promotion, parcours, motcles1, motcles2)
-							VALUES("' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['mail']. '", "' .md5($_POST['pass']). '", "' .$_POST['promotion'].'", "'.$parcours.'", "'.$_POST['motcles1'].'", "'.$_POST['motcles2'].'")');
+							VALUES("' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['mail']. '", "' .md5($_POST['passEtudiant']). '", "' .$_POST['promotion'].'", "'.$parcours.'", "'.$_POST['motcles1'].'", "'.$_POST['motcles2'].'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
 						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';
