@@ -33,6 +33,7 @@
 				</div>
 				<?php
 			}else{
+				if($_GET['type'] == 'etudiant'){
 		?>
 		<?php
 			$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
@@ -69,29 +70,29 @@
 			</script>
 
 		<div id="inscription">
-		<!-- Debut du formulaire -->
-			<form data-toggle="validator" role="form" class="form-horizontal" id="formPhaseI" action="creation_compte.php" method="post" onSubmit="return verifForm(this, 0)" enctype="multipart/form-data">
+		<!-- Debut du formulaire ETUDIANT -->
+			<form data-toggle="validator" role="form" class="form-horizontal" id="formPhaseI" action="creation_compte_etudiant.php" method="post" enctype="multipart/form-data">
 			
 					<!-- Nom -->
 					<div class="form-group">
 						<label for="nom" class="col-sm-4 control-label">Nom</label>
 						<div class="col-sm-8">
-							<input type="text" name="nom" id="nom" class="form-control" required/>
+							<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom" required/>
 						</div>
 					</div>
 					<!-- Pr�nom -->
 					<div class="form-group">
 						<label for="prenom" class="col-sm-4 control-label">Pr&eacute;nom</label>
 						<div class="col-sm-8">
-							<input type="text" name="prenom" id="prenom" class="form-control" required/>
+							<input type="text" name="prenom" id="prenom" class="form-control" placeholder="Prénom" required/>
 						</div>
 					</div>
 					<!-- Promotion -->
 					<div class="form-group">
 						<label for="promotion" class="col-sm-4 control-label">Promotion</label>
 						<div class="col-sm-8">
-							<select name="promotion" id="promotion"  onchange="changerspe()" class="form-control" required>
-								<option value=""></option>
+							<select name="promotion" id="promotion"   onchange="changerspe()" class="form-control" required>
+								<option value="" disabled selected>Sélectionnez votre promotion</option>
 								<option value="SI5">INGENIEUR INFORMATIQUE</option>
 								<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
 								<option value="MAM5">INGENIEUR MAM</option>
@@ -165,24 +166,24 @@
 					<div class="form-group">
 						<label for="motscles" class="col-sm-4 control-label">2 mots qui vous caractérisent (libre expression)</label>
 				 		<div class="col-sm-4">
-				 			<input type="text" name="motcles1" id="motcles1" class="form-control" required/>
+				 			<input type="text" name="motcles1" id="motcles1" placeholder="Mot clef" class="form-control" required/>
 				 		</div>
 				 		<div class="col-sm-4">
-				 			<input type="text" name="motcles2" id="motcles2" class="form-control" required/>
+				 			<input type="text" name="motcles2" id="motcles2" placeholder="Mot clef" class="form-control" required/>
 						</div>
 					</div>
 					<!-- Mot de passe -->
 					<div class="form-group">
 						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass" id="pass" class="form-control" required/>
+							<input type="password" name="pass" id="pass" class="form-control" placeholder="Mot de passe" required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="password" name="pass2" id="pass2" placeholder="Confirmation" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
 						<div class="help-block with-errors col-sm-4"></div>
 					</div>
@@ -192,12 +193,83 @@
 						<input class="submit22 btn btn-default" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
 					</div>
 		</form>
+		<!-- Fin du formulaire ETUDIANT -->
+		
+		</div>
+		
+	<?php
+		}else if($_GET['type'] == 'entreprise'){
+	?>
+	
+	<div id="inscription">
+		<!-- Debut du formulaire ENTREPRISE -->
+			<form data-toggle="validator" role="form" class="form-horizontal" id="formPhaseI" action="creation_compte_entreprise.php" method="post" enctype="multipart/form-data">
+			
+					<!-- Nom -->
+					<div class="form-group">
+						<label for="nom" class="col-sm-4 control-label">Nom</label>
+						<div class="col-sm-8">
+							<input type="text" name="nom" id="nom" class="form-control" placeholder="Nom de l'entreprise" required/>
+						</div>
+					</div>
+													
+					<!-- EMAIL -->
+					<div class="form-group">
+						<label for="mail" class="col-sm-4 control-label">E-mail</label>
+						<div class="col-sm-8">	
+							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
+						</div>
+					</div>
+					<!-- Website -->
+					<div class="form-group">
+						<label for="website" class="col-sm-4 control-label">Website</label>
+						<div class="col-sm-8">
+							<input type="text" name="website" id="website" class="form-control" placeholder="Website" required/>
+						</div>
+					</div>
+					<!-- Spécialité -->
+					<div class="form-group">
+						<label for="com" class="col-sm-4 control-label">Spécialité visée</label>
+						<div class="col-sm-8">
+							<input type="text" name="com" id="com" class="form-control" placeholder="Spécialité visée" required/>
+						</div>
+					</div>
+					<!-- LOGO input -->
+					<div class="form-group">
+						<label for="logo" class="col-sm-4 control-label">Logo (image)</label>
+				 		<div class="col-sm-8">
+				 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" class="form-control" />
+							<input type="file" name="logo" id="logo" required/>
+						</div>
+					</div>
+					<!-- Mot de passe -->
+					<div class="form-group">
+						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
+						<div class="col-sm-8">
+							<input type="password" name="pass" id="pass" class="form-control" placeholder="Mot de passe" required/>
+						</div>
+					</div>
+					<!-- Confirmation -->
+					<div class="form-group">
+						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
+						<div class="col-sm-8">
+							<input type="password" name="pass2" id="pass2" placeholder="Confirmation" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
+						</div>
+					</div>
+					<div class="form-group" style="float: right">
+						<div class="help-block with-errors col-sm-4"></div>
+					</div>	
+					<!-- Envoi ou remise � z�ro -->
+					<div style="text-align: right">
+						<input class="submit2 btn btn-primary" name="send" type="submit" value="Envoyer" />
+						<input class="submit22 btn btn-default" name="reset" type="reset" value="Remettre &agrave; z&eacute;ro" />
+					</div>
+		</form>
 		<!-- Fin du formulaire -->
 		
 		</div>
-	</div>
-		
 	<?php	
+		}	
 	}//fin du else (isset(type))
 }//fin du else (connecté)
 		?>
