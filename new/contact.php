@@ -9,44 +9,40 @@
 
 		<div id="formulaire">
 		
-			<form class="form-horizontal" role="form" action="envoimail.php" method="post">
+			<form data-toggle="validator" class="form-horizontal" role="form" action="envoimail.php" method="post">
   				<div class="form-group row" >
 
 					<!-- Nom -->
 					<div class="form-group">
-					<label for="nom" class="col-sm-2 control-label">Nom</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" />
+					<label for="nom" class="col-sm-3 control-label">Nom</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required/>
 					</div>
 					</div>
 
 					<!-- Prénom -->
 					<div class="form-group">
-					<label for="prenom" class="col-sm-2 control-label">Pr&eacute;nom</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" />
+					<label for="prenom" class="col-sm-3 control-label">Pr&eacute;nom</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" name="prenom" id="prenom" placeholder="Prénom" required/>
 					</div>
 					</div>
 
 					<!-- EMAIL -->
 					<div class="form-group">
-					<label for="mail" class="col-sm-2 control-label">E-mail</label>
-					<div class="col-sm-5">	
-						<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" />
-						
-					</div>
-					<div class="col-md-2 control-label">
-						<label>@polytech.unice.fr</label>
+					<label for="mail" class="col-sm-3 control-label">E-mail</label>
+					<div class="col-sm-9">	
+						<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
 					</div>
 					</div>
 
 					<!-- Promotion -->
 					<div class="form-group">
 						
-					<label for="promotion" class="col-sm-2 control-label">Votre promotion</label>
-					<div class="col-md-10">
-					<select  data-width="100%" name="promotion" id="promotion" class="form-control col-sm-8">
-						<option value=""></option>
+					<label for="promotion" class="col-sm-3 control-label">Votre promotion</label>
+					<div class="col-md-9">
+					<select  data-width="100%" name="promotion" id="promotion" class="form-control col-sm-8" required>
+						<option value="" disabled selected>Sélectionnez votre promotion</option>
 						<option value="SI5">INGENIEUR INFORMATIQUE</option>
 						<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
 						<option value="IMAFA">IMAFA</option>
@@ -58,9 +54,9 @@
 
 					<!-- Message -->
 					<div class="form-group">
-					<label for="message" class="col-sm-2 control-label">Message</label>
-					<div class="col-sm-10">
-						<textarea name="message" id="message" class="form-control" placeholder="Message" rows="10"></textarea>
+					<label for="message" class="col-sm-3 control-label">Message</label>
+					<div class="col-sm-9">
+						<textarea name="message" id="message" class="form-control" placeholder="Message" rows="10" required></textarea>
 					</div>
 					</div>
 
