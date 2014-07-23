@@ -58,7 +58,7 @@
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée
 					$req = $bdd->exec('	INSERT INTO entreprise(nom, com, mail, website, formatLogo, pass)
-							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '", "'.$extension_upload. '", "' .md5($_POST['pass']).'")');
+							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
 						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';

@@ -217,7 +217,7 @@
 					<div class="form-group">
 						<label for="mail" class="col-sm-4 control-label">E-mail</label>
 						<div class="col-sm-8">	
-							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
+							<input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
 						</div>
 					</div>
 					<!-- Website -->
@@ -246,19 +246,18 @@
 					<div class="form-group">
 						<label for="pass" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass" id="pass" class="form-control" placeholder="Mot de passe" required/>
+							<input type="text" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" placeholder="Confirmation" class="form-control" data-match="#pass" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="text" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
-					</div>
-					<div class="form-group" style="float: right">
 						<div class="help-block with-errors col-sm-4"></div>
-					</div>	
+					</div>
+						
 					<!-- Envoi ou remise � z�ro -->
 					<div style="text-align: right">
 						<input class="submit2 btn btn-primary" name="send" type="submit" value="Envoyer" />
