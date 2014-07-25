@@ -102,14 +102,21 @@
 		}
 		else if($_SESSION['type'] == 'entreprise')
 		{
-			echo '<div class="compteEntreprise">';
-			echo '<img src="./_/images/entreprises/'.$_SESSION['nom'].'.'.$_SESSION['formatLogo'].'" />';
-			echo '<div id="resume">';
-			echo '<p>Bonjour '.$_SESSION['nom'].' !</p>';
-			echo '<p>'.$_SESSION['mail'].'</p>';
-			echo '</div>';
-			echo '</div>';
+			?>
+			<div class="compteEntreprise">
+				<div class="entrepriseLayout">
+					<img src="./_/images/entreprises/<?php echo $_SESSION['nom'].'.'.$_SESSION['formatLogo'];?>" />
+					<div id="resume">
+						<p>Bonjour <?php echo $_SESSION['nom']; ?> !</p>
+						<p><?php echo $_SESSION['mail']; ?></p>
+					</div>
+				</div>
+				<div class="boutonsCompte">
+					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a>
+				</div>
+			</div>
 
+			<?php
 		}
 	}
 	else

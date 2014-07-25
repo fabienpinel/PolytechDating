@@ -75,6 +75,10 @@ ul#listeMenu li a{
 	max-width: 500px;
 	margin: auto;
 }
+.boutonsCompte{
+	float: right;
+	margin-right: 20%;
+}
 /* inscription.php */
 
 #choixType{
@@ -84,10 +88,13 @@ ul#listeMenu li a{
 .compteEntreprise img{
 	max-width: 400px;
 }
-.compteEntreprise img, .compteEntreprise #resume{
+.entrepriseLayout{
+	padding: 15px 15px 15px 0px;
+}
+.entrepriseLayout img, .entrepriseLayout #resume{
 	display: inline-block;
 }
-.compteEntreprise #resume
+.entrepriseLayout #resume
 {
 	padding: 10px 10px 10px 20px; 
 }
