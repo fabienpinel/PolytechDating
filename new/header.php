@@ -59,7 +59,13 @@
 		  ?>
 		<div class="navbar-collapse collapse">
           <div class="navbar-form navbar-right" id="connected" >
-				    <p>Bienvenue <?php echo $_SESSION['prenom']; ?> !</p>
+				    <p>Bienvenue <?php 
+              if(isset($_SESSION['prenom'])){
+                 echo $_SESSION['prenom'];
+               }else{
+                echo $_SESSION['nom'];
+               }
+            ?> !</p>
 				    <p><a href="deconnexion.php">(Se deconnecter)</a></p>
       </div>
 		</div>

@@ -6,15 +6,18 @@
 	echo '  
     	<div class="jumbotron">
       	<div class="container">';
-	//echo '<center><img src="/images/en_maintenance.jpg" style="width:80%;height:80%;"/></center>';
 	/*
 	*	Si les identifiants sont corrects
 	*/
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{
 		// Si compte root
-		if($_SESSION['mail'] == 'root')
+		if($_SESSION['type'] == 'root')
 		{
+			/*
+				A REVOIR !!!
+				TODO
+			*/
 			echo'<p style="font-size : 24px;color : blue;">Voici la liste des rendez-vous pris par les étudiants :<br/></p>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
@@ -48,10 +51,8 @@
 					</p>';	
 		}
 		// Si compte user
-		else
+		else if($_SESSION['type'] == 'membre')
 		{
-			//if($_SESSION['mail'] == 'boumlik')
-			//{
 				$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure
 										FROM rdv
 										INNER JOIN entreprise
@@ -98,11 +99,17 @@
 						echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
 					}
 				}
-			/*}
-			else 
-			{
-				echo'<center><p style="font-size:20px;">Vous ne pouvez plus prendre de rendez-vous.</p></center>';	
-			}*/
+		}
+		else if($_SESSION['type'] == 'entreprise')
+		{
+			echo '<div class="compteEntreprise">';
+			echo '<img src="./_/images/entreprises/'.$_SESSION['nom'].'.'.$_SESSION['formatLogo'].'" />';
+			echo '<div id="resume">';
+			echo '<p>Bonjour '.$_SESSION['nom'].' !</p>';
+			echo '<p>'.$_SESSION['mail'].'</p>';
+			echo '</div>';
+			echo '</div>';
+
 		}
 	}
 	else

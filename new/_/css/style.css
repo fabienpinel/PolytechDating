@@ -49,6 +49,7 @@ ul#listeMenu li a{
 	color: white;
 	margin: 0;
 	margin-top: 15px;
+	text-align: right;
 }
 .form-signin{
 	max-width: 350px;
@@ -80,7 +81,16 @@ ul#listeMenu li a{
 	width: 500px;
 	margin: auto;
 }
-
+.compteEntreprise img{
+	max-width: 400px;
+}
+.compteEntreprise img, .compteEntreprise #resume{
+	display: inline-block;
+}
+.compteEntreprise #resume
+{
+	padding: 10px 10px 10px 20px; 
+}
 /*  FIN inscription.php	*/
 /* END  nouveau CSS -> Bootstrap */
 /*body{
