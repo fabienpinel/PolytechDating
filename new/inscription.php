@@ -246,14 +246,14 @@
 					<div class="form-group">
 						<label for="passEntreprise" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="text" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
+							<input type="password" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="text" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="password" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
 						<div class="help-block with-errors col-sm-4"></div>
 					</div>
