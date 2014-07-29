@@ -43,7 +43,7 @@
 		else {
  			// $_FILES['nom_du_fichier']['error'] vaut 0 soit UPLOAD_ERR_OK     
  			// ce qui signifie qu'il n'y a eu aucune erreur  
- 			$extensions_valides = array( 'jpeg' , 'gif' , 'png' );
+ 			$extensions_valides = array( 'jpeg' , 'gif' , 'png', , 'jpg' );
 
 			//1. strrchr renvoie l'extension avec le point (« . »).
 			//2. substr(chaine,1) ignore le premier caractère de chaine.
@@ -73,7 +73,7 @@
 				}
 					
 			}else{
-				echo "<p>Extension invalide. Votre fichier doit être en .pdf.</p>";
+				echo "<p>Extension invalide. Votre fichier doit être une image.</p>";
 				redirect("inscription.php", "2");
 				break;
 				
