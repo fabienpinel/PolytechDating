@@ -100,6 +100,41 @@
 				</tr>
 				
 			</table>
+
+
+
+			<table>
+				<tr>
+					<!-- Affichage entreprise -->
+					<?php
+							$bdd = connect_database();
+							$entreprise = $bdd->query('SELECT * FROM entreprise');
+							$retour=0;
+							while($donnees = $entreprise->fetch())
+							{
+								if($donnees['active'] == true) {
+										$retour = $retour + 1; 
+										?>
+										<td>
+										<a target="_blanck" href="<?php echo $donnees['website'] ?>">
+										<img src="./_/images/entreprises/<?php echo $donnees['nomImage'].'.'.$donnees['formatLogo'];?>" /></a>
+										<p><?php echo $donnees['nom'] ?></p>
+										</td>
+							<?php
+								 
+									if($retour > 4){
+										echo '</tr><tr>';
+										$retour = 0;
+									}
+								}
+							} 
+					?>
+				</tr>
+			</table>
+
+
+
+
 		</div>
 	</div>
 	</div>

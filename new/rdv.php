@@ -2,8 +2,10 @@
 	session_start();
 	include("header.php");
 	
-		$bdd = connect_database();
-echo'<div class="jumbotron">
+	checkLogin();
+	
+	$bdd = connect_database();
+	echo'<div class="jumbotron">
       	<div class="container">';
 	
 		echo  '<p>'.$_SESSION['nom']. ' ' .$_SESSION['prenom']. ', &eacute;tant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';

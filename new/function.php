@@ -11,7 +11,11 @@ function connect_database(){
 	}
 	return $bdd;
 }
-
+function checkLogin(){
+	if(!isset($_SESSION['id']) || !isset($_SESSION['mail'])){
+		redirect("./index.php","0");
+	}
+}
 
 
 

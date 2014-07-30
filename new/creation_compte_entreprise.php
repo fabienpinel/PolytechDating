@@ -43,7 +43,7 @@
 		else {
  			// $_FILES['nom_du_fichier']['error'] vaut 0 soit UPLOAD_ERR_OK     
  			// ce qui signifie qu'il n'y a eu aucune erreur  
- 			$extensions_valides = array( 'jpeg' , 'gif' , 'png', , 'jpg' );
+ 			$extensions_valides = array( 'jpeg' , 'gif' , 'png', 'jpg' );
 
 			//1. strrchr renvoie l'extension avec le point (« . »).
 			//2. substr(chaine,1) ignore le premier caractère de chaine.
@@ -57,8 +57,8 @@
 				if ($resultat){
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée
-					$req = $bdd->exec('	INSERT INTO entreprise(nom, com, mail, website, formatLogo, pass)
-							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
+					$req = $bdd->exec('	INSERT INTO entreprise(nom, com, mail, website, nomImage, formatLogo, pass)
+							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
 						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';

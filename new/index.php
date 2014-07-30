@@ -25,7 +25,7 @@
           <h2>Entreprises participantes</h2>
           <p>Retrouvez toutes les entreprises présentent lors de l'évènement dans l'onglet <a href="./entreprises.php">Entreprises</a>.</p>
 
-        <p><a class="btn btn-success btn-lg" role="button" href="./inscription.php">Je m'inscris »</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button" href="./inscription.php">Je m'inscris »</a></p>
       </div><!-- long desc -->
       </div><!-- container -->
     </div><!-- jumbotron -->
@@ -35,12 +35,12 @@
         <div class="col-md-5">
           <h2 id="vignette-inscription">Elèves</h2>
           <p class="vignette-desc">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p id="vignette-inscription"><a class="btn btn-success" href="./inscription.php" role="button">Je m'inscris</a></p>
+          <p id="vignette-inscription"><a class="btn btn-success" href="./inscription.php?type=etudiant" role="button">Je m'inscris</a></p>
         </div>
         <div class="col-md-5">
           <h2 id="vignette-inscription">Entreprises</h2>
           <p class="vignette-desc" >Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p id="vignette-inscription"><a class="btn btn-success" href="./inscription.php"  role="button">Je m'inscris</a></p>
+          <p id="vignette-inscription"><a class="btn btn-warning" href="./inscription.php?type=entreprise"  role="button">Je m'inscris</a></p>
        </div>
       </div>
     </div>  <!-- container -->

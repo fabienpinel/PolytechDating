@@ -44,6 +44,7 @@
 			$_SESSION['nom'] = $myentreprise['nom'];
 			$_SESSION['com'] = $myentreprise['com'];
 			$_SESSION['website'] = $myentreprise['website'];
+			$_SESSION['nomImage'] = $myentreprise['nomImage'];
 			$_SESSION['formatLogo'] = $myentreprise['formatLogo'];
 			$_SESSION['type'] = "entreprise";
 			redirect("compte.php", "0");

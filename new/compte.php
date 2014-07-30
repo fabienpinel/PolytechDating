@@ -99,13 +99,19 @@
 						echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
 					}
 				}
+				?>
+				<div class="boutonsCompte">
+					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a>
+				</div>
+
+		<?php
 		}
 		else if($_SESSION['type'] == 'entreprise')
 		{
 			?>
 			<div class="compteEntreprise">
 				<div class="entrepriseLayout">
-					<img src="./_/images/entreprises/<?php echo $_SESSION['nom'].'.'.$_SESSION['formatLogo'];?>" />
+					<img src="./_/images/entreprises/<?php echo $_SESSION['nomImage'].'.'.$_SESSION['formatLogo'];?>" />
 					<div id="resume">
 						<p>Bonjour <?php echo $_SESSION['nom']; ?> !</p>
 						<p><?php echo $_SESSION['mail']; ?></p>

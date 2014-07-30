@@ -34,12 +34,10 @@
 				<?php
 			}else{
 				if($_GET['type'] == 'etudiant'){
+		
+					$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
+					$elec = array('GSE','TNS', 'CCS', 'TR');
 		?>
-		<?php
-			$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
-			$elec = array('GSE','TNS', 'CCS', 'TR');
-		?>
-
 
 	<script type="text/javascript"> 
 			function changerspe(){ 
