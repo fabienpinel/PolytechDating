@@ -6,6 +6,23 @@
 	echo '  
     	<div class="jumbotron">
       	<div class="container">';
+
+    /*	Prise en compte des codes retours */
+    if(isset($_GET['code'])){
+    	switch($_GET['code']){
+    		case 0:
+    			//Tout s'est bien passé
+    			echo ' <div class="alert alert-success" role="alert">La modification du compte s\'est terminée avec succès.</div>';
+    			break;
+    		case 1:
+    			//Il y a eu des erreurs
+    			echo ' <div class="alert alert-danger" role="alert">La modification du compte ne s\'est pas bien terminée. Veuillez recommencer.</div>';
+    			break;
+    	}
+    }
+
+
+
 	/*
 	*	Si les identifiants sont corrects
 	*/
