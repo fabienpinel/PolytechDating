@@ -21,7 +21,20 @@
     	}
     }
 
-
+    /* Traitement du formumlaire de changememt d'état si présent */
+    if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
+    	if($_POST['activation']){
+    		$resultat = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE id = "'.$_POST['idEntreprise'].'"');
+    	}else{
+    		$resultat = $bdd->exec('UPDATE entreprise SET active = TRUE WHERE id = "'.$_POST['idEntreprise'].'"');
+    	}
+    	
+    	if($resultat){
+    		echo '<div class="alert alert-success" role="alert">Le changement d\'état de l\'entreprise s\'est terminée avec succès.</div>';
+    	}else{
+    		echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
+    	}
+    }
 
 	/*
 	*	Si les identifiants sont corrects
@@ -35,7 +48,10 @@
 				A REVOIR !!!
 				TODO
 			*/
-			echo'<p style="font-size : 24px;color : blue;">Voici la liste des rendez-vous pris par les étudiants :<br/></p>';
+
+
+			/*  LISTE DES RDV */ 
+			echo'<h3>Liste des rendez-vous pris par les étudiants</h3>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -52,20 +68,70 @@
 										ON membre.id = rdv.membre
 									ORDER BY entreprise.nom, rdv.heure');
 			
-			echo'<table>';
+			echo'<table class="table">';
 			while($rdv = $req->fetch())
 				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
 			echo'</table>';
 				
-			echo'<p style="font-size : 24px;color : blue;">Voici les messages laiss&eacute;es sur la boite <strong>Contact</strong> :<br/></p>';
+
+
+
+
+			/* LISTE DES MESSAGES */
+			echo'<h3>Messages laissés grâce au formulaire de contact</h3>';
 			
-			$req = $bdd->query('	SELECT * FROM message');
+			$req = $bdd->query('SELECT * FROM message');
 			
 			while($message = $req->fetch())
 				echo'<p>' .$message['nom']. ' ' .$message['prenom']. ' en ' .$message['membre']. ' a laiss&eacute; un message.<br/>
 						E-mail : ' .$message['mail']. '<br/>
 						"' .$message['texte']. '"
 					</p>';	
+
+
+
+			/* LISTE DES ENTREPRISES */
+			echo '<h3>Liste des entreprises inscrites</h3>';
+			//lister la table entreprise
+			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
+			echo '<table id="listingEntreprise" class="table table-hover">';
+			echo '<th>Nom</th><th>Mail</th><th>Spécialité visée</th><th>Site</th><th>Compte validé</th><th></th>';
+			while($uneEntreprise = $requeteEntreprise->fetch()){
+				//afficher l'etat de chaque entreprise
+				?>
+				<tr <?php if($uneEntreprise['active']){ echo 'class="entrepriseValidee"';}  ?>>
+				<?php
+				echo '<td>';
+				echo ''.$uneEntreprise['nom'];
+				echo '</td><td>';
+				echo ''.$uneEntreprise['mail'];
+				echo '</td><td>';
+				echo ''.$uneEntreprise['com'];
+				echo '</td><td>';
+				echo '<a href="'.$uneEntreprise['website'].'" target="_blanck">'.$uneEntreprise['website'].'</a>';
+				echo '</td><td>';
+
+				?> 
+				<input type="checkbox" class="checkbox" style="margin-left: 20px;" <?php if($uneEntreprise['active']){echo'checked';} ?> disabled>
+				<?php
+				echo '</td><td>';
+				echo '<form action="compte.php" method="POST">
+					<input type="hidden" name="idEntreprise" id="idEntreprise" value="'.$uneEntreprise['id'].'" />
+					<input type="hidden" name="activation" id="activation" value="'.$uneEntreprise['active'].'" />';
+				if($uneEntreprise['active']){
+					echo'<button type="submit" class="btn btn-danger">Désactiver</button>';
+				}else{
+					echo '<button type="submit" class="btn btn-success">Valider</button>';
+					
+				}
+				
+				echo '</form></td></tr>';
+			}
+			echo '</table>';
+
+
+
+
 		}
 		// Si compte user
 		else if($_SESSION['type'] == 'membre')

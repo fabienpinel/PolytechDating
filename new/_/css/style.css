@@ -79,6 +79,12 @@ ul#listeMenu li a{
 	float: right;
 	margin-right: 20%;
 }
+#listingEntreprise button{
+	width: 100px;
+}
+.entrepriseValidee{
+	font-weight: bold;
+}
 /* inscription.php */
 
 #choixType{

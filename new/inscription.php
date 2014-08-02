@@ -145,11 +145,8 @@
 					<!-- EMAIL -->
 					<div class="form-group">
 						<label for="mail" class="col-sm-4 control-label">E-mail</label>
-						<div class="col-sm-4">	
-							<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
-						</div>
-						<div class="col-md-3 control-label">
-							<label>@polytech.unice.fr</label>
+						<div class="col-sm-8">	
+							<input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail (@polytech.unice.fr)" required/>
 						</div>
 					</div>
 					<!-- CV input -->

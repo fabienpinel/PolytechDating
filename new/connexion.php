@@ -74,7 +74,12 @@
 		$_SESSION['parcours'] = $membre['parcours'];
 		$_SESSION['entreprise'] = $entreprise['entreprise'];
 		$_SESSION['heure'] = $entreprise['heure'];
-		$_SESSION['type'] = "membre";
+		if($membre['mail'] == "root" &&  $_SESSION['id'] == 7){
+			$_SESSION['type'] = "root";
+		}else{
+			$_SESSION['type'] = "membre";
+		}
+		
 
 		redirect("compte.php", "0");
 		
