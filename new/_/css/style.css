@@ -145,6 +145,13 @@ font-family: Arial;
 #entreprises td{
 	padding:10px;
 }
+.rdvEtudiants{
+	max-width: 80%;
+	margin: auto;
+}
+#messages{
+	padding-left: 20px;
+}
 footer{
 	border-top: 1px inset black;
 	text-align: center;

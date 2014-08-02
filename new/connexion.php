@@ -74,7 +74,7 @@
 		$_SESSION['parcours'] = $membre['parcours'];
 		$_SESSION['entreprise'] = $entreprise['entreprise'];
 		$_SESSION['heure'] = $entreprise['heure'];
-		if($membre['mail'] == "root" &&  $_SESSION['id'] == 7){
+		if($membre['mail'] == "root@root.root"){
 			$_SESSION['type'] = "root";
 		}else{
 			$_SESSION['type'] = "membre";

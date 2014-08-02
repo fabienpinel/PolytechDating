@@ -32,7 +32,7 @@
 					<div class="form-group">
 					<label for="mail" class="col-sm-3 control-label">E-mail</label>
 					<div class="col-sm-9">	
-						<input type="text" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
+						<input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
 					</div>
 					</div>
 

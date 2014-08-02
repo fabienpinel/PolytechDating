@@ -51,7 +51,7 @@
 
 
 			/*  LISTE DES RDV */ 
-			echo'<h3>Liste des rendez-vous pris par les étudiants</h3>';
+			echo'<h2>Liste des rendez-vous pris par les étudiants</h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -68,7 +68,7 @@
 										ON membre.id = rdv.membre
 									ORDER BY entreprise.nom, rdv.heure');
 			
-			echo'<table class="table">';
+			echo'<table class="table table-hover rdvEtudiants">';
 			while($rdv = $req->fetch())
 				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
 			echo'</table>';
@@ -78,8 +78,8 @@
 
 
 			/* LISTE DES MESSAGES */
-			echo'<h3>Messages laissés grâce au formulaire de contact</h3>';
-			
+			echo'<h2>Messages laissés grâce au formulaire de contact</h2>';
+			echo '<div id="messages">';
 			$req = $bdd->query('SELECT * FROM message');
 			
 			while($message = $req->fetch())
@@ -88,10 +88,10 @@
 						"' .$message['texte']. '"
 					</p>';	
 
-
+			echo '</div>';
 
 			/* LISTE DES ENTREPRISES */
-			echo '<h3>Liste des entreprises inscrites</h3>';
+			echo '<h2>Liste des entreprises inscrites</h2>';
 			//lister la table entreprise
 			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
 			echo '<table id="listingEntreprise" class="table table-hover">';
