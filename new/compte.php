@@ -88,7 +88,7 @@
 										ON membre.id = rdv.membre
 									ORDER BY entreprise.nom, rdv.heure');
 			
-			echo'<table class="table table-hover rdvEtudiants">';
+			echo'<table class="table table-hover rdvEtudiants" id="rdvEtudiants">';
 			while($rdv = $req->fetch())
 				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
 			echo'</table>';
