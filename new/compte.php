@@ -49,6 +49,26 @@
 				TODO
 			*/
 
+			/* LISTE DES ETUDIANTS INSCRITS */
+			echo'<h2>Liste des étudiants inscrits</h2>';
+			$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
+			echo'<table class="table table-hover">';
+			echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Parcours</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
+			while($etu = $req->fetch()){
+				echo'<tr>';
+				echo '<td>' .$etu['nom']. '</td><td>' .$etu['prenom']. '</td>';
+				echo '<td>' .$etu['mail']. '</td><td>' .$etu['promotion']. '</td>';
+				echo '<td>' .$etu['parcours']. '</td><td>' .$etu['motcles1']. '</td>';
+				echo '<td>' .$etu['motcles2']. '</td><td><a href="./_/cv/'.$etu['nom'].'-'.$etu['prenom'].'-'.$etu['promotion'].'.pdf">Voir le CV</a></td>';
+				echo '</tr>';
+			}
+			echo'</table>';
+
+
+
+
+
+
 
 			/*  LISTE DES RDV */ 
 			echo'<h2>Liste des rendez-vous pris par les étudiants</h2>';
@@ -224,6 +244,7 @@
         </div>-->
         <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+        <a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 2px;">Inscription</button></a>
       </form>
 
 		</div>';
