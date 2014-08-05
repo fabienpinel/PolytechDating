@@ -50,9 +50,9 @@
 			*/
 
 			/* LISTE DES ETUDIANTS INSCRITS */
-			echo'<h2>Liste des étudiants inscrits</h2>';
+			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
 			$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
-			echo'<table class="table table-hover">';
+			echo'<table class="table table-hover" id="etudiants">';
 			echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Parcours</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
 			while($etu = $req->fetch()){
 				echo'<tr>';
@@ -71,7 +71,7 @@
 
 
 			/*  LISTE DES RDV */ 
-			echo'<h2>Liste des rendez-vous pris par les étudiants</h2>';
+			echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -98,7 +98,7 @@
 
 
 			/* LISTE DES MESSAGES */
-			echo'<h2>Messages laissés grâce au formulaire de contact</h2>';
+			echo'<h2 id="titlemessages">Messages laissés grâce au formulaire de contact <button class="btn btn-default" onClick="reduire(messages);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
 			echo '<div id="messages">';
 			$req = $bdd->query('SELECT * FROM message');
 			
@@ -111,7 +111,7 @@
 			echo '</div>';
 
 			/* LISTE DES ENTREPRISES */
-			echo '<h2>Liste des entreprises inscrites</h2>';
+			echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
 			//lister la table entreprise
 			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
 			echo '<table id="listingEntreprise" class="table table-hover">';
@@ -251,4 +251,20 @@
 	}
 
 	echo '</div></div>';
-	include("footer.php"); ?>
+	?>
+	<script>
+		function reduire(divi){
+			if ($(divi).is(':visible')) {
+				//var nom = "title"+divi;
+				//alert('title: '+nom);
+				$(divi).fadeOut(200, null);
+				//$(nom+'#up').hide();
+				//$(nom+'#down').show();
+			}else{
+				$(divi).fadeIn(200, null);
+				//$(nom+'#up').show();
+				//$(nom+'#down').hide();
+			}
+		}
+	</script>
+	<?php include("footer.php"); ?>
