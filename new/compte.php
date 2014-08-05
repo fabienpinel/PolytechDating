@@ -112,6 +112,7 @@
 
 			/* LISTE DES ENTREPRISES */
 			echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
+			echo '<p>Une fois l\'entreprise validée, elle apparaît dans le listing des entreprises sur la page "entreprises" avec son logo et elle est accessible dans la prise de rendez vous pour les étudiants.</p>';
 			//lister la table entreprise
 			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
 			echo '<table id="listingEntreprise" class="table table-hover">';
@@ -244,7 +245,7 @@
         </div>-->
         <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
-        <a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 2px;">Inscription</button></a>
+        <a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 1px;">Inscription</button></a>
       </form>
 
 		</div>';

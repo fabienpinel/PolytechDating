@@ -21,7 +21,26 @@
 				redirect("./compte.php?code=0", "0");
 			}
 		}else if($_POST['type'] == "membre"){
-				//un membre a modifié son compte
+			//un membre a modifié son compte
+
+			$requete = $bdd->exec('UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'" motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'", WHERE id = "'.$_SESSION['id'].'"');
+			$re = 'UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'" motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'", WHERE id = "'.$_SESSION['id'].'"';
+			?>
+			<script>alert("ma requete:<?php echo $re; ?>");</script>
+			<?php
+			// PARCOURS a REVOIR
+			if(!$requete){
+				redirect("./compte.php?code=1","0");
+			}else{
+				$_SESSION['nom'] = $_POST['nom'];
+				$_SESSION['prenom'] = $_POST['prenom'];
+				$_SESSION['mail'] = $_POST['mail'];
+				//$_SESSION['parcours'] = $_POST['parcours'];
+				$_SESSION['promotion'] = $_POST['promotion'];
+				$_SESSION['motcles1'] = $_POST['motcles1'];
+				$_SESSION['motcles2'] = $_POST['motcles2'];
+				redirect("./compte.php?code=0", "0");
+			}
 
 		}
 	}
@@ -220,12 +239,10 @@
 					<!-- EMAIL -->
 					<div class="form-group">
 						<label for="mail" class="col-sm-4 control-label">E-mail</label>
-						<div class="col-sm-4">	
+						<div class="col-sm-8">	
 							<input type="text" class="form-control" name="mail" id="mail" value="<?php echo ''.$res['mail'] ?>" required/>
 						</div>
-						<div class="col-md-3 control-label">
-							<label>@polytech.unice.fr</label>
-						</div>
+						
 					</div>
 					<!-- CV input -->
 					<!--<div class="form-group">
