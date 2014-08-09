@@ -122,7 +122,7 @@
 										</td>
 							<?php
 								 
-									if($retour > 4){
+									if($retour > 3){
 										echo '</tr><tr>';
 										$retour = 0;
 									}

@@ -175,7 +175,7 @@
 				// Si prise de rendez vous
 				else
 				{
-					echo'<p>Attention ! À partir du 2 Décembre, les rendez-vous ne seront plus modifiables.</p>';
+					//echo'<p>Attention ! À partir du 2 Décembre, les rendez-vous ne seront plus modifiables.</p>';
 					$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure, rdv.id AS id
 											FROM rdv
 											INNER JOIN entreprise
@@ -186,18 +186,19 @@
 											
 					$i=0;
 					while($donnes = $req->fetch()){
-							echo '	
+							echo '	<div class="alert alert-info" role="info">
 									<form method="post" action="modifierrdv.php">
 										<p>Vous avez rendez-vous avec ' .$donnes['entreprise']. ' &agrave; ' .$donnes['heure']. '
 										<br/>Pour le supprimer et en choisir un autre parmis ceux encore disponible, cliquez sur <strong>Supprimer</strong>.
 										<input type="hidden" name="id" value="' .$donnes['id']. '"/>
-										<input class="submit" name="send" type="submit" value="Supprimer" />
-									</form>';
+										<input name="send" type="submit" value="Supprimer" class="btn btn-danger" />
+									</form>
+									</div>';
 									$i++;
 				
 					}
 					if($i>=1){
-						echo "vous ne pouvez plus prendre de rendez-vous, ils sont limités à 1/personne pour le moment.";
+						echo '<div class="alert alert-danger" role="alert">Vous ne pouvez plus prendre de rendez-vous, ils sont limités à 1/personne pour le moment.</div>';
 					}
 					else{
 						echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
