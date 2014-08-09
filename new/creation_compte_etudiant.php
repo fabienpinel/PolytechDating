@@ -20,7 +20,8 @@
 	if(!$existant)
 	{
 		/*  Vérification des erreurs upload fichier  */
-		if ($_FILES['cv']['error']) {     
+		if ($_FILES['cv']['error']) {  
+		  echo '<div class="alert alert-danger" role="alert">';   
           switch ($_FILES['cv']['error']){     
                    case 1: // UPLOAD_ERR_INI_SIZE     
                    echo"Le fichier dépasse la limite autorisée par le serveur !<br />"; 
@@ -37,6 +38,7 @@
           } 
 		  echo '<p>Redirection vers la page d\'inscription.</p>
 		  	<br /><p>Si la redirection échoue vous pouvez cliquer <a href="./inscription.php">ici</a>.';
+		  echo '</div>';
 		  redirect("./inscription.php", "3");
 		  break;    
 		}     

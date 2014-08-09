@@ -238,11 +238,6 @@
         <h2 class="form-signin-heading">Connectez vous</h2>
         <input type="text" class="form-control" placeholder="Email" name="mail" id="mail" required="" autofocus="">
         <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" required="">
-       <!-- <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>-->
         <br />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
         <a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 1px;">Inscription</button></a>
@@ -254,6 +249,14 @@
 	echo '</div></div>';
 	?>
 	<script>
+		//Cacher les div de la page root au chargement pour plus de lisibilité
+		window.onload = function() {
+			$('#messages').fadeOut(200, null);
+			$('#listingEntreprise').fadeOut(200, null);
+			$('#rdvEtudiants').fadeOut(200, null);
+			$('#etudiants').fadeOut(200, null);
+		}
+
 		function reduire(divi){
 			if ($(divi).is(':visible')) {
 				//var nom = "title"+divi;

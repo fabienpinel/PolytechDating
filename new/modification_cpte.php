@@ -23,11 +23,8 @@
 		}else if($_POST['type'] == "membre"){
 			//un membre a modifié son compte
 
-			$requete = $bdd->exec('UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'" motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'", WHERE id = "'.$_SESSION['id'].'"');
-			$re = 'UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'" motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'", WHERE id = "'.$_SESSION['id'].'"';
-			?>
-			<script>alert("ma requete:<?php echo $re; ?>");</script>
-			<?php
+			$requete = $bdd->exec('UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", mail = "'.$_POST['mail'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'", motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'" WHERE id = "'.$_SESSION['id'].'"');
+			
 			// PARCOURS a REVOIR
 			if(!$requete){
 				redirect("./compte.php?code=1","0");
@@ -244,14 +241,7 @@
 						</div>
 						
 					</div>
-					<!-- CV input -->
-					<!--<div class="form-group">
-						<label for="cv" class="col-sm-4 control-label">CV (en .pdf)</label>
-				 		<div class="col-sm-8">
-				 			<input type="hidden" name="MAX_FILE_SIZE" value="2097152" class="form-control" />
-							<input type="file" name="cv" id="cv" required/>
-						</div>
-					</div>-->
+					
 					<!-- 2 mots caractéristiques  -->
 					<div class="form-group">
 						<label for="motscles" class="col-sm-4 control-label">2 mots qui vous caractérisent (libre expression)</label>

@@ -20,10 +20,11 @@
 	if(!$existant)
 	{
 		/*  Vérification des erreurs upload fichier  */
-		if ($_FILES['logo']['error']) {     
+		if ($_FILES['logo']['error']) {   
+		  echo '<div class="alert alert-danger" role="alert">';
           switch ($_FILES['logo']['error']){     
                    case 1: // UPLOAD_ERR_INI_SIZE     
-                   echo"Le fichier dépasse la limite autorisée par le serveur !<br />"; 
+                   echo "Le fichier dépasse la limite autorisée par le serveur !<br />"; 
                    break;     
                    case 2: // UPLOAD_ERR_FORM_SIZE     
                    echo "Le fichier dépasse la limite autorisée dans le formulaire HTML !<br />"; 
@@ -37,6 +38,7 @@
           } 
 		  echo '<p>Redirection vers la page d\'inscription.</p>
 		  	<br /><p>Si la redirection échoue vous pouvez cliquer <a href="./inscription.php">ici</a>.';
+		  	echo '</div>';
 		  redirect("./inscription.php", "3");
 		  break;    
 		}     
@@ -61,8 +63,15 @@
 							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
-						echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';
-						redirect("./compte.php", "3");
+						//Il faut maintenant créer la ligne de rendez vous qui lui est consacrée dans la bdd
+						$rendezvous = $bdd->exec('INSERT INTO heure(entreprise, 14h00, 14h20, 14h40, 15h00, 15h20, 15h40, 16h00, 16h20, 16h40, 17h00) VALUES((select id from entreprise where mail ="'.$_POST['mail'].'" AND nom="' .$_POST['nom']. '" AND website= "'.$_POST['website'].'"), 0,0,0,0,0,1,0,0,0,0)');
+						if($rendezvous){
+							echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';
+							redirect("./compte.php", "3");
+						}else{
+							//La requete rdv a échouée
+							echo "<p>La création de votre compte a réussie cependant il y a eu un problème concernant une autre requête. Veuillez contacter l'administration du site (cf page contact).</p>";
+						}
 					}
 					else{
 						//La requete a échouée
