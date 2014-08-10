@@ -254,14 +254,18 @@
 	<script>
 		//Cacher les div de la page root au chargement pour plus de lisibilité
 		window.onload = function() {
-			$('#messages').fadeOut(200, null);
-			$('#listingEntreprise').fadeOut(200, null);
-			$('#rdvEtudiants').fadeOut(200, null);
-			$('#etudiants').fadeOut(200, null);
+			reduire('#messages')
+			reduire('#listingEntreprise');
+			reduire('#rdvEtudiants');
+			reduire('#etudiants');
 		}
 
 		function reduire(divi){
 			if ($(divi).is(':visible')) {
+				$(divi).parent().children('.glyphicon-chevron-up').hide();
+				$(divi).parent().children('.glyphicon-chevron-down').show();
+				//$('#down').fadeIn(200, null);
+				//$('#up').fadeOut(200, null);
 				//var nom = "title"+divi;
 				//alert('title: '+nom);
 				$(divi).fadeOut(200, null);
@@ -269,6 +273,8 @@
 				//$(nom+'#down').show();
 			}else{
 				$(divi).fadeIn(200, null);
+				$(divi).parent().children('.glyphicon-chevron-down').hide();
+				$(divi).parent().children('.glyphicon-chevron-up').show();
 				//$(nom+'#up').show();
 				//$(nom+'#down').hide();
 			}
