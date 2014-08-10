@@ -4,7 +4,7 @@
 	checkLogin();
 	echo'<div class="jumbotron">
       	<div class="container">';						
-	echo '<p>Vous avez rendez vous avec ' .$_POST['entreprise'] . ' &agrave; ' .$_POST['heure']. '</p>';
+	
 	
 	$bdd = connect_database();
 	
@@ -21,6 +21,8 @@
 	
 	$bdd->exec('	INSERT INTO rdv
 					VALUES (NULL, ' .$donnesEntreprise['id']. ', ' .$_SESSION['id']. ', "' .$_POST['heure']. '")');
+	echo '<p>Vous avez rendez vous avec ' .$_POST['entreprise'] . ' &agrave; ' .$_POST['heure']. '.</p>';
+	echo '<p>Redirection...</p>';
 	redirect("compte.php",2);
 	echo '</div></div>';
 	include("footer.php");

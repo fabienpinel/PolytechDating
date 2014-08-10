@@ -31,7 +31,7 @@
 		echo '<p>
 				Voici la liste des entreprises que nous avons sélectionnées pour vous.
 				<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
-		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal" style="margin-left: 25px;">';
+		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal formulaireRDV" >';
 		while($donnes = $entreprise->fetch()){
 			if(entrepriseEncoreDisponible($donnes['id'])){
 				echo '<div class="radio">
@@ -42,9 +42,9 @@
 				</div>';
 			}
 		}
-
-		echo'	<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />
-			</p>
-		</form>';
+		
+		echo'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />';
+		echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
+		echo '</p></form>';
 	echo '</div></div>';
 	include("footer.php") ?>

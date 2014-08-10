@@ -17,7 +17,7 @@
 										
 	$donnes = $rendezVous->fetch();
 	echo'<p>Voici les horaires auquels <b>' .$_POST['choix']. '</b> sera disponible pour vous accueillir.<br/>Choisissez un cr&eacute;neau de passage.</p>';
-	echo'<form data-toggle="validator" method="post" action="validation.php" role="form" class="form-horizontal">';
+	echo'<form data-toggle="validator" method="post" action="validation.php" role="form" class="form-horizontal formulaireRDV">';
 	$heures = array('14h00', '14h20', '14h40', '15h00', '15h20','15h40', '16h00', '16h20', '16h40', '17h00', '17h20');
 	for($i = 0;$i < 10;$i++){
 			if(!$donnes[$heures[$i]]){
@@ -32,9 +32,10 @@
 				
 	}
 	echo '<input type="hidden" name="entreprise" value="' .$_POST['choix']. '"/>
-		<input type="submit" value= "Valider" class="btn btn-primary" />
+		<input type="submit" value= "Valider" class="btn btn-primary" />';
+	echo '<a href="rdv.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour au choix de l\'entreprise</button></a>';
 			
-			 </form>';
+	echo '</form>';
 	$rendezVous->closeCursor();
 
 	echo '</div></div>';

@@ -20,7 +20,7 @@
 	$bdd->exec('	DELETE FROM rdv
 					WHERE id = ' .$_POST['id']. '');
 	
-	echo '<p>Votre rendez a bien été supprimé.</p>';
+	echo '<p>Votre rendez-vous a bien été supprimé.</p>';
 	echo '<p>Redirection...</p>';
 	echo '</div></div>';
 	include("footer.php");

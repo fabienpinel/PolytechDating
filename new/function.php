@@ -23,8 +23,6 @@ function checkLogin(){
 	}
 }
 
-
-
 function entParPromo($promotion, $bdd)
 {
 	$sql = 'SELECT * FROM entreprise WHERE promotion = "' . $promotion . '"';

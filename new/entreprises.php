@@ -2,11 +2,11 @@
 	session_start(); 
 	$encours="entreprises";
 	include("header.php");
-
+?>
 	 <div class="jumbotron">
       <div class="container">
 		<div id="entreprises">
-			<table>
+			<!--<table>
 				<tr>
 					<td>
 						<a target="_blanck" href="http://faro-consulting.com/"><img src="_/images/entreprises/faro.png"></a>
@@ -99,7 +99,7 @@
 					
 				</tr>
 				
-			</table>
+			</table>-->
 
 
 
