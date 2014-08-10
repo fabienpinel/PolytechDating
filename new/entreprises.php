@@ -1,8 +1,8 @@
 <?php 
 	session_start(); 
 	$encours="entreprises";
-	include("header.php") 
-?>
+	include("header.php");
+
 	 <div class="jumbotron">
       <div class="container">
 		<div id="entreprises">

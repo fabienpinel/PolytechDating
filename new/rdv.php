@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	include("header.php");
-	
+	$encours="rdv"; 
 	checkLogin();
 	
 	$bdd = connect_database();
@@ -31,12 +31,19 @@
 		echo '<p>
 				Voici la liste des entreprises que nous avons sélectionnées pour vous.
 				<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
-		echo '<form method="post" action="heure.php" class="form" style="margin-left: 25px;">';
-		while($donnes = $entreprise->fetch())
-			echo'	<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '"/>
-					<label for="' .$donnes['nom']. '">' .$donnes['nom']. '</label><br/>';
-			
-		echo'	<input class="submit btn btn-primary" name="send" type="submit" value="Envoyer" />
+		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal" style="margin-left: 25px;">';
+		while($donnes = $entreprise->fetch()){
+			if(entrepriseEncoreDisponible($donnes['id'])){
+				echo '<div class="radio">
+  					<label>
+    				<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '" required>
+    					' .$donnes['nom']. '
+  					</label>
+				</div>';
+			}
+		}
+
+		echo'	<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />
 			</p>
 		</form>';
 	echo '</div></div>';

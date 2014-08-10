@@ -1,4 +1,10 @@
 <?php
+function entrepriseEncoreDisponible($id){
+	$bdd = connect_database();
+	$entreprise = $bdd->query('SELECT * FROM heure where entreprise='.$id);
+	$donnees = $entreprise->fetch();
+	return !($donnees['14h00'] && $donnees['14h20'] && $donnees['14h40'] && $donnees['15h00'] && $donnees['15h40'] && $donnees['16h00'] && $donnees['16h20'] && $donnees['16h40'] && $donnees['17h00']);
+}
 function connect_database(){
 	include('variables.php');
 	try
@@ -96,35 +102,6 @@ function toStringFormPhases()
 			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est fermé. Elle ouvrira dès le 18 octobre 2012.</p>';
 		else
 			echo 'Les phases d\'inscriptions sont désormais terminées. Cependant vous avez la possibilité de prendre contact avec les organisateurs via l\'onglet Contact. Merci de votre compréhension.';
-	}
-}
-
-function connexion($bdd)
-{
-	// V�rification des identifiants
-	$req = $bdd->prepare('SELECT id FROM membre WHERE mail = "' .$_POST['mail']. '" AND pass = "' .$_POST['pass']. '"');
-	$req->execute(array(
-		'mail' => $_POST['mail'],
-		'pass' => $_POST['pass']));
-
-	$resultat = $req->fetch();
-
-	if (!$resultat)
-	{
-		echo 'Mauvais identifiant ou mot de passe !';
-	}
-	else
-	{
-		session_start();
-		$_SESSION['id'] = $resultat['id'];
-		$_SESSION['mail'] = $_POST ['mail'];
-		echo 'Vous êtes connecté !';
-	}
-
-	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
-	{
-		echo 'Bonjour ' . $_SESSION['mail'];
-		$bdd->exec('UPDATE  `polytech_dating`.`membre` SET  `connecte` =  1 WHERE  `membre`.`id` =' .$_SESSION['id']);
 	}
 }
 

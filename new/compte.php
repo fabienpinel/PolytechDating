@@ -2,6 +2,7 @@
 	session_start(); 
 	$encours="compte";
 	include("header.php");
+	include("variables.php");
 	$bdd = connect_database();
 	echo '  
     	<div class="jumbotron">
@@ -197,7 +198,8 @@
 									$i++;
 				
 					}
-					if($i>=1){
+					//cf variables.php pour changer la  variable.
+					if($i>=$nombreRDVParPersonne){
 						echo '<div class="alert alert-danger" role="alert">Vous ne pouvez plus prendre de rendez-vous, ils sont limités à 1/personne pour le moment.</div>';
 					}
 					else{

@@ -1,15 +1,11 @@
 <?php 
 	session_start();
 	include("header.php");
-	
-	try
-	{
-		$bdd = new PDO('mysql:host=...;dbname=...', '...', '...');
-	}
-	catch(Exception $e)
-	{
-		die('Erreur : '.$e->getMessage());
-	}
+	checkLogin();
+	$bdd = connect_database();
+	echo '  
+    	<div class="jumbotron">
+      	<div class="container">';
 	
 	$req = $bdd->query('	SELECT *  
 							FROM rdv
@@ -18,14 +14,15 @@
 	$donnes = $req->fetch();
 
 	$bdd->exec('	UPDATE heure
-					SET heure.' .$donnes['heure']. ' = 1
+					SET heure.' .$donnes['heure']. ' = 0
 					WHERE heure.entreprise = "' .$donnes['entreprise']. '"');
 					
 	$bdd->exec('	DELETE FROM rdv
 					WHERE id = ' .$_POST['id']. '');
 	
-	echo 'Votre rendez a bien &eacute;t&eacute; supprim&eacute;';
-	
+	echo '<p>Votre rendez a bien été supprimé.</p>';
+	echo '<p>Redirection...</p>';
+	echo '</div></div>';
 	include("footer.php");
-	redirect("moncompte.php", "1");
-	?>
+	redirect("compte.php", "2");
+?>

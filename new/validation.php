@@ -11,7 +11,7 @@
 	$bdd->exec(	'UPDATE heure
 				INNER JOIN entreprise
 					ON heure.entreprise = entreprise.id
-				SET heure.' .$_POST['heure']. ' = 0
+				SET heure.' .$_POST['heure']. ' = 1
 				WHERE entreprise.nom = "' .$_POST['entreprise']. '"');
 							
 	
