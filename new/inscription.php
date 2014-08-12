@@ -103,7 +103,7 @@
 					<div class="form-group" id="parcoursMAM" style="display: none;">
 							<label for="parcoursMAM" class="col-sm-4 control-label">Parcours</label>
 							<div class="col-sm-8">	
-								<select name="parcoursMAM" id="parcoursMAM" class="form-control" >
+								<select name="parcoursMAMSelect" id="parcoursMAMSelect" class="form-control" >
 									<option value="" disabled selected>Sélectionnez votre parcours</option>
 									<option value="IMAFA">IMAFA</option>
 									<option value="INUM">INUM</option>
@@ -115,7 +115,7 @@
 					<div class="form-group" id="parcoursSI" style="display: none;">
 							<label for="parcoursSI" class="col-sm-4 control-label">Parcours</label>
 							<div class="col-sm-8">
-								<select name="parcoursSI" id="parcoursSI" class="form-control" >
+								<select name="parcoursSISelect" id="parcoursSISelect" class="form-control" >
 									<option value="" disabled selected>Sélectionnez votre parcours</option>
 									<option value="IAM">IAM</option>
 									<option value="IMAFA">IMAFA</option>
@@ -132,7 +132,7 @@
 					<div class="form-group" id="parcoursELEC" style="display: none;">
 							<label for="parcoursELEC" class="col-sm-4 control-label">Parcours</label>
 							<div class="col-sm-8">
-								<select name="parcoursELEC" id="parcoursELEC" class="form-control" >
+								<select name="parcoursELECSelect" id="parcoursELECSelect" class="form-control" >
 									<option value="" disabled selected>Sélectionnez votre parcours</option>
 									<option value="GSE">GSE</option>
 									<option value="TNS">TNS</option>

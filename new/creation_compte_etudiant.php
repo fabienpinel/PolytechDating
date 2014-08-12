@@ -24,16 +24,16 @@
 		  echo '<div class="alert alert-danger" role="alert">';   
           switch ($_FILES['cv']['error']){     
                    case 1: // UPLOAD_ERR_INI_SIZE     
-                   echo"Le fichier dépasse la limite autorisée par le serveur !<br />"; 
+                   echo '<div class="alert alert-danger" role="alert">Le fichier dépasse la limite autorisée par le serveur !</div>'; 
                    break;     
                    case 2: // UPLOAD_ERR_FORM_SIZE     
-                   echo "Le fichier dépasse la limite autorisée dans le formulaire HTML !<br />"; 
+                   echo '<div class="alert alert-danger" role="alert">Le fichier dépasse la limite autorisée dans le formulaire HTML !</div>'; 
                    break;     
                    case 3: // UPLOAD_ERR_PARTIAL     
-                   echo "L'envoi du fichier a été interrompu pendant le transfert !<br />";     
+                   echo '<div class="alert alert-danger" role="alert">L\'envoi du fichier a été interrompu pendant le transfert !</div>';     
                    break;     
                    case 4: // UPLOAD_ERR_NO_FILE     
-                   echo "Le fichier que vous avez envoyé a une taille nulle ! <br />"; 
+                   echo '<div class="alert alert-danger" role="alert">Le fichier que vous avez envoyé a une taille nulle ! </div>'; 
                    break;     
           } 
 		  echo '<p>Redirection vers la page d\'inscription.</p>
@@ -59,14 +59,14 @@
 				if ($resultat){
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée
-					if($_POST['parcoursSI']=="" && $_POST['parcoursELEC']==""){
-						$parcours=$_POST['parcoursMAM'];
+					if($_POST['parcoursSISelect']=="" && $_POST['parcoursELECSelect']==""){
+						$parcours=$_POST['parcoursMAMSelect'];
 					}
-					else if($_POST['parcoursMAM']=="" && $_POST['parcoursSI']==""){
-						$parcours=$_POST['parcoursELEC'];
+					else if($_POST['parcoursMAMSelect']=="" && $_POST['parcoursSISelect']==""){
+						$parcours=$_POST['parcoursELECSelect'];
 					}
 					else{
-						$parcours=$_POST['parcoursSI'];
+						$parcours=$_POST['parcoursSISelect'];
 					}
 					$req = $bdd->exec('	INSERT INTO membre(nom, prenom, mail, pass, promotion, parcours, motcles1, motcles2)
 							VALUES("' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['mail']. '", "' .md5($_POST['passEtudiant']). '", "' .$_POST['promotion'].'", "'.$parcours.'", "'.$_POST['motcles1'].'", "'.$_POST['motcles2'].'")');
