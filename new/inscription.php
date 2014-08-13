@@ -39,33 +39,7 @@
 					$elec = array('GSE','TNS', 'CCS', 'TR');
 		?>
 
-	<script type="text/javascript"> 
-			function changerspe(){ 
-				var type = document.getElementById('promotion').options[document.getElementById('promotion').selectedIndex].value; 
-				if(type == 'SI5' || type == 'IFI'){ 
-					//document.getElementById('parcoursSI').style.display='block'; 
-					document.getElementById('parcoursELEC').setAttribute('style','display:none');
-					document.getElementById('parcoursMAM').setAttribute('style','display:none');
-					document.getElementById('parcoursSI').setAttribute('style','display:inherit');
-				}else if(type == 'ELEC5'){ 
-					//document.getElementById('parcoursELEC').style.display='block'; 
-					document.getElementById('parcoursSI').setAttribute('style','display:none');
-					document.getElementById('parcoursMAM').setAttribute('style','display:none');
-					document.getElementById('parcoursELEC').setAttribute('style','display:inherit');
-				 
-				}else if(type == 'MAM5'){ 
-					//document.getElementById('parcoursELEC').style.display='block'; 
-					document.getElementById('parcoursSI').setAttribute('style','display:none');
-					document.getElementById('parcoursELEC').setAttribute('style','display:none');
-					document.getElementById('parcoursMAM').setAttribute('style','display:inherit');
-				} 
-				else{
-					document.getElementById('parcoursSI').setAttribute('style','display:none');
-					document.getElementById('parcoursELEC').setAttribute('style','display:none');
-					document.getElementById('parcoursMAM').setAttribute('style','display:none');
-				}
-			} 
-			</script>
+	
 
 		<div id="inscription">
 		<!-- Debut du formulaire ETUDIANT -->
@@ -100,47 +74,11 @@
 						</div>
 					</div>
 					<!-- Parcours -->
-					<div class="form-group" id="parcoursMAM" style="display: none;">
-							<label for="parcoursMAM" class="col-sm-4 control-label">Parcours</label>
-							<div class="col-sm-8">	
-								<select name="parcoursMAMSelect" id="parcoursMAMSelect" class="form-control" >
-									<option value="" disabled selected>Sélectionnez votre parcours</option>
-									<option value="IMAFA">IMAFA</option>
-									<option value="INUM">INUM</option>
-									<option value="VIM">VIM</option>
-								</select>
-							</div>
+					<div class="form-group" id="parcours">
+
 					</div>
-					<!-- Parcours -->
-					<div class="form-group" id="parcoursSI" style="display: none;">
-							<label for="parcoursSI" class="col-sm-4 control-label">Parcours</label>
-							<div class="col-sm-8">
-								<select name="parcoursSISelect" id="parcoursSISelect" class="form-control" >
-									<option value="" disabled selected>Sélectionnez votre parcours</option>
-									<option value="IAM">IAM</option>
-									<option value="IMAFA">IMAFA</option>
-									<option value="IHM">IHM</option>
-									<option value="KIS">KIS</option>
-									<option value="UN">UN</option>
-									<option value="VIM">VIM</option>
-									<option value="AL">AL</option>
-									<option value="CSSR">CSSR</option>
-								</select>
-							</div>
-					</div>
-					<!-- Parcours -->
-					<div class="form-group" id="parcoursELEC" style="display: none;">
-							<label for="parcoursELEC" class="col-sm-4 control-label">Parcours</label>
-							<div class="col-sm-8">
-								<select name="parcoursELECSelect" id="parcoursELECSelect" class="form-control" >
-									<option value="" disabled selected>Sélectionnez votre parcours</option>
-									<option value="GSE">GSE</option>
-									<option value="TNS">TNS</option>
-									<option value="CCS">CCS</option>
-									<option value="TR">TR</option>
-								</select>
-							</div>
-					</div>
+
+
 			
 					<!-- EMAIL -->
 					<div class="form-group">
@@ -269,4 +207,37 @@
 		?>
 	</div><!-- container -->
 </div><!-- jumbotron -->
+<script type="text/javascript"> 
+			function changerspe(){ 
+				var type = document.getElementById('promotion').options[document.getElementById('promotion').selectedIndex].value; 
+				if(type == 'SI5' || type == 'IFI'){ 
+					document.getElementById('parcours').innerHTML = '<label for="parcours" class="col-sm-4 control-label">Parcours</label><div class="col-sm-8"><select name="parcours" id="parcours" class="form-control" ><option value="" disabled selected>Sélectionnez votre parcours</option><option value="IAM">IAM</option><option value="IMAFA">IMAFA</option><option value="IHM">IHM</option><option value="KIS">KIS</option><option value="UN">UN</option><option value="VIM">VIM</option><option value="AL">AL</option><option value="CSSR">CSSR</option></select></div>';
+				}else if(type == 'ELEC5'){ 
+					document.getElementById('parcours').innerHTML='<label for="parcours" class="col-sm-4 control-label">Parcours</label>'
+							+'<div class="col-sm-8">'
+								+'<select name="parcours" id="parcours" class="form-control" >'
+									+'<option value="" disabled selected>Sélectionnez votre parcours</option>'
+									+'<option value="GSE">GSE</option>'
+									+'<option value="TNS">TNS</option>'
+									+'<option value="CCS">CCS</option>'
+									+'<option value="TR">TR</option>'
+								+'</select>'
+							+'</div>';
+				 
+				}else if(type == 'MAM5'){ 
+					document.getElementById('parcours').innerHTML='<label for="parcours" class="col-sm-4 control-label">Parcours</label>'
+							+'<div class="col-sm-8">'
+								+'<select name="parcours" id="parcours" class="form-control" >'
+									+'<option value="" disabled selected>Sélectionnez votre parcours</option>'
+									+'<option value="IMAFA">IMAFA</option>'
+									+'<option value="INUM">INUM</option>'
+									+'<option value="VIM">VIM</option>'
+								+'</select>'
+							+'</div>';
+				} 
+				else{
+					document.getElementById('parcours').innerHTML='';
+				}
+			} 
+			</script>
 <?php include("footer.php") ?>
