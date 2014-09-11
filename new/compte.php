@@ -3,6 +3,7 @@
 	$encours="compte";
 	include("header.php");
 	include("variables.php");
+	//fonction de connexion située dans function.php
 	$bdd = connect_database();
 	echo '  
     	<div class="jumbotron">
@@ -214,7 +215,7 @@
 		<?php
 		}
 		else if($_SESSION['type'] == 'entreprise')
-		{
+		{	//Si compte entreprise
 			?>
 			<div class="compteEntreprise">
 				<div class="entrepriseLayout">
@@ -233,7 +234,7 @@
 		}
 	}
 	else
-	{
+	{	//Si pas connecté
 		echo '<div id="compte">
 		<h3>Cette rubrique va vous permettre de gérer vos rendez-vous.</h3>
 		
