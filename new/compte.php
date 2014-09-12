@@ -1,5 +1,16 @@
 <?php 
 	session_start(); 
+	/*
+	Compte entreprise - ajouter l'acces aux CVs des etudiants inscrits pour eux
+						- visualiser les rdv
+						- 
+						- ajouter type etyudiant recherché
+						- ajouter le lien vers site polytech pour ajouter une offre de stage
+	compte etudiant : -ajouter envoi de mail a chaque prise pour résumé les infos
+	historique
+	boutons dl cvtheque, raz bdd etudiant
+	compte root, changer fleche pour trait
+	*/
 	$encours="compte";
 	include("header.php");
 	include("variables.php");
@@ -52,7 +63,7 @@
 			*/
 
 			/* LISTE DES ETUDIANTS INSCRITS */
-			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
+			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
 			echo'<table class="table table-hover" id="etudiants">';
 			echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Parcours</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
@@ -73,7 +84,7 @@
 
 
 			/*  LISTE DES RDV */ 
-			echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
+			echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -100,7 +111,7 @@
 
 
 			/* LISTE DES MESSAGES */
-			echo'<h2 id="titlemessages">Messages laissés grâce au formulaire de contact <button class="btn btn-default" onClick="reduire(messages);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
+			echo'<h2 id="titlemessages">Messages laissés grâce au formulaire de contact <button class="btn btn-default" onClick="reduire(messages);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			echo '<div id="messages">';
 			$req = $bdd->query('SELECT * FROM message');
 			
@@ -113,7 +124,7 @@
 			echo '</div>';
 
 			/* LISTE DES ENTREPRISES */
-			echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-chevron-down" id="down" style="display:none;" ></span><span class="glyphicon glyphicon-chevron-up" id="up" ></span></button></h2>';
+			echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			echo '<p>Une fois l\'entreprise validée, elle apparaît dans le listing des entreprises sur la page "entreprises" avec son logo et elle est accessible dans la prise de rendez vous pour les étudiants.</p>';
 			//lister la table entreprise
 			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
@@ -263,21 +274,9 @@
 
 		function reduire(divi){
 			if ($(divi).is(':visible')) {
-				$(divi).parent().children('.glyphicon-chevron-up').hide();
-				$(divi).parent().children('.glyphicon-chevron-down').show();
-				//$('#down').fadeIn(200, null);
-				//$('#up').fadeOut(200, null);
-				//var nom = "title"+divi;
-				//alert('title: '+nom);
 				$(divi).fadeOut(200, null);
-				//$(nom+'#up').hide();
-				//$(nom+'#down').show();
 			}else{
 				$(divi).fadeIn(200, null);
-				$(divi).parent().children('.glyphicon-chevron-down').hide();
-				$(divi).parent().children('.glyphicon-chevron-up').show();
-				//$(nom+'#up').show();
-				//$(nom+'#down').hide();
 			}
 		}
 	</script>
