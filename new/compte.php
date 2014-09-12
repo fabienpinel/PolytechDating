@@ -2,14 +2,14 @@
 	session_start(); 
 	/*
 	Compte entreprise - ajouter l'acces aux CVs des etudiants inscrits pour eux
-						- visualiser les rdv
+						- visualiser les rdv -> OK
 						- 
-						- ajouter type etyudiant recherché
-						- ajouter le lien vers site polytech pour ajouter une offre de stage
+						- ajouter type etudiant recherché
+						- ajouter le lien vers site polytech pour ajouter une offre de stage -> OK
 	compte etudiant : -ajouter envoi de mail a chaque prise pour résumé les infos
 	historique
 	boutons dl cvtheque, raz bdd etudiant
-	compte root, changer fleche pour trait
+	compte root, changer fleche pour trait-- OK
 	*/
 	$encours="compte";
 	include("header.php");
@@ -235,6 +235,33 @@
 						<p>Bonjour <?php echo $_SESSION['nom']; ?> !</p>
 						<p><?php echo $_SESSION['mail']; ?></p>
 					</div>
+				</div>
+				<div>
+					<p>
+					Pour déposer des annonces de stage, suivre ce lien : <a href="http://offres-stages.polytech.unice.fr/entreprise/" target="_blanck">offres-stages.polytech.unice.fr/entreprise</a>
+					</p>
+				</div>
+				<div>
+					<h2>Etudiants ayant pris rendez-vous avec <?php  echo $_SESSION['nom']; ?></h2>
+					<?php
+						$rdvEntreprise = $bdd->query('SELECT membre.nom, membre.prenom, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
+									FROM rdv
+									INNER JOIN entreprise
+										ON entreprise.id = rdv.entreprise 
+									INNER JOIN membre
+										ON membre.id = rdv.membre
+										WHERE entreprise.id = '.$_SESSION["id"].'
+									ORDER BY rdv.heure');
+			
+			echo'<table class="table table-hover">';
+			echo '<th>Nom</th><th>Prénom</th><th>Promotion</th><th>Entreprise</th><th>Horaire</th>';
+			while($rdv = $rdvEntreprise->fetch())
+				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
+			echo'</table>';
+
+
+
+					?>
 				</div>
 				<div class="boutonsCompte">
 					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a>
