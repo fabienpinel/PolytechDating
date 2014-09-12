@@ -254,9 +254,9 @@
 									ORDER BY rdv.heure');
 			
 			echo'<table class="table table-hover">';
-			echo '<th>Nom</th><th>Prénom</th><th>Promotion</th><th>Entreprise</th><th>Horaire</th>';
+			echo '<th>Nom</th><th>Prénom</th><th>Promotion</th><th>Entreprise</th><th>Horaire</th><th>CV</th>';
 			while($rdv = $rdvEntreprise->fetch())
-				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
+				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td><td><a href="./_/cv/'.$rdv['nom'].'-'.$rdv['prenom'].'-'.$rdv['membre'].'.pdf">Voir le CV</a></td></tr>';
 			echo'</table>';
 
 
