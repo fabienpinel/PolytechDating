@@ -137,9 +137,9 @@
 			$req = $bdd->query('SELECT * FROM message');
 			
 			while($message = $req->fetch())
-				echo'<p>' .$message['nom']. ' ' .$message['prenom']. ' en ' .$message['membre']. ' a laiss&eacute; un message.<br/>
-						E-mail : ' .$message['mail']. '<br/>
-						"' .$message['texte']. '"
+				echo'<p><b>' .$message['nom']. ' ' .$message['prenom']. '</b> a laiss&eacute; un message.<br/>
+						E-mail: <b>' .$message['mail']. '</b><br/>
+						Message: ' .$message['texte']. '
 					</p>';	
 
 			echo '</div>';
