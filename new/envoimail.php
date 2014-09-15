@@ -8,9 +8,9 @@
       	<div class="container">';
 	
 	$bdd->exec( 'INSERT INTO message
-				VALUES (NULL, "' .$_POST['nom']. '", "' .$_POST['prenom']. '", "'.$_POST['mail']. '", "' .$_POST['message']. '")');
-	mail('pinel.fabien@gmail.com', $_POST['prenom'].' prend contact avec Polytech Dating', $_POST['nom'].' '.$_POST['prenom'].'<br />'.$_POST['message']);
-	echo '<b>L\'équipe du Polytech Dating répondra à votre requete sur votre boite mail le plus rapidement possible.</b>';
+				VALUES (NULL, "' .utf8_decode($_POST['nom']). '", "' .utf8_decode($_POST['prenom']). '", "'.utf8_decode($_POST['mail']). '", "' .utf8_decode($_POST['message']). '")');
+	mail('pinel.fabien@gmail.com', $_POST['prenom'].' prend contact avec Polytech Dating', $_POST['nom'].' '.$_POST['prenom'].' ----- '.$_POST['message']);
+	echo '<b>L\'équipe du Polytech Dating répondra à votre requête sur votre boite mail le plus rapidement possible.</b>';
 	echo '</div></div>';
 
 	include("footer.php");
