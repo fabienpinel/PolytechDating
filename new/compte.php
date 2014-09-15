@@ -272,7 +272,7 @@
 					?>
 				</div>
 				<div class="boutonsCompte">
-					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a>
+					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a> 
 				</div>
 			</div>
 
