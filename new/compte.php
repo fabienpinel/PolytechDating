@@ -244,7 +244,15 @@
 				<div>
 					<h2>Etudiants ayant pris rendez-vous avec <?php  echo $_SESSION['nom']; ?></h2>
 					<?php
-						$rdvEntreprise = $bdd->query('SELECT membre.nom, membre.prenom, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
+						$rdvEntreprise2 = $bdd->query('SELECT membre.nom, membre.prenom, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
+									FROM rdv
+									INNER JOIN entreprise
+										ON entreprise.id = rdv.entreprise 
+									INNER JOIN membre
+										ON membre.id = rdv.membre
+										WHERE entreprise.id = '.$_SESSION["id"].'
+									ORDER BY rdv.heure');
+						$rdvEntreprise = $bdd->query('SELECT membre.nom, membre.prenom, membre.mail, membre.motcles1, membre.motcles2, membre.parcours, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
 										ON entreprise.id = rdv.entreprise 
@@ -254,9 +262,9 @@
 									ORDER BY rdv.heure');
 			
 			echo'<table class="table table-hover">';
-			echo '<th>Nom</th><th>Prénom</th><th>Promotion</th><th>Entreprise</th><th>Horaire</th><th>CV</th>';
+			echo '<th>Nom</th><th>Prénom</th><th>Mail<th>Promotion</th><th>Parcours</th><th>Mot cles 1</th><th>Mot cles 2</th><th>Entreprise</th><th>Horaire</th><th>CV</th>';
 			while($rdv = $rdvEntreprise->fetch())
-				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td><td><a href="./_/cv/'.$rdv['nom'].'-'.$rdv['prenom'].'-'.$rdv['membre'].'.pdf">Voir le CV</a></td></tr>';
+				echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['mail']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['parcours']. '</td><td>' .$rdv['motcles1']. '</td><td>' .$rdv['motcles2']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td><td><a href="./_/cv/'.$rdv['nom'].'-'.$rdv['prenom'].'-'.$rdv['membre'].'.pdf">Voir le CV</a></td></tr>';
 			echo'</table>';
 
 
