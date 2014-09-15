@@ -34,8 +34,34 @@
     	}
     }
 
-    /* Traitement du formumlaire de changememt d'état si présent */
-    if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
+    
+
+	/*
+	*	Si les identifiants sont corrects
+	*/
+	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
+	{
+		// Si compte root
+		if($_SESSION['type'] == 'root')
+		{
+		/*	Prise en compte des codes retours */
+    	if(isset($_GET['code'])){
+    	switch($_GET['code']){
+    		case 2:
+    			//Tout s'est bien passé
+    			echo ' <div class="alert alert-success" role="alert">La modification du site s\'est terminée avec succès.</div>';
+    			break;
+    		case 3:
+    			//Il y a eu des erreurs
+    			echo ' <div class="alert alert-danger" role="alert">La modification du site ne s\'est pas bien terminée. Veuillez recommencer.</div>';
+    			break;
+    	}
+    }
+
+
+
+			/* Traitement du formumlaire de changememt d'état si présent */
+    	if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
     	if($_POST['activation']){
     		$resultat = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE id = "'.$_POST['idEntreprise'].'"');
     	}else{
@@ -48,20 +74,15 @@
     		echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
     	}
     }
-
-	/*
-	*	Si les identifiants sont corrects
-	*/
-	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
-	{
-		// Si compte root
-		if($_SESSION['type'] == 'root')
-		{
 			/*
 				A REVOIR !!!
 				TODO
 			*/
-
+				echo '<div style="display: inline-block;">';
+			echo '<button class="btn btn-default" onClick="tout();" style="display: inline-block;"><span class="glyphicon glyphicon-minus" id="up" ></span> Tout</button>';
+			echo'<div class="boutons">
+					<a class="btn btn-warning" href="./modification_site.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier le site</a> 
+				</div></div>';
 			/* LISTE DES ETUDIANTS INSCRITS */
 			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
@@ -220,14 +241,25 @@
 				}
 				?>
 				<div class="boutonsCompte">
-					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a>
+					<a class="btn btn-warning" href="./modification_cpte.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier mon compte</a>
 				</div>
 
 		<?php
 		}
 		else if($_SESSION['type'] == 'entreprise')
 		{	//Si compte entreprise
-			?>
+			if(!$_SESSION['active']){ ?>
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-warning-sign"></span>
+				Votre compte n'est pas actif. Pour demander l'activation afin de participer au prochain Polytech Dating : <a href="mailto:veronique.guerin@polytech.unice.fr">veronique.guerin@polytech.unice.fr</a>.
+			</div>
+			<?php } ?>
+			<div>
+					<div class="alert alert-info" role="alert">
+					Pour déposer une annonce de stage, suivre ce lien : <a href="http://offres-stages.polytech.unice.fr/entreprise/" target="_blanck">offres-stages.polytech.unice.fr/entreprise</a>
+					
+					</div>
+				</div>
 			<div class="compteEntreprise">
 				<div class="entrepriseLayout">
 					<img src="./_/images/entreprises/<?php echo $_SESSION['nomImage'].'.'.$_SESSION['formatLogo'];?>" />
@@ -236,22 +268,10 @@
 						<p><?php echo $_SESSION['mail']; ?></p>
 					</div>
 				</div>
-				<div>
-					<p>
-					Pour déposer des annonces de stage, suivre ce lien : <a href="http://offres-stages.polytech.unice.fr/entreprise/" target="_blanck">offres-stages.polytech.unice.fr/entreprise</a>
-					</p>
-				</div>
+				
 				<div>
 					<h2>Etudiants ayant pris rendez-vous avec <?php  echo $_SESSION['nom']; ?></h2>
 					<?php
-						$rdvEntreprise2 = $bdd->query('SELECT membre.nom, membre.prenom, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
-									FROM rdv
-									INNER JOIN entreprise
-										ON entreprise.id = rdv.entreprise 
-									INNER JOIN membre
-										ON membre.id = rdv.membre
-										WHERE entreprise.id = '.$_SESSION["id"].'
-									ORDER BY rdv.heure');
 						$rdvEntreprise = $bdd->query('SELECT membre.nom, membre.prenom, membre.mail, membre.motcles1, membre.motcles2, membre.parcours, membre.promotion AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -272,7 +292,7 @@
 					?>
 				</div>
 				<div class="boutonsCompte">
-					<a class="btn btn-warning" href="./modification_cpte.php"  role="button">Modifier mon compte</a> 
+					<a class="btn btn-warning" href="./modification_cpte.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier mon compte</a> 
 				</div>
 			</div>
 
@@ -301,10 +321,10 @@
 	<script>
 		//Cacher les div de la page root au chargement pour plus de lisibilité
 		window.onload = function() {
-			reduire('#messages')
+			/*reduire('#messages')
 			reduire('#listingEntreprise');
 			reduire('#rdvEtudiants');
-			reduire('#etudiants');
+			reduire('#etudiants');*/
 		}
 
 		function reduire(divi){
@@ -313,6 +333,21 @@
 			}else{
 				$(divi).fadeIn(200, null);
 			}
+		}
+		function tout(){
+			if ($(etudiants).is(':visible') || $(rdvEtudiants).is(':visible') || $(messages).is(':visible') || $(listingEntreprise).is(':visible') ) {
+				$(etudiants).fadeOut(200, null);
+				$(rdvEtudiants).fadeOut(200, null);
+				$(messages).fadeOut(200, null);
+				$(listingEntreprise).fadeOut(200, null);
+
+			}else{
+				$(etudiants).fadeIn(200, null);
+				$(rdvEtudiants).fadeIn(200, null);
+				$(messages).fadeIn(200, null);
+				$(listingEntreprise).fadeIn(200, null);
+			}
+			
 		}
 	</script>
 	<?php include("footer.php"); ?>

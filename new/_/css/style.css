@@ -30,7 +30,7 @@
 	float: left;
 	position: fixed;
 	margin-top: 20px;
-	margin-left: 250px;
+	margin-left: 215px;
 	height: 100%;
 	font-size: 20px;
 }
@@ -66,6 +66,8 @@ ul#listeMenu li a{
 }
 #loginFields{
 	display: block;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 #loginButton{
 	display: none;
@@ -84,6 +86,10 @@ ul#listeMenu li a{
 .boutonsCompte{
 	float: right;
 	margin-right: 20%;
+}
+.boutons{
+	display: inline-block;
+	margin-left: 10px;
 }
 #listingEntreprise button{
 	width: 100px;

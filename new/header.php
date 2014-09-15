@@ -8,6 +8,7 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Polytech Dating">
@@ -46,10 +47,10 @@
 
           <div class="navbar-collapse collapse" id="menuTop">
             <ul class="nav navbar-nav" role="menu" id="listeMenu">
-              <li <?php if(isset($encours) && $encours == 'index'){echo 'class="active"';}    ?>><a href="./index.php">Accueil</a></li>
-              <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./compte.php">Mon compte</a></li>
-              <li <?php if(isset($encours) && $encours == 'entreprises'){echo 'class="active"';}    ?>><a href="./entreprises.php">Entreprises</a></li>
-              <li <?php if(isset($encours) && $encours == 'contact'){echo 'class="active"';}    ?>><a href="./contact.php">Contact</a></li>
+              <li <?php if(isset($encours) && $encours == 'index'){echo 'class="active"';}    ?>><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
+              <li <?php if(isset($encours) && $encours == 'compte'){echo 'class="active"';}    ?>><a href="./compte.php"><span class="glyphicon glyphicon-user"></span> Mon compte</a></li>
+              <li <?php if(isset($encours) && $encours == 'entreprises'){echo 'class="active"';}    ?>><a href="./entreprises.php"><span class="glyphicon glyphicon-th"></span> Entreprises</a></li>
+              <li <?php if(isset($encours) && $encours == 'contact'){echo 'class="active"';}    ?>><a href="./contact.php"><span class="glyphicon glyphicon-send"></span> Contact</a></li>
             </ul>
           </div>
 
