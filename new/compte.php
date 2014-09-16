@@ -214,6 +214,9 @@
 				// Si prise de rendez vous
 				else
 				{
+					$req = $bdd->query('select * from infosite where nom="nbrdv"');
+					$donnes = $req->fetch();
+					$nombreRDVParPersonne = $donnes['contenu'];
 					//echo'<p>Attention ! À partir du 2 Décembre, les rendez-vous ne seront plus modifiables.</p>';
 					$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure, rdv.id AS id
 											FROM rdv
@@ -238,7 +241,7 @@
 					}
 					//cf variables.php pour changer la  variable.
 					if($i>=$nombreRDVParPersonne){
-						echo '<div class="alert alert-danger" role="alert">Vous ne pouvez plus prendre de rendez-vous, ils sont limités à 1/personne pour le moment.</div>';
+						echo '<div class="alert alert-danger" role="alert">Vous ne pouvez plus prendre de rendez-vous, ils sont limités à '.$nombreRDVParPersonne.'/personne pour le moment.</div>';
 					}
 					else{
 						echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
