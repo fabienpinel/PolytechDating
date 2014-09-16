@@ -56,7 +56,10 @@
     			echo ' <div class="alert alert-danger" role="alert">La modification du site ne s\'est pas bien terminée. Veuillez recommencer.</div>';
     			break;
     	}
-    }
+    	}
+    	if(isset($_GET['dlcvtheque'])){
+    		downloadCVTheque();
+    	}
 
 
 
@@ -82,6 +85,8 @@
 			echo '<button class="btn btn-default" onClick="tout();" style="display: inline-block;"><span class="glyphicon glyphicon-minus" id="up" ></span> Tout</button>';
 			echo'<div class="boutons">
 					<a class="btn btn-warning" href="./modification_site.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier le site</a> 
+					<a class="btn btn-success" href="?dlcvtheque"><span class="glyphicon glyphicon-save"></span> Télécharger la CVThèque</a> 
+					
 				</div></div>';
 			/* LISTE DES ETUDIANTS INSCRITS */
 			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
