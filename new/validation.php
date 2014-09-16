@@ -21,6 +21,8 @@
 	
 	$bdd->exec('	INSERT INTO rdv
 					VALUES (NULL, ' .$donnesEntreprise['id']. ', ' .$_SESSION['id']. ', "' .$_POST['heure']. '")');
+	//envoi mail de confirmation
+	mail(''.$_SESSION['mail'], 'Confirmation rendez-vous Polytech Dating', 'Bonjour '.$_SESSION['prenom'].' '.$_SESSION['nom'].', vous avez pris rendez-vous avec '.$_POST['entreprise'].' à '.$_POST['heure'].'.');
 	echo '<p>Vous avez rendez vous avec ' .$_POST['entreprise'] . ' &agrave; ' .$_POST['heure']. '.</p>';
 	echo '<p>Redirection...</p>';
 	redirect("compte.php",2);

@@ -4,7 +4,7 @@
 	$encours="modifier_site"; 
 	checkLogin();
 	$bdd = connect_database();
-	$requete = $bdd->query('SELECT * from infosite');
+	$requete = $bdd->query('SELECT * from infosite ORDER BY id');
 	
 	if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && isset($_POST['descriptionEntreprise'])){
 		//update dans la bdd

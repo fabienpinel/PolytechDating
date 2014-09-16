@@ -1,15 +1,11 @@
 <?php 
 	session_start(); 
 	/*
-	Compte entreprise - ajouter l'acces aux CVs des etudiants inscrits pour eux ->OK
-						- visualiser les rdv -> OK
-						- 
-						- ajouter type etudiant recherché ??
-						- ajouter le lien vers site polytech pour ajouter une offre de stage -> OK
+	 - ajouter type etudiant recherché ??
+
 	compte etudiant : -ajouter envoi de mail a chaque prise pour résumé les infos
 	historique
-	boutons dl cvtheque, raz bdd etudiant
-	compte root, changer fleche pour trait-- OK
+	raz bdd etudiant
 	*/
 	$encours="compte";
 	include("header.php");
