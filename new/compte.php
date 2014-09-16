@@ -239,12 +239,18 @@
 									$i++;
 				
 					}
-					//cf variables.php pour changer la  variable.
 					if($i>=$nombreRDVParPersonne){
 						echo '<div class="alert alert-danger" role="alert">Vous ne pouvez plus prendre de rendez-vous, ils sont limités à '.$nombreRDVParPersonne.'/personne pour le moment.</div>';
 					}
 					else{
-						echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
+						$req = $bdd->query('select * from infosite where nom="priseRDVActive"');
+						$donnes = $req->fetch();
+						if($donnes['contenu']){
+							echo'	<p> Afin de prendre un nouveau rendez-vous, cliquez <a href="rdv.php">ici</a>.</p>';	
+						}else{
+							echo '<div class="alert alert-danger" role="alert">La prise de rendez-vous est désactivée.</div>';
+						}
+						
 					}
 				}
 				?>

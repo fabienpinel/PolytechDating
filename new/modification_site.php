@@ -12,8 +12,9 @@
 		$r2 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionEleve']).'" WHERE nom = "descriptionEleve"');
 		$r3 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionEntreprise']).'" WHERE nom = "descriptionEntreprise"');
 		$r4 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['nbrdv']).'" WHERE nom = "nbrdv"');
+		$r5 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['priseRdvActive'].'" WHERE nom = "priseRDVActive"');
 
-			if(!$r1 && !$r2 && !$r3 && !$r4){
+			if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5){
 				redirect("./compte.php?code=3","0");
 			}else{
 				//Tout s'est bien passé
@@ -31,6 +32,13 @@
 						<label for="nbrdv" class="col-sm-4 control-label">Nombre de Rdv autorisés</label>
 						<div class="col-sm-8">
 							<input type="text" name="nbrdv" id="nbrdv" class="form-control" value="<?php echo $res['contenu']; ?>" required />
+						</div>
+				</div>
+			<?php $res = $requete->fetch(); ?>
+    		<div class="form-group">
+						<label for="priseRdvActive" class="col-sm-4 control-label">Prise de rendez-vous active</label>
+						<div class="col-sm-8">
+							<input type="checkbox" name="priseRdvActive" id="priseRdvActive" class="form-control"  <?php if($res['contenu']){echo 'checked';} ?>>
 						</div>
 				</div>
 				<?php while($res = $requete->fetch()){	?>

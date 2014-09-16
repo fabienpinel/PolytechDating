@@ -5,6 +5,31 @@
 	checkLogin();
 	
 	$bdd = connect_database();
+	$req = $bdd->query('select * from infosite where nom="priseRDVActive"');
+	$donnes = $req->fetch();
+	if(!$donnes['contenu']){
+		redirect("./compte.php","0");
+	}
+	$req = $bdd->query('select * from infosite where nom="nbrdv"');
+	$donnes = $req->fetch();
+	$nombreRDVParPersonne = $donnes['contenu'];
+	$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure, rdv.id AS id
+											FROM rdv
+											INNER JOIN entreprise
+												ON entreprise.id = rdv.entreprise
+											INNER JOIN membre
+												ON membre.id = rdv.membre
+											WHERE membre.id=' .$_SESSION['id']. '');
+											
+					$i=0;
+					while($donnes = $req->fetch()){
+									$i++;
+				
+					}
+					if($i>=$nombreRDVParPersonne){
+						redirect("./compte.php","0");
+					}
+
 	echo'<div class="jumbotron">
       	<div class="container">';
 	
