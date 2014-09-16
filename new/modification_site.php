@@ -36,7 +36,7 @@
 				</div>
 			<?php $res = $requete->fetch(); ?>
     		<div class="form-group">
-						<label for="priseRdvActive" class="col-sm-4 control-label">Prise de rendez-vous active</label>
+						<label for="priseRdvActive" class="col-sm-4 control-label">Activer la prise de rendez-vous</label>
 						<div class="col-sm-8">
 							<input type="checkbox" name="priseRdvActive" id="priseRdvActive" class="form-control"  <?php if($res['contenu']){echo 'checked';} ?>>
 						</div>
@@ -49,7 +49,10 @@
 						</div>
 					</div>
 					<?php } ?>
-					<button class="btn btn-primary boutonsCompte" name="send" type="submit"><span class="glyphicon glyphicon-floppy-save"></span> Enregistrer</button>
+					<div class="boutonsCompte">
+					<button class="btn btn-primary " name="send" type="submit"><span class="glyphicon glyphicon-floppy-save"></span> Enregistrer</button>
+					<a href="./compte.php" ><button type="button"  class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Annuler</button></a>
+				</div>
 		</form>
 
     </div>
