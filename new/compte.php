@@ -2,8 +2,6 @@
 	session_start(); 
 	/*
 	 - ajouter type etudiant recherché ??
-
-	compte etudiant : -ajouter envoi de mail a chaque prise pour résumé les infos
 	historique
 	raz bdd etudiant
 	*/

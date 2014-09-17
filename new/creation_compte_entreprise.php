@@ -60,13 +60,13 @@
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée
 					$req = $bdd->exec('	INSERT INTO entreprise(nom, com, mail, website, nomImage, formatLogo, pass)
-							VALUES("' .$_POST['nom']. '", "' .$_POST['com']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
+							VALUES("' .$_POST['nom']. '", "' .$_POST['promotionr']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
 					if($req){
 						//L'utilisateur est bien entré dans la BDD
 						//Il faut maintenant créer la ligne de rendez vous qui lui est consacrée dans la bdd
 						$rendezvous = $bdd->exec('INSERT INTO heure(entreprise, 14h00, 14h20, 14h40, 15h00, 15h20, 15h40, 16h00, 16h20, 16h40, 17h00) VALUES((select id from entreprise where mail ="'.$_POST['mail'].'" AND nom="' .$_POST['nom']. '" AND website= "'.$_POST['website'].'"), 0,0,0,0,0,1,0,0,0,0)');
 						if($rendezvous){
-							echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet "<a href="./compte.php">Mon compte</a>". Vous y serez redirigé(e) dans 3 secondes.</p>';
+							echo '<p> Votre compte a bien été crée.<br/>Vous pouvez désormais vous y connecter via l\'onglet <a href="./compte.php">Mon compte</a>. Vous y serez redirigé(e) dans 3 secondes.</p>';
 							redirect("./compte.php", "3");
 						}else{
 							//La requete rdv a échouée

@@ -160,11 +160,18 @@
 							<input type="text" name="website" id="website" class="form-control" placeholder="Website" required/>
 						</div>
 					</div>
-					<!-- Spécialité -->
+					<!-- Promotion -->
 					<div class="form-group">
-						<label for="com" class="col-sm-4 control-label">Spécialité visée</label>
+						<label for="promotionr" class="col-sm-4 control-label">Promotion recherchée</label>
 						<div class="col-sm-8">
-							<input type="text" name="com" id="com" class="form-control" placeholder="Spécialité visée" required/>
+							<select name="promotionr" id="promotionr"  class="form-control" required>
+								<option value="" disabled selected>Sélectionnez la promotion recherchée</option>
+								<option value="SI5">INGENIEUR INFORMATIQUE</option>
+								<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
+								<option value="MAM5">INGENIEUR MAM</option>
+								<option value="M2 IMAFA">M2 IMAFA</option>
+								<option value="IFI">M2 IFI</option>
+							</select>
 						</div>
 					</div>
 					<!-- LOGO input -->
