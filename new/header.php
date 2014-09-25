@@ -9,11 +9,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Polytech Dating">
     <meta name="author" content="Fabien Pinel">
-    <link rel="icon" type="image/png" href="/images/icon.ico" />
+    <link rel="icon" type="image/png" href="_/images/favicon.png" />
 
     <title>Polytech Dating 2014</title>
 

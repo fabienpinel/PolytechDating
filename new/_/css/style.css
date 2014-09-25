@@ -1,3 +1,6 @@
+body{
+	background: url(../images/subtle_grunge.png) repeat #FFFFFF;
+}
 /* nouveau CSS -> Bootstrap */
 #header .container{
 	height: 80px;
@@ -115,6 +118,7 @@ ul#listeMenu li a{
 .entrepriseLayout #resume
 {
 	padding: 10px 10px 10px 20px; 
+	vertical-align: top;
 }
 /*  FIN inscription.php	*/
 /* END  nouveau CSS -> Bootstrap */
@@ -127,6 +131,7 @@ margin: auto;
 #header{
 	margin: auto;
 	width: 790px;
+	max-width: 100%;
 	padding-bottom: 105px;
 }
 .edition{
@@ -208,5 +213,13 @@ footer{
 	background-color: black;
 	margin-top: 30px;
 	width: 100%;
+}
+#long-desc{
+	margin-left: 0px;
+	max-width: 100%;
+	text-align: justify;
+}
+#vignettes{
+	margin-left: 0%;
 }
 }

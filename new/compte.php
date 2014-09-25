@@ -1,7 +1,7 @@
 <?php 
 	session_start(); 
 	/*
-	 - ajouter type etudiant recherché ??
+	bouton raz rdv entreprise par entreprise
 	historique
 	raz bdd etudiant
 	*/
@@ -53,7 +53,18 @@
     	}
     	if(isset($_GET['dlcvtheque'])){
     		downloadCVTheque();
+    	}else if(isset($_GET['raz'])){
+    		razbdd();
+    		redirect("./compte.php","0");
     	}
+    		echo '<script>
+    		function raz(){
+    			if(confirm("êtes vous sûr de vouloir tout remettre à zéro ? ->rdv, messages...")){
+    				document.location.href="?raz" ;
+    			}
+    		}
+    		</script>';
+    	
 
 
 
@@ -78,8 +89,9 @@
 				echo '<div style="display: inline-block;">';
 			echo '<button class="btn btn-default" onClick="tout();" style="display: inline-block;"><span class="glyphicon glyphicon-minus" id="up" ></span> Tout</button>';
 			echo'<div class="boutons">
-					<a class="btn btn-warning" href="./modification_site.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier le site</a> 
-					<a class="btn btn-success" href="?dlcvtheque"><span class="glyphicon glyphicon-save"></span> Télécharger la CVThèque</a> 
+			<a class="btn btn-success" href="?dlcvtheque"><span class="glyphicon glyphicon-save"></span> Télécharger la CVThèque</a>
+					<a class="btn btn-warning" href="./modification_site.php"  role="button"><span class="glyphicon glyphicon-cog"></span> Modifier le site</a> 
+					<button class="btn btn-danger" onClick="raz()"><span class="glyphicon glyphicon-remove-circle"></span> RAZ générale</button>  
 					
 				</div></div>';
 			/* LISTE DES ETUDIANTS INSCRITS */
@@ -259,7 +271,7 @@
 			if(!$_SESSION['active']){ ?>
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-warning-sign"></span>
-				Votre compte n'est pas actif. Pour demander l'activation afin de participer au prochain Polytech Dating : <a href="mailto:veronique.guerin@polytech.unice.fr">veronique.guerin@polytech.unice.fr</a>.
+				Votre compte n'est pas actif. Pour demander l'activation afin de participer au prochain Polytech Dating, veuillez contacter Mme Véronique Guérin : <a href="mailto:veronique.guerin@polytech.unice.fr">veronique.guerin@polytech.unice.fr</a>.
 			</div>
 			<?php } ?>
 			<div>
@@ -272,8 +284,10 @@
 				<div class="entrepriseLayout">
 					<img src="./_/images/entreprises/<?php echo $_SESSION['nomImage'].'.'.$_SESSION['formatLogo'];?>" />
 					<div id="resume">
-						<p>Bonjour <?php echo $_SESSION['nom']; ?> !</p>
-						<p><?php echo $_SESSION['mail']; ?></p>
+						<p>Bonjour <b><?php echo $_SESSION['nom']; ?></b> !</p>
+						<p>E-mail : <b><?php echo $_SESSION['mail']; ?></b></p>
+						<p>Site web : <a href="<?php echo $_SESSION['website']; ?>" target="_blanck"><?php echo $_SESSION['website']; ?></a></p>
+						<p>Vous recherchez des étudiants en : <b><?php echo $_SESSION['com']; ?></b></p>
 					</div>
 				</div>
 				

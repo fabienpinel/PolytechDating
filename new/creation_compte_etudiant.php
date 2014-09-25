@@ -55,7 +55,9 @@
 			if (in_array($extension_upload,$extensions_valides)){
 				$dossier = './_/cv/';
 				$fichier = $_POST['nom'].'-'.$_POST['prenom'].'-'.$_POST['promotion'].'.'.$extension_upload;
+				chmod($dossier, 755);
 				$resultat = move_uploaded_file($_FILES['cv']['tmp_name'], $dossier.$fichier);
+				chmod($dossier.$fichier, 755);
 				if ($resultat){
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée

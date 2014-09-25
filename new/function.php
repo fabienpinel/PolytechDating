@@ -1,7 +1,26 @@
 <?php
+function razbdd(){
+	/*
+		desactiver toutes les entreprises
+		Supprimer tous les rdv
+		re-normaliser la table heure 
+		supprimer les messages
+		supprimer les membres ?
 
+	*/
+	$bdd = connect_database();
+	//désactiver toutes les entreprises
+	$req = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE 1=1;');
+	//Supprimer tous les rendez-vous
+	$req = $bdd->exec('DELETE from rdv where 1=1;');
+	//réinitialiser la table heure
+	$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
+	//supprimer les messages de la BDD
+	$req = $bdd->exec('DELETE FROM message WHERE 1=1;');
+}
 function downloadCVTheque(){
 	// On instancie la classe.
+		chmod($dossier, 755);
       $zip = new ZipArchive();
       
       if(is_dir('_/cv/'))
