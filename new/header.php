@@ -2,7 +2,7 @@
   include('function.php');
  ?>
 <!--
-  Site développé par Amir Ben Slimane et Fabien Pinel
+  Site développé par Fabien Pinel (pinel.fabien@gmail.com - http://fabienpinel.com)
 -->
 <!DOCTYPE html>
 <html lang="fr">

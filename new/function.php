@@ -23,7 +23,7 @@ function downloadCVTheque(){
 		chmod($dossier, 755);
       $zip = new ZipArchive();
       
-      if(is_dir('_/cv/'))
+      if(is_dir('./_/cv/'))
       {
         // On teste si le dossier existe, car sans ça le script risque de provoquer des erreurs.
 	
@@ -32,7 +32,7 @@ function downloadCVTheque(){
 	  // Ouverture de l’archive réussie.
 
 	  // Récupération des fichiers.
-	  $fichiers = scandir('_/cv/');
+	  $fichiers = scandir('./_/cv/');
 	  // On enlève . et .. qui représentent le dossier courant et le dossier parent.
 	  unset($fichiers[0], $fichiers[1], $fichiers[2]);
 	  
@@ -40,7 +40,7 @@ function downloadCVTheque(){
 	  {
 	    // On ajoute chaque fichier à l’archive en spécifiant l’argument optionnel.
 	    // Pour ne pas créer de dossier dans l’archive.
-	    if(!$zip->addFile('_/cv/'.$f, $f))
+	    if(!$zip->addFile('./_/cv/'.$f, $f))
 	    {
 	      echo 'Impossible d&#039;ajouter &quot;'.$f.'&quot;.<br/>';
 	    }
