@@ -18,6 +18,7 @@
     <title>Polytech Dating 2014</title>
 
     <!-- Bootstrap core CSS -->
+  <!--<link rel="stylesheet" href="_/css/bootstrap-3.2.0.css" />-->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="_/css/style.css" />
   <link rel="icon" type="image/png" href="/images/icon.ico" />
