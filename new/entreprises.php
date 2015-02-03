@@ -6,8 +6,7 @@
 	 <div class="jumbotron">
       <div class="container">
 		<div id="entreprises">
-			<table>
-				<tr>
+			<div id="listentreprises">
 					<!-- Affichage entreprise -->
 					<?php
 							$bdd = connect_database();
@@ -16,24 +15,19 @@
 							while($donnees = $entreprise->fetch())
 							{
 								if($donnees['active'] == true) {
-										$retour = $retour + 1; 
 										?>
-										<td>
+										<div class="OneEntreprise">
 										<a target="_blanck" href="<?php echo $donnees['website'] ?>">
 										<img src="./_/images/entreprises/<?php echo $donnees['nomImage'].'.'.$donnees['formatLogo'];?>" /></a>
 										<p><?php echo $donnees['nom'] ?></p>
-										</td>
+										</div>
 							<?php
 								 
-									if($retour > 3){
-										echo '</tr><tr>';
-										$retour = 0;
-									}
+									
 								}
 							} 
 					?>
-				</tr>
-			</table>
+			</div>
 
 		</div>
 	</div>

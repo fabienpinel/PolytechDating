@@ -149,19 +149,25 @@ font-size: 85%;
 font-family: Arial;
 }
 
-
-
-#entreprises table{
+.OneEntreprise{
+	display: inline-block;
+	width: 120px;
+	height: auto;
+	padding: 15px;
+}
+#listentreprises{
 	max-width: 80%;
-	margin:auto;
+	display: inline-block;
+	text-align: center;
+	margin: auto;
+}
+#entreprises{
 	text-align: center;
 }
-#entreprises td img{
+.OneEntreprise img{
 	width: 100px;
 }
-#entreprises td{
-	padding:10px;
-}
+
 .rdvEtudiants{
 	max-width: 80%;
 	margin: auto;
@@ -221,5 +227,10 @@ footer{
 }
 #vignettes{
 	margin-left: 0%;
+	margin-right: 0%;
+}
+.container{
+	padding-left: 0px;
+	padding-right: 0px;
 }
 }
