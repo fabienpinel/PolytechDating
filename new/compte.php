@@ -9,8 +9,7 @@
 	include("header.php");
 	include("variables.php");
 
-	//fonction de connexion située dans function.php
-	$bdd = connect_database();
+	
 	echo '  
     	<div class="jumbotron">
       	<div class="container">';
@@ -35,6 +34,8 @@
 	*/
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{
+		//fonction de connexion située dans function.php
+		$bdd = connect_database();
 		// Si compte root
 		if($_SESSION['type'] == 'root'){
 			getRootContent($bdd);
@@ -54,10 +55,8 @@
 		getNotConnectedContent();
 	}
 
-	echo '</div></div>';
-
-
-
+	echo '</div><!-- fermeture container -->
+	</div><!-- fermeture jumbotron -->';
 
 /*	##########	FONCTIONS NECESSAIRES AU CONTENU DE LA PAGE    ############# */
 

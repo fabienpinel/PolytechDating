@@ -13,6 +13,6 @@
 	}
 	
 	echo '<script language="Javascript">
-	document.location.replace("./compte.php");
-	</script>';
+			document.location.replace("./compte.php");
+		  </script>';
 ?>

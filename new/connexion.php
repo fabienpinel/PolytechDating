@@ -2,8 +2,10 @@
 	session_start();
 	include("header.php");
 	
+	/*
 	ini_set ('session.bug_compat_42', 0); 
 	ini_set ('session.bug_compat_warn', 0); 
+	*/
 	echo '  
     	<div class="jumbotron">
       	<div class="container">';
