@@ -8,6 +8,7 @@
 	$encours="compte";
 	include("header.php");
 	include("variables.php");
+
 	//fonction de connexion située dans function.php
 	$bdd = connect_database();
 	echo '  
@@ -28,7 +29,6 @@
     	}
     }
 
-    
 
 	/*
 	*	Si les identifiants sont corrects
@@ -36,8 +36,36 @@
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{
 		// Si compte root
-		if($_SESSION['type'] == 'root')
-		{
+		if($_SESSION['type'] == 'root'){
+			getRootContent($bdd);
+		}
+		// Si compte user
+		else if($_SESSION['type'] == 'membre'){
+			getUserContent($bdd);
+		}
+		//Si compte entreprise
+		else if($_SESSION['type'] == 'entreprise'){	
+			getCompanyContent($bdd);
+		}
+	}
+	else
+	{	
+		//Si pas connecté
+		getNotConnectedContent();
+	}
+
+	echo '</div></div>';
+
+
+
+
+/*	##########	FONCTIONS NECESSAIRES AU CONTENU DE LA PAGE    ############# */
+
+/*
+	Fonction affichant le contenu de la page 
+	"Compte" lorsque l'utilisateur est root
+*/
+function getRootContent($bdd){
 		/*	Prise en compte des codes retours */
     	if(isset($_GET['code'])){
     	switch($_GET['code']){
@@ -67,8 +95,7 @@
     	
 
 
-
-			/* Traitement du formumlaire de changememt d'état si présent */
+		/* Traitement du formumlaire de changememt d'état si présent */
     	if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
     	if($_POST['activation']){
     		$resultat = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE id = "'.$_POST['idEntreprise'].'"');
@@ -86,7 +113,7 @@
 				A REVOIR !!!
 				TODO
 			*/
-				echo '<div style="display: inline-block;">';
+			echo '<div style="display: inline-block;">';
 			echo '<button class="btn btn-default" onClick="tout();" style="display: inline-block;"><span class="glyphicon glyphicon-minus" id="up" ></span> Tout</button>';
 			echo'<div class="boutons">
 			<a class="btn btn-success" href="?dlcvtheque"><span class="glyphicon glyphicon-save"></span> Télécharger la CVThèque</a>
@@ -95,7 +122,19 @@
 					
 				</div></div>';
 			/* LISTE DES ETUDIANTS INSCRITS */
-			echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
+			getListRegisteredStudentWithRoot($bdd);
+
+			/*  LISTE DES RDV */ 
+			getListMeetingsWithRoot($bdd);
+
+			/* LISTE DES ENTREPRISES */
+			getListCompanyWithRootAccount($bdd);
+}
+/*
+	Affichage des étudiants inscrits pour le compte root
+*/
+function getListRegisteredStudentWithRoot($bdd){
+	echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
 			echo'<table class="table table-hover" id="etudiants">';
 			echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Parcours</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
@@ -108,14 +147,12 @@
 				echo '</tr>';
 			}
 			echo'</table>';
+}
 
-
-
-
-
-
-
-			/*  LISTE DES RDV */ 
+/*
+	Affichage des rendez vous pris pour le compte root
+*/
+function getListMeetingsWithRoot($bdd){
 			echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
@@ -140,8 +177,6 @@
 				
 
 
-
-
 			/* LISTE DES MESSAGES */
 			echo'<h2 id="titlemessages">Messages laissés grâce au formulaire de contact <button class="btn btn-default" onClick="reduire(messages);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			echo '<div id="messages">';
@@ -154,9 +189,12 @@
 					</p>';	
 
 			echo '</div>';
-
-			/* LISTE DES ENTREPRISES */
-			echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
+}
+/*
+	Affichage de la liste des entreprises pour le compte root
+*/    
+function getListCompanyWithRootAccount($bdd){
+				echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			echo '<p>Une fois l\'entreprise validée, elle apparaît dans le listing des entreprises sur la page "entreprises" avec son logo et elle est accessible dans la prise de rendez vous pour les étudiants.</p>';
 			//lister la table entreprise
 			$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
@@ -194,15 +232,13 @@
 				echo '</form></td></tr>';
 			}
 			echo '</table>';
-
-
-
-
-		}
-		// Si compte user
-		else if($_SESSION['type'] == 'membre')
-		{
-				$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure
+}
+/*
+	Fonction affichant le contenu de la page 
+	"Compte" lorsque l'utilisateur est un étudiant "user"
+*/
+function getUserContent($bdd){
+	$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure
 										FROM rdv
 										INNER JOIN entreprise
 											ON entreprise.id = rdv.entreprise
@@ -259,16 +295,15 @@
 						
 					}
 				}
-				?>
-				<div class="boutonsCompte">
-					<a class="btn btn-warning" href="./modification_cpte.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier mon compte</a>
-				</div>
+				getEditAccountButton();
+}
 
-		<?php
-		}
-		else if($_SESSION['type'] == 'entreprise')
-		{	//Si compte entreprise
-			if(!$_SESSION['active']){ ?>
+/*
+	Fonction affichant le contenu de la page 
+	"Compte" lorsque l'utilisateur est une entreprise
+*/
+function getCompanyContent($bdd){
+	if(!$_SESSION['active']){ ?>
 			<div class="alert alert-danger" role="alert">
 				<span class="glyphicon glyphicon-warning-sign"></span>
 				Votre compte n'est pas actif. Pour demander l'activation afin de participer au prochain Polytech Dating, veuillez contacter Mme Véronique Guérin : <a href="mailto:veronique.guerin@polytech.unice.fr">veronique.guerin@polytech.unice.fr</a>.
@@ -313,40 +348,55 @@
 
 					?>
 				</div>
-				<div class="boutonsCompte">
-					<a class="btn btn-warning" href="./modification_cpte.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier mon compte</a> 
-				</div>
+
+				<?php getEditAccountButton(); ?>
 			</div>
 
 			<?php
-		}
-	}
-	else
-	{	//Si pas connecté
-		echo '<div id="compte">
+}
+
+/*
+	Fonction affichant le contenu de la page 
+	"Compte" lorsque l'utilisateur n'est pas connecté
+*/
+function getNotConnectedContent(){
+	?>
+	<div id="compte">
 		<h3>Cette rubrique va vous permettre de gérer vos rendez-vous.</h3>
 		
 		<form class="form-signin" role="form" action="connexion.php" method="post">
-        <h2 class="form-signin-heading">Connectez vous</h2>
-        <input type="text" class="form-control" placeholder="Email" name="mail" id="mail" required="" autofocus="">
-        <input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" required="">
-        <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
-        <a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 1px;">Inscription</button></a>
+        	<h2 class="form-signin-heading">Connectez vous</h2>
+        	<input type="text" class="form-control" placeholder="Email" name="mail" id="mail" required="" autofocus="">
+        	<input type="password" class="form-control" name="pass" id="pass" placeholder="Mot de passe" required="">
+        	<br />
+        	<button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+        	<a href="./inscription.php"><button class="btn btn-lg btn-success btn-block" type="button" style="margin-top: 1px;">Inscription</button></a>
       </form>
 
-		</div>';
-	}
+	</div>
+	<?php
+}
 
-	echo '</div></div>';
-	?>
+/*
+	Affichage du bouton "Modifier mon compte"
+*/
+function getEditAccountButton(){
+?>
+	<div class="boutonsCompte">
+		<a class="btn btn-warning" href="./modification_cpte.php"  role="button"><span class="glyphicon glyphicon-edit"></span> Modifier mon compte</a> 
+	</div>
+<?php
+}
+?>
 	<script>
-		//Cacher les div de la page root au chargement pour plus de lisibilité
 		window.onload = function() {
-			/*reduire('#messages')
+			/*
+			Cacher les div de la page root au chargement pour plus de lisibilité
+			reduire('#messages')
 			reduire('#listingEntreprise');
 			reduire('#rdvEtudiants');
-			reduire('#etudiants');*/
+			reduire('#etudiants');
+			*/
 		}
 
 		function reduire(divi){
@@ -369,7 +419,6 @@
 				$(messages).fadeIn(200, null);
 				$(listingEntreprise).fadeIn(200, null);
 			}
-			
 		}
 	</script>
-	<?php include("footer.php"); ?>
+<?php include("footer.php"); ?>
