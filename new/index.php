@@ -12,17 +12,11 @@
           <div class="alert alert-danger" role="alert">
             Ce site est en développement !
           </div>
-         <?php $req = $bdd->query('SELECT * FROM infosite WHERE nom="edition";');
-          $donnees = $req->fetch();?>
           
-        <h1>Polytech Dating édition <?php echo utf8_encode($donnees['contenu']); ?> !</h1>
+        <h1>Polytech Dating édition <?php echo getInfoSiteInformation("edition"); ?> !</h1>
         <br />
         <div id="long-desc">
-          <?php 
-          $req = $bdd->query('SELECT * FROM infosite WHERE nom="descriptionLongue";');
-          $donnees = $req->fetch();
-          echo utf8_encode($donnees['contenu']); 
-          ?>
+          <?php echo getInfoSiteInformation("descriptionLongue"); ?>
         </div><!-- long desc -->
       </div><!-- container -->
     </div><!-- jumbotron -->
@@ -32,22 +26,14 @@
         <div class="col-md-5">
           <h2 id="vignette-inscription">Elèves</h2>
           <p class="vignette-desc">
-             <?php 
-          $req = $bdd->query('SELECT * FROM infosite WHERE nom="descriptionEleve";');
-          $donnees = $req->fetch();
-          echo utf8_encode($donnees['contenu']); 
-          ?>
+             <?php echo getInfoSiteInformation("descriptionEleve"); ?>
           </p>
           <p id="vignette-inscription"><a class="btn btn-success" href="./inscription.php?type=etudiant" role="button">Je m'inscris »</a></p>
         </div>
         <div class="col-md-5">
           <h2 id="vignette-inscription">Entreprises</h2>
           <p class="vignette-desc" >
-             <?php 
-          $req = $bdd->query('SELECT * FROM infosite WHERE nom="descriptionEntreprise";');
-          $donnees = $req->fetch();
-          echo utf8_encode($donnees['contenu']); 
-          ?>
+             <?php echo getInfoSiteInformation("descriptionEntreprise"); ?>
           </p>
           <p id="vignette-inscription"><a class="btn btn-warning" href="./inscription.php?type=entreprise"  role="button">Je m'inscris »</a></p>
        </div>

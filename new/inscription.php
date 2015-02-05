@@ -12,7 +12,7 @@
 		echo "<p>Vous êtes connecté.</p>";
 	}else{ 
 		//Si les inscriptions sont fermées
-		if(!getInscriptionsOuvertes()){
+		if(!getInfoSiteInformation("inscriptionsOuvertes")){
 	?>
 	<div class="alert alert-danger" role="alert">
 		Les inscriptions sont fermées pour le moment. 
@@ -38,7 +38,7 @@
 				<?php
 			}else{
 				//Si les inscriptions sont fermées
-				if(!getInscriptionsOuvertes()){
+				if(!getInfoSiteInformation("inscriptionsOuvertes")){
 					redirect("./inscription.php",0);
 				}
 				if($_GET['type'] == 'etudiant'){

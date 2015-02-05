@@ -186,16 +186,28 @@ function redirect($url, $time=3)
      echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
    } 
 }
-function getMailContact(){
+function getInfoSiteInformation($info){
 	$bdd= connect_database();
-	$req = $bdd->query('SELECT * FROM infosite WHERE nom="mailContact";');
+	$req = $bdd->query('SELECT * FROM infosite WHERE nom="'.$info.'";');
     $donnees = $req->fetch();
-    return utf8_encode($donnees['contenu']); 
+    return utf8_encode($donnees['contenu']);
+}
+function getMailContact(){
+    return getInfoSiteInformation("mailContact"); 
 }
 function getInscriptionsOuvertes(){
-	$bdd= connect_database();
-	$req = $bdd->query('SELECT * FROM infosite WHERE nom="inscriptionsOuvertes";');
-    $donnees = $req->fetch();
-    return ($donnees['contenu']); 
+    return getInfoSiteInformation("inscriptionsOuvertes"); 
+}
+function getEditionNumber(){
+    return getInfoSiteInformation("edition"); 
+}
+function getDescriptionLongue(){
+    return getInfoSiteInformation("descriptionLongue"); 
+}
+function getDescriptionEleve(){
+	return getInfoSiteInformation("descriptionEleve");
+}
+function getDescriptionEntreprise(){
+	return getInfoSiteInformation("descriptionEntreprise");
 }
 ?>

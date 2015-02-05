@@ -15,7 +15,7 @@
     <meta name="author" content="Fabien Pinel">
     <link rel="icon" type="image/png" href="_/images/favicon.png" />
 
-    <title>Polytech Dating 2014</title>
+    <title>Polytech Dating <?php echo getInfoSiteInformation("edition"); ?></title>
 
     <!-- Bootstrap core CSS -->
   <!--<link rel="stylesheet" href="_/css/bootstrap-3.2.0.css" />-->
