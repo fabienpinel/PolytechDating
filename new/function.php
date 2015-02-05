@@ -192,5 +192,10 @@ function getMailContact(){
     $donnees = $req->fetch();
     return utf8_encode($donnees['contenu']); 
 }
-
+function getInscriptionsOuvertes(){
+	$bdd= connect_database();
+	$req = $bdd->query('SELECT * FROM infosite WHERE nom="inscriptionsOuvertes";');
+    $donnees = $req->fetch();
+    return ($donnees['contenu']); 
+}
 ?>

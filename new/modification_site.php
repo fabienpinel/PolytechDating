@@ -14,7 +14,8 @@
 		$r4 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['nbrdv']).'" WHERE nom = "nbrdv"');
 		$r5 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['priseRdvActive'].'" WHERE nom = "priseRDVActive"');
 		$r6 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['mailContact']).'" WHERE nom = "mailContact"');
-			if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5 && !$r6){
+		$r7 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['inscriptionsOuvertes'].'" WHERE nom = "inscriptionsOuvertes"');
+			if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5 && !$r6 && !$r7){
 				redirect("./compte.php?code=3","0");
 			}else{
 				//Tout s'est bien passé
@@ -27,6 +28,16 @@
     <div class="container">
     	<h1>Modifier le site</h1>
     	<form data-toggle="validator" role="form" class="form-horizontal" id="modificationSite" action="modification_site.php" method="post" enctype="multipart/form-data">
+    		<?php 
+    			$requete = $bdd->query('SELECT * from infosite WHERE nom="inscriptionsOuvertes"');
+    			$res = $requete->fetch(); 
+    		?>
+    		<div class="form-group">
+						<label for="inscriptionsOuvertes" class="col-sm-4 control-label">Ouvrir les inscriptions</label>
+						<div class="col-sm-8">
+							<input type="checkbox" name="inscriptionsOuvertes" id="inscriptionsOuvertes" class="form-control"  <?php if($res['contenu']){echo 'checked';} ?>>
+						</div>
+			</div>
     		<?php 
     			$requete = $bdd->query('SELECT * from infosite WHERE nom="nbrdv"');
     			$res = $requete->fetch(); 

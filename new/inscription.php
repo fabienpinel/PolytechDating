@@ -10,11 +10,15 @@
 	<?php if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
 	{
 		echo "<p>Vous êtes connecté.</p>";
-	}else{ ?>
+	}else{ 
+		//Si les inscriptions sont fermées
+		if(!getInscriptionsOuvertes()){
+	?>
 	<div class="alert alert-danger" role="alert">
 		Les inscriptions sont fermées pour le moment. 
 	</div>
 		<?php 
+		}//Fin si les inscriptions st fermées
 			if(!isset($_GET['type'])){
 				//le type est indéfini
 				//on affiche le choix de type (etudiant // entreprise)
@@ -33,6 +37,10 @@
 				</div>
 				<?php
 			}else{
+				//Si les inscriptions sont fermées
+				if(!getInscriptionsOuvertes()){
+					redirect("./inscription.php",0);
+				}
 				if($_GET['type'] == 'etudiant'){
 		
 					$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
