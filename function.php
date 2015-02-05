@@ -305,7 +305,7 @@ function connexion($bdd)
 		session_start();
 		$_SESSION['id'] = $resultat['id'];
 		$_SESSION['mail'] = $_POST ['mail'];
-		echo 'Vous �tes connect� !';
+		echo 'Vous êtes connecté !';
 	}
 
 	if (isset($_SESSION['id']) AND isset($_SESSION['mail']))
@@ -328,4 +328,5 @@ function redirect($url, $time=3)
      echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
    } 
 } 
+
 ?>

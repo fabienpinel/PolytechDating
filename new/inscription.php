@@ -84,7 +84,7 @@
 					<div class="form-group">
 						<label for="mail" class="col-sm-4 control-label">E-mail</label>
 						<div class="col-sm-8">	
-							<input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail (@polytech.unice.fr)" required/>
+							<input type="email" class="form-control" name="mail" id="mail" placeholder="E-mail" required/>
 						</div>
 					</div>
 					<!-- CV input -->
@@ -109,7 +109,7 @@
 					<div class="form-group">
 						<label for="passEtudiant" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="passEtudiant" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
+							<input type="password" name="passEtudiant" id="passEtudiant" class="form-control" placeholder="Minimum 8 caractères avec 1 chiffre" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" data-minlength="8" required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
@@ -186,14 +186,14 @@
 					<div class="form-group">
 						<label for="passEntreprise" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
+							<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="passEntreprise" id="passEntreprise" class="form-control"  data-minlength="8"  required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="password" placeholder="Confirmation" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents"  required/>
 						</div>
 						<div class="help-block with-errors col-sm-4"></div>
 					</div>

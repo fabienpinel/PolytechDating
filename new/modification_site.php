@@ -4,7 +4,7 @@
 	$encours="modifier_site"; 
 	checkLogin();
 	$bdd = connect_database();
-	$requete = $bdd->query('SELECT * from infosite ORDER BY id');
+	
 	
 	if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && isset($_POST['descriptionEntreprise'])){
 		//update dans la bdd
@@ -13,8 +13,8 @@
 		$r3 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionEntreprise']).'" WHERE nom = "descriptionEntreprise"');
 		$r4 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['nbrdv']).'" WHERE nom = "nbrdv"');
 		$r5 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['priseRdvActive'].'" WHERE nom = "priseRDVActive"');
-
-			if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5){
+		$r6 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['mailContact']).'" WHERE nom = "mailContact"');
+			if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5 && !$r6){
 				redirect("./compte.php?code=3","0");
 			}else{
 				//Tout s'est bien passé
@@ -27,21 +27,30 @@
     <div class="container">
     	<h1>Modifier le site</h1>
     	<form data-toggle="validator" role="form" class="form-horizontal" id="modificationSite" action="modification_site.php" method="post" enctype="multipart/form-data">
-    		<?php $res = $requete->fetch(); ?>
+    		<?php 
+    			$requete = $bdd->query('SELECT * from infosite WHERE nom="nbrdv"');
+    			$res = $requete->fetch(); 
+    		?>
     		<div class="form-group">
 						<label for="nbrdv" class="col-sm-4 control-label">Nombre de Rdv autorisés</label>
 						<div class="col-sm-8">
 							<input type="text" name="nbrdv" id="nbrdv" class="form-control" value="<?php echo $res['contenu']; ?>" required />
 						</div>
 				</div>
-			<?php $res = $requete->fetch(); ?>
+			<?php 
+    			$requete = $bdd->query('SELECT * from infosite WHERE nom="priseRDVActive"');
+    			$res = $requete->fetch(); 
+    		?>
     		<div class="form-group">
 						<label for="priseRdvActive" class="col-sm-4 control-label">Activer la prise de rendez-vous</label>
 						<div class="col-sm-8">
 							<input type="checkbox" name="priseRdvActive" id="priseRdvActive" class="form-control"  <?php if($res['contenu']){echo 'checked';} ?>>
 						</div>
 				</div>
-				<?php while($res = $requete->fetch()){	?>
+				<?php 
+    			$requete = $bdd->query('SELECT * from infosite WHERE nom LIKE "description%"');
+				while($res = $requete->fetch()){	
+				?>
 					<div class="form-group">
 						<label for="nom" class="col-sm-4 control-label"><?php echo ''.$res['nom'] ?></label>
 						<div class="col-sm-8">
@@ -49,6 +58,18 @@
 						</div>
 					</div>
 					<?php } ?>
+
+				<?php 
+    				$requete = $bdd->query('SELECT * from infosite WHERE nom="mailContact"');
+    				$res = $requete->fetch(); 
+    			?>
+    			<div class="form-group">
+						<label for="mailContact" class="col-sm-4 control-label">Mail de contact</label>
+						<div class="col-sm-8">
+							<input type="text" name="mailContact" id="mailContact" class="form-control" value="<?php echo $res['contenu']; ?>" required />
+						</div>
+				</div>
+
 					<div class="boutonsCompte">
 					<button class="btn btn-primary " name="send" type="submit"><span class="glyphicon glyphicon-floppy-save"></span> Enregistrer</button>
 					<a href="./compte.php" ><button type="button"  class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Annuler</button></a>

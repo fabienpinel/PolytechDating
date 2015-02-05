@@ -4,6 +4,8 @@
 	bouton raz rdv entreprise par entreprise
 	historique
 	raz bdd etudiant
+
+	nom des colonnes dans les rdv pris compte root
 	*/
 	$encours="compte";
 	include("header.php");

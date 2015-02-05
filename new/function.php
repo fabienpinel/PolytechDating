@@ -186,5 +186,11 @@ function redirect($url, $time=3)
      echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
    } 
 }
+function getMailContact(){
+	$bdd= connect_database();
+	$req = $bdd->query('SELECT * FROM infosite WHERE nom="mailContact";');
+    $donnees = $req->fetch();
+    return utf8_encode($donnees['contenu']); 
+}
 
 ?>

@@ -1,6 +1,6 @@
       <footer>
         <p>© Polytech Nice 2014 - 930 Route des Colles - 06903 Sophia Antipolis</p>
-Contact : polytech.dating@gmail.com</p>
+        <p>Contact : <?php echo getMailContact(); ?></p>
       </footer>
 
     <!-- Bootstrap core JavaScript
