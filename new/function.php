@@ -8,47 +8,47 @@ function razbdd(){
 		supprimer les membres ?
 
 	*/
-	$bdd = connect_database();
+		$bdd = connect_database();
 	//désactiver toutes les entreprises
-	$req = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE 1=1;');
+		$req = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE 1=1;');
 	//Supprimer tous les rendez-vous
-	$req = $bdd->exec('DELETE from rdv where 1=1;');
+		$req = $bdd->exec('DELETE from rdv where 1=1;');
 	//réinitialiser la table heure
-	$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
+		$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
 	//supprimer les messages de la BDD
-	$req = $bdd->exec('DELETE FROM message WHERE 1=1;');
-}
-function downloadCVTheque(){
+		$req = $bdd->exec('DELETE FROM message WHERE 1=1;');
+	}
+	function downloadCVTheque(){
 	// On instancie la classe.
 		chmod($dossier, 755);
-      $zip = new ZipArchive();
-      
-      if(is_dir('./_/cv/'))
-      {
+		$zip = new ZipArchive();
+		
+		if(is_dir('./_/cv/'))
+		{
         // On teste si le dossier existe, car sans ça le script risque de provoquer des erreurs.
-	
-        if($zip->open('CVTheque.zip', ZipArchive::CREATE) == TRUE)
-	{
+			
+			if($zip->open('CVTheque.zip', ZipArchive::CREATE) == TRUE)
+			{
 	  // Ouverture de l’archive réussie.
 
 	  // Récupération des fichiers.
-	  $fichiers = scandir('./_/cv/');
+				$fichiers = scandir('./_/cv/');
 	  // On enlève . et .. qui représentent le dossier courant et le dossier parent.
-	  unset($fichiers[0], $fichiers[1], $fichiers[2]);
-	  
-	  foreach($fichiers as $f)
-	  {
+				unset($fichiers[0], $fichiers[1], $fichiers[2]);
+				
+				foreach($fichiers as $f)
+				{
 	    // On ajoute chaque fichier à l’archive en spécifiant l’argument optionnel.
 	    // Pour ne pas créer de dossier dans l’archive.
-	    if(!$zip->addFile('./_/cv/'.$f, $f))
-	    {
-	      echo 'Impossible d&#039;ajouter &quot;'.$f.'&quot;.<br/>';
-	    }
-	  }
-	
+					if(!$zip->addFile('./_/cv/'.$f, $f))
+					{
+						echo 'Impossible d&#039;ajouter &quot;'.$f.'&quot;.<br/>';
+					}
+				}
+				
 	  // On ferme l’archive.
-	  $zip->close();
-	
+				$zip->close();
+				
 	  // On peut ensuite, comme dans le tuto de DHKold, proposer le téléchargement.
 	  header('Content-Transfer-Encoding: binary'); //Transfert en binaire (fichier).
 	  header('Content-Disposition: attachment; filename="CVTheque.zip"'); //Nom du fichier.
@@ -60,14 +60,14 @@ function downloadCVTheque(){
 	{
 	  // Erreur lors de l’ouverture.
 	  // On peut ajouter du code ici pour gérer les différentes erreurs.
-	  echo 'Erreur, impossible de créer l\'archive.';
+		echo 'Erreur, impossible de créer l\'archive.';
 	}
-      }
-      else
-      {
+}
+else
+{
         // Possibilité de créer le dossier avec mkdir().
-        echo 'Le dossier &quot;upload/&quot; n\'existe pas.';
-      }
+	echo 'Le dossier &quot;upload/&quot; n\'existe pas.';
+}
 }
 function entrepriseEncoreDisponible($id){
 	$bdd = connect_database();
@@ -100,7 +100,7 @@ function entParPromo($promotion, $bdd)
 	echo 'Voici la liste des entreprises que nous avons sélectionné pour vous :<br/><ul>';	
 	while($donnes = $entreprise->fetch())
 	{
-			echo '<li>' . $donnes['nom'] . '</li>';
+		echo '<li>' . $donnes['nom'] . '</li>';
 	}
 	echo '</ul></p>';
 	$entreprise->closeCursor();
@@ -123,7 +123,7 @@ function tempsRestantPhases()
 	
 	
 	echo'	<ul>
-				<li>Phase 1 : du lundi 22 octobre au Mercredi 24 octobre 2012</li>';
+	<li>Phase 1 : du lundi 22 octobre au Mercredi 24 octobre 2012</li>';
 	if($tps_restant1 > 0)
 		echo'	Il reste <strong>'. $d_restants1 .' jours</strong> et <strong>'. $H_restantes1 .' heures</strong> avant l\'ouverture de la phase 1.<br/> ';
 	echo'		<li>Phase 2 : du jeudi 25 octobre au dimanche 28 novembre 2012</li>';
@@ -147,7 +147,7 @@ function tempsRestantEvenement()
 	$d_restants = floor($d_restants); // Jours restants
 	
 	echo '	<p>Nous sommes le '. strftime('<strong>%d %B %Y</strong>, et il est <strong>%Hh%M</strong>') .'.<br />
-			Il reste <strong>'. $d_restants .' jours</strong> et <strong>'. $H_restantes .' heures</strong> avant l\'évènement.</p>';
+	Il reste <strong>'. $d_restants .' jours</strong> et <strong>'. $H_restantes .' heures</strong> avant l\'évènement.</p>';
 }
 
 function toStringFormPhases()
@@ -176,33 +176,33 @@ function toStringFormPhases()
 function redirect($url, $time=3) 
 {      
    //On v�rifie si aucun en-t�te n'a d�j� �t� envoy�     
-   if (!headers_sent()) 
-   { 
-     header("refresh: $time;url=$url");  
-     exit; 
-   } 
-   else 
-   { 
-     echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
-   } 
+	if (!headers_sent()) 
+	{ 
+		header("refresh: $time;url=$url");  
+		exit; 
+	} 
+	else 
+	{ 
+		echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
+	} 
 }
 function getInfoSiteInformation($info){
 	$bdd= connect_database();
 	$req = $bdd->query('SELECT * FROM infosite WHERE nom="'.$info.'";');
-    $donnees = $req->fetch();
-    return utf8_encode($donnees['contenu']);
+	$donnees = $req->fetch();
+	return utf8_encode($donnees['contenu']);
 }
 function getMailContact(){
-    return getInfoSiteInformation("mailContact"); 
+	return getInfoSiteInformation("mailContact"); 
 }
 function getInscriptionsOuvertes(){
-    return getInfoSiteInformation("inscriptionsOuvertes"); 
+	return getInfoSiteInformation("inscriptionsOuvertes"); 
 }
 function getEditionNumber(){
-    return getInfoSiteInformation("edition"); 
+	return getInfoSiteInformation("edition"); 
 }
 function getDescriptionLongue(){
-    return getInfoSiteInformation("descriptionLongue"); 
+	return getInfoSiteInformation("descriptionLongue"); 
 }
 function getDescriptionEleve(){
 	return getInfoSiteInformation("descriptionEleve");

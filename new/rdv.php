@@ -1,40 +1,40 @@
 <?php 
-	session_start();
-	include("header.php");
-	$encours="rdv"; 
-	checkLogin();
-	
-	$bdd = connect_database();
-	$req = $bdd->query('select * from infosite where nom="priseRDVActive"');
-	$donnes = $req->fetch();
-	if(!$donnes['contenu']){
-		redirect("./compte.php","0");
-	}
-	$req = $bdd->query('select * from infosite where nom="nbrdv"');
-	$donnes = $req->fetch();
-	$nombreRDVParPersonne = $donnes['contenu'];
-	$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure, rdv.id AS id
-											FROM rdv
-											INNER JOIN entreprise
-												ON entreprise.id = rdv.entreprise
-											INNER JOIN membre
-												ON membre.id = rdv.membre
-											WHERE membre.id=' .$_SESSION['id']. '');
-											
-					$i=0;
-					while($donnes = $req->fetch()){
-									$i++;
-				
-					}
-					if($i>=$nombreRDVParPersonne){
-						redirect("./compte.php","0");
-					}
+session_start();
+include("header.php");
+$encours="rdv"; 
+checkLogin();
 
-	echo'<div class="jumbotron">
-      	<div class="container">';
+$bdd = connect_database();
+$req = $bdd->query('select * from infosite where nom="priseRDVActive"');
+$donnes = $req->fetch();
+if(!$donnes['contenu']){
+	redirect("./compte.php","0");
+}
+$req = $bdd->query('select * from infosite where nom="nbrdv"');
+$donnes = $req->fetch();
+$nombreRDVParPersonne = $donnes['contenu'];
+$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure, rdv.id AS id
+	FROM rdv
+	INNER JOIN entreprise
+	ON entreprise.id = rdv.entreprise
+	INNER JOIN membre
+	ON membre.id = rdv.membre
+	WHERE membre.id=' .$_SESSION['id']. '');
+
+$i=0;
+while($donnes = $req->fetch()){
+	$i++;
 	
-		echo  '<p>'.$_SESSION['nom']. ' ' .$_SESSION['prenom']. ', étant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
-		
+}
+if($i>=$nombreRDVParPersonne){
+	redirect("./compte.php","0");
+}
+
+echo'<div class="jumbotron">
+<div class="container">';
+	
+	echo  '<p>'.$_SESSION['nom']. ' ' .$_SESSION['prenom']. ', étant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
+	
 		/*if($_SESSION['promotion']=="SI5" || $_SESSION['promotion']=="IFI"){
 			$entreprise = $bdd->query('SELECT * FROM entreprise WHERE com="SI" ORDER BY nom');
 			
@@ -54,22 +54,22 @@
 		}*/
 		$entreprise = $bdd->query('SELECT * FROM entreprise WHERE active=TRUE ORDER BY nom');
 		echo '<p>
-				Voici la liste des entreprises que nous avons sélectionnées pour vous.
-				<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
+		Voici la liste des entreprises que nous avons sélectionnées pour vous.
+		<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
 		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal formulaireRDV" >';
 		while($donnes = $entreprise->fetch()){
 			if(entrepriseEncoreDisponible($donnes['id'])){
 				echo '<div class="radio">
-  					<label>
-    				<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '" required>
-    					' .$donnes['nom']. '
-  					</label>
-				</div>';
-			}
+				<label>
+					<input type="radio" name="choix" value="' .$donnes['nom']. '" id="' .$donnes['nom']. '" required>
+					' .$donnes['nom']. '
+				</label>
+			</div>';
 		}
-		
-		echo'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />';
-		echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
-		echo '</p></form>';
+	}
+	
+	echo'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />';
+	echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
+	echo '</p></form>';
 	echo '</div></div>';
 	include("footer.php") ?>

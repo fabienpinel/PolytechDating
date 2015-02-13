@@ -144,9 +144,9 @@ margin: auto;
 }
 
 .lieu{
-padding-top: 10px;
-font-size: 85%;
-font-family: Arial;
+	padding-top: 10px;
+	font-size: 85%;
+	font-family: Arial;
 }
 
 .OneEntreprise{
@@ -185,52 +185,52 @@ footer{
 
 @media screen and (max-width: 1200px) {
 
-#loginFields{
-	display: none;
-}
-#loginButton{
-	display: block;
-}
-#header .container{
-	width: 100%;
-	margin-left: 0px;
-	margin-right: 0px;
+	#loginFields{
+		display: none;
+	}
+	#loginButton{
+		display: block;
+	}
+	#header .container{
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
 
-}
+	}
 }
 /*   tablette  */
 @media screen and (max-width: 1000px) {
-#loginButton{
-	display: none;
-}
-#menuTop{
-	margin-left: 170px;
-}
+	#loginButton{
+		display: none;
+	}
+	#menuTop{
+		margin-left: 170px;
+	}
 }
 /*  mobile  */
 @media screen and (max-width: 770px) {
-#menuTop{
-	float: none;
-	position: relative;
-	margin-top: 0px;
-	margin-left: 0px;
-	font-size: 20px;
-	height: auto;
-	background-color: black;
-	margin-top: 30px;
-	width: 100%;
-}
-#long-desc{
-	margin-left: 0px;
-	max-width: 100%;
-	text-align: justify;
-}
-#vignettes{
-	margin-left: 0%;
-	margin-right: 0%;
-}
-.container{
-	padding-left: 0px;
-	padding-right: 0px;
-}
+	#menuTop{
+		float: none;
+		position: relative;
+		margin-top: 0px;
+		margin-left: 0px;
+		font-size: 20px;
+		height: auto;
+		background-color: black;
+		margin-top: 30px;
+		width: 100%;
+	}
+	#long-desc{
+		margin-left: 0px;
+		max-width: 100%;
+		text-align: justify;
+	}
+	#vignettes{
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+	.container{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
 }

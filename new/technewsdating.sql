@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `rdv` (
 -- Contraintes pour la table `heure`
 --
 ALTER TABLE `heure`
-  ADD CONSTRAINT `fk_ebtreprise_id` FOREIGN KEY (`entreprise`) REFERENCES `entreprise` (`id`);
+ADD CONSTRAINT `fk_ebtreprise_id` FOREIGN KEY (`entreprise`) REFERENCES `entreprise` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
