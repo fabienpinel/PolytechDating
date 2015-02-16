@@ -176,6 +176,7 @@ session_start();
 										ORDER BY entreprise.nom, rdv.heure');
 									
 									echo'<table class="table table-hover rdvEtudiants" id="rdvEtudiants">';
+									echo '<th>Nom</th><th>Prénom</th><th>Promotion</th><th>Entreprise</th><th>Horaire</th>';
 									while($rdv = $req->fetch())
 										echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td></tr>';
 									echo'</table>';

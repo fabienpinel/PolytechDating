@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  technewsdating.mysql.db
--- Généré le :  Lun 02 Février 2015 à 14:45
+-- Généré le :  Lun 16 Février 2015 à 09:58
 -- Version du serveur :  5.1.73-2+squeeze+build1+1-log
 -- Version de PHP :  5.3.8
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `technewsdating`
+-- Base de données :  `polytechdating`
 --
 
 -- --------------------------------------------------------
@@ -28,37 +28,18 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `entreprise` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `nom` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `com` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `mail` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
-  `website` varchar(150) CHARACTER SET utf8 DEFAULT NULL,
-  `formatLogo` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `pass` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `com` varchar(10) NOT NULL,
+  `mail` varchar(100) DEFAULT NULL,
+  `website` varchar(150) DEFAULT NULL,
+  `formatLogo` varchar(10) NOT NULL,
+  `pass` varchar(40) NOT NULL,
   `active` tinyint(1) DEFAULT NULL,
+  `nomImage` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
---
--- Contenu de la table `entreprise`
---
-/*
-INSERT INTO `entreprise` (`id`, `nom`, `com`, `mail`, `website`, `formatLogo`, `pass`, `active`) VALUES
-(1, 'MISYS', 'IMAFA', NULL, NULL, '', '', 1),
-(3, 'FARO Consulting', 'IMAFA', NULL, NULL, '', '', 1),
-(11, 'WALL STREET SYSTEMS', 'IMAFA', NULL, NULL, '', '', 1),
-(18, 'ATOS Solutions financieres', 'IMAFA', NULL, NULL, '', '', NULL),
-(19, 'Credit Agricole Open (KZ Consulting)', 'IMAFA', NULL, NULL, '', '', 1),
-(22, 'Full Performance', 'ELEC', NULL, NULL, '', '', NULL),
-(24, 'THALES Underwater System', 'ELEC', NULL, NULL, '', '', 1),
-(25, 'THALES Alenia Space', 'ELEC', NULL, NULL, '', '', NULL),
-(28, 'ST Microelectronics', 'ELEC', NULL, NULL, '', '', NULL),
-(29, 'MARGO Conseil', 'IMAFA', NULL, NULL, '', '', NULL),
-(35, 'CELAD', 'ELEC', NULL, NULL, '', '', NULL),
-(36, 'MUREX', 'IMAFA', NULL, NULL, '', '', NULL),
-(37, 'Credit Foncier Monaco', 'IMAFA', NULL, NULL, '', '', NULL),
-(38, 'aa', 'aa', 'aa@aa.aa', 'aa', 'png', '4124bc0a9335c27f086f24ba207a4912', NULL);
-*/
 
 -- --------------------------------------------------------
 
@@ -81,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `heure` (
   `17h00` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_ebtreprise_id` (`entreprise`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
 --
 -- Contenu de la table `heure`
@@ -100,7 +81,8 @@ INSERT INTO `heure` (`id`, `entreprise`, `14h00`, `14h20`, `14h40`, `15h00`, `15
 (30, 29, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0),
 (36, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (37, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(38, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(38, 37, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(39, 39, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0);
 */
 -- --------------------------------------------------------
 
@@ -113,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `infosite` (
   `nom` varchar(100) NOT NULL,
   `contenu` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `infosite`
@@ -124,8 +106,10 @@ INSERT INTO `infosite` (`id`, `nom`, `contenu`) VALUES
 (4, 'descriptionEntreprise', 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'),
 (5, 'descriptionEleve', 'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'),
 (2, 'edition', '2014'),
-(1, 'priseRDVActive', 'on'),
-(0, 'nbrdv', '2');
+(1, 'priseRDVActive', ''),
+(0, 'nbrdv', '2'),
+(9, 'inscriptionsOuvertes', ''),
+(8, 'mailContact', 'polytech.dating@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -135,25 +119,23 @@ INSERT INTO `infosite` (`id`, `nom`, `contenu`) VALUES
 
 CREATE TABLE IF NOT EXISTS `membre` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `prenom` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `mail` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `pass` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `promotion` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `parcours` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `motcles1` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `motcles2` varchar(40) CHARACTER SET utf8 NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `mail` varchar(40) NOT NULL,
+  `pass` varchar(40) NOT NULL,
+  `promotion` varchar(40) NOT NULL,
+  `parcours` varchar(10) NOT NULL,
+  `motcles1` varchar(40) NOT NULL,
+  `motcles2` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=198 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `membre`
 --
 
 INSERT INTO `membre` (`id`, `nom`, `prenom`, `mail`, `pass`, `promotion`, `parcours`, `motcles1`, `motcles2`) VALUES
-(1, 'root', 'root', 'root@root.root', '63a9f0ea7bb98050796b649e85481845', 'root', '', '', '');
-
--------------------------------------------
+(1, 'root', 'root', 'root@root.root', '63a9f0ea7bb98050796b649e85481845', 'SI5', 'IAM', 'root', 'root');
 
 --
 -- Structure de la table `message`
@@ -161,12 +143,12 @@ INSERT INTO `membre` (`id`, `nom`, `prenom`, `mail`, `pass`, `promotion`, `parco
 
 CREATE TABLE IF NOT EXISTS `message` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `nom` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `prenom` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `mail` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `texte` text CHARACTER SET utf8,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `mail` varchar(40) NOT NULL,
+  `texte` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -178,12 +160,10 @@ CREATE TABLE IF NOT EXISTS `rdv` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `entreprise` smallint(5) unsigned NOT NULL,
   `membre` smallint(5) unsigned NOT NULL,
-  `heure` varchar(40) NOT NULL,
+  `heure` varchar(40) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=252 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=252 ;
 
-
---
 -- Contraintes pour les tables exportées
 --
 
@@ -191,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `rdv` (
 -- Contraintes pour la table `heure`
 --
 ALTER TABLE `heure`
-ADD CONSTRAINT `fk_ebtreprise_id` FOREIGN KEY (`entreprise`) REFERENCES `entreprise` (`id`);
+  ADD CONSTRAINT `fk_ebtreprise_id` FOREIGN KEY (`entreprise`) REFERENCES `entreprise` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

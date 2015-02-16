@@ -57,6 +57,7 @@ echo'<div class="jumbotron">
 		Voici la liste des entreprises que nous avons sélectionnées pour vous.
 		<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
 		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal formulaireRDV" >';
+		$i=0;
 		while($donnes = $entreprise->fetch()){
 			if(entrepriseEncoreDisponible($donnes['id'])){
 				echo '<div class="radio">
@@ -65,11 +66,24 @@ echo'<div class="jumbotron">
 					' .$donnes['nom']. '
 				</label>
 			</div>';
+			$i++;
 		}
 	}
+	if($i==0){
+		//Aucune entreprise n'a été affichée.
+		echo '</p></form>';
+		
+		echo  '<div class="alert alert-danger" role="alert">
+      		Aucune entreprise disponible.
+    		</div>';
+    	echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
+		echo '</div></div>';
+	}else{
+		echo'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />';
+		echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
+		echo '</p></form>';
+		echo '</div></div>';
+	}
 	
-	echo'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />';
-	echo '<a href="./compte.php" ><button type="button" style="margin-left: 2px;" class="btn btn-warning">Retour à mon compte</button></a>';
-	echo '</p></form>';
-	echo '</div></div>';
+	
 	include("footer.php") ?>
