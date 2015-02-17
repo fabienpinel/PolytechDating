@@ -9,9 +9,10 @@ $bdd = connect_database();
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
-    <div class="alert alert-danger" role="alert">
+   <!-- <div class="alert alert-danger" role="alert">
       Ce site est en développement !
     </div>
+    -->
     
     <h1>Polytech Dating édition <?php echo getInfoSiteInformation("edition"); ?> !</h1>
     <br />
