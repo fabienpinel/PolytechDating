@@ -1,11 +1,9 @@
 <?php 
 session_start(); 
 	/*
+	TODO
 	bouton raz rdv entreprise par entreprise
-	historique
-	raz bdd etudiant
-
-	nom des colonnes dans les rdv pris compte root
+	historique d'une année sur l'autre
 	*/
 	$encours="compte";
 	include("header.php");
@@ -85,6 +83,9 @@ session_start();
 		}else if(isset($_GET['raz'])){
 			razbdd();
 			redirect("./compte.php","0");
+		}else if(isset($_GET['razEtudiants'])){
+			razEtudiants();
+			redirect("./compte.php","0");
 		}
 		echo '<script>
 		function raz(){
@@ -92,7 +93,12 @@ session_start();
 				document.location.href="?raz" ;
 			}
 		}
-	</script>';
+		function razEtudiants(){
+			if(confirm("êtes vous sûr de vouloir supprimer tous les étudiants ? ->rdv, messages...")){
+				document.location.href="?razEtudiants" ;
+			}
+		}
+		</script>';
 	
 
 
@@ -123,7 +129,8 @@ session_start();
 				<a class="btn btn-success" href="?dlcvtheque"><span class="glyphicon glyphicon-save"></span> Télécharger la CVThèque</a>
 				<a class="btn btn-success" href="./inscription.php?type=entreprise"><span class="glyphicon glyphicon-plus"></span> Ajouter une entreprise</a>
 				<a class="btn btn-warning" href="./modification_site.php"  role="button"><span class="glyphicon glyphicon-cog"></span> Modifier le site</a> 
-				<button class="btn btn-danger" onClick="raz()"><span class="glyphicon glyphicon-remove-circle"></span> RAZ générale</button>  
+				<button class="btn btn-danger" onClick="raz()"><span class="glyphicon glyphicon-remove-circle"></span> RAZ générale</button>
+				<button class="btn btn-danger" onClick="razEtudiants()"><span class="glyphicon glyphicon-remove-circle"></span> RAZ étudiants</button>  
 				
 			</div></div>';
 			/* LISTE DES ETUDIANTS INSCRITS */

@@ -8,9 +8,12 @@ $bdd = connect_database();
 
 if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && isset($_POST['descriptionEntreprise'])){
 		//update dans la bdd
-	$r1 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionLongue']).'" WHERE nom = "descriptionLongue"');
-	$r2 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionEleve']).'" WHERE nom = "descriptionEleve"');
-	$r3 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['descriptionEntreprise']).'" WHERE nom = "descriptionEntreprise"');
+	$descl = str_replace('"', '\"',$_POST['descriptionLongue']);
+	$desce = str_replace('"', '\"',$_POST['descriptionEleve']);
+	$descent = str_replace('"', '\"',$_POST['descriptionEntreprise']);
+	$r1 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($descl).'" WHERE nom = "descriptionLongue"');
+	$r2 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($desce).'" WHERE nom = "descriptionEleve"');
+	$r3 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($descent).'" WHERE nom = "descriptionEntreprise"');
 	$r4 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['nbrdv']).'" WHERE nom = "nbrdv"');
 	$r5 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['priseRdvActive'].'" WHERE nom = "priseRDVActive"');
 	$r6 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['mailContact']).'" WHERE nom = "mailContact"');

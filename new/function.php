@@ -17,7 +17,14 @@ function razbdd(){
 		$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
 	//supprimer les messages de la BDD
 		$req = $bdd->exec('DELETE FROM message WHERE 1=1;');
-	}
+}
+function razEtudiants(){
+	$bdd = connect_database();
+	//supprimer tous les étudiants et en cascade supprimer tous les rdv/messages etc.
+	$req = $bdd->exec('DELETE from membre where mail!="root@root.root";');
+	$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
+	//supprimer les CVs ?
+}
 	function downloadCVTheque(){
 	// On instancie la classe.
 		chmod($dossier, 755);
