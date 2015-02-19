@@ -149,12 +149,12 @@ session_start();
 		echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 		$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
 		echo'<table class="table table-hover" id="etudiants">';
-		echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Parcours</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
+		echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
 		while($etu = $req->fetch()){
 			echo'<tr>';
 			echo '<td>' .$etu['nom']. '</td><td>' .$etu['prenom']. '</td>';
 			echo '<td>' .$etu['mail']. '</td><td>' .$etu['promotion']. '</td>';
-			echo '<td>' .$etu['parcours']. '</td><td>' .$etu['motcles1']. '</td>';
+			echo '<td>' .$etu['motcles1']. '</td>';
 			echo '<td>' .$etu['motcles2']. '</td><td><a href="./_/cv/'.$etu['nom'].'-'.$etu['prenom'].'-'.$etu['promotion'].'.pdf">Voir le CV</a></td>';
 			echo '</tr>';
 		}
@@ -352,9 +352,9 @@ session_start();
 					ORDER BY rdv.heure');
 				
 				echo'<table class="table table-hover">';
-				echo '<th>Nom</th><th>Prénom</th><th>Mail<th>Promotion</th><th>Parcours</th><th>Mot cles 1</th><th>Mot cles 2</th><th>Entreprise</th><th>Horaire</th><th>CV</th>';
+				echo '<th>Nom</th><th>Prénom</th><th>Mail<th>Promotion</th><th>Mot cles 1</th><th>Mot cles 2</th><th>Entreprise</th><th>Horaire</th><th>CV</th>';
 				while($rdv = $rdvEntreprise->fetch())
-					echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['mail']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['parcours']. '</td><td>' .$rdv['motcles1']. '</td><td>' .$rdv['motcles2']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td><td><a href="./_/cv/'.$rdv['nom'].'-'.$rdv['prenom'].'-'.$rdv['membre'].'.pdf">Voir le CV</a></td></tr>';
+					echo'<tr><td>' .$rdv['nom']. '</td><td>' .$rdv['prenom']. '</td><td>' .$rdv['mail']. '</td><td>' .$rdv['membre']. '</td><td>' .$rdv['motcles1']. '</td><td>' .$rdv['motcles2']. '</td><td>' .$rdv['entreprise']. '</td><td>' .$rdv['rdv']. '</td><td><a href="./_/cv/'.$rdv['nom'].'-'.$rdv['prenom'].'-'.$rdv['membre'].'.pdf">Voir le CV</a></td></tr>';
 				echo'</table>';
 
 

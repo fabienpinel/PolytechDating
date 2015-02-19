@@ -33,7 +33,7 @@ if($i>=$nombreRDVParPersonne){
 echo'<div class="jumbotron">
 <div class="container">';
 	
-	echo  '<p>'.$_SESSION['nom']. ' ' .$_SESSION['prenom']. ', étant en  ' .$_SESSION['promotion']. ', l\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
+	echo  '<p>L\'&eacute;quipe du Polytech Dating vous offre la possibilit&eacute; de choisir un rendez-vous parmi ces entreprises.</p>';
 	
 		/*if($_SESSION['promotion']=="SI5" || $_SESSION['promotion']=="IFI"){
 			$entreprise = $bdd->query('SELECT * FROM entreprise WHERE com="SI" ORDER BY nom');
@@ -53,9 +53,7 @@ echo'<div class="jumbotron">
 			$entreprise = $bdd->query('SELECT * FROM entreprise ORDER BY nom');
 		}*/
 		$entreprise = $bdd->query('SELECT * FROM entreprise WHERE active=TRUE ORDER BY nom');
-		echo '<p>
-		Voici la liste des entreprises que nous avons sélectionnées pour vous.
-		<br/>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
+		echo '<p>Veuillez choisir celle avec laquelle vous souhaiteriez avoir un entretien :</p>';
 		echo '<form data-toggle="validator" method="post" action="heure.php" class="form-horizontal formulaireRDV" >';
 		$i=0;
 		while($donnes = $entreprise->fetch()){

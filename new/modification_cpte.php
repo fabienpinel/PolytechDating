@@ -132,13 +132,13 @@ if(isset($_POST['type'])){
 			$requete = $bdd->query('SELECT * from membre WHERE id="'.$_SESSION['id'].'"');
 			$res = $requete->fetch();
 
-			$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
-			$elec = array('GSE','TNS', 'CCS', 'TR');
+			//$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
+			//$elec = array('GSE','TNS', 'CCS', 'TR');
 			?>
 
 
 			<script type="text/javascript"> 
-				function changerspe(){ 
+				/*function changerspe(){ 
 					var type = document.getElementById('promotion').options[document.getElementById('promotion').selectedIndex].value; 
 					if(type == 'SI5' || type == 'IFI'){ 
 					//document.getElementById('parcoursSI').style.display='block'; 
@@ -162,7 +162,7 @@ if(isset($_POST['type'])){
 					document.getElementById('parcoursELEC').setAttribute('style','display:none');
 					document.getElementById('parcoursMAM').setAttribute('style','display:none');
 				}
-			} 
+			} */
 		</script>
 
 		<div id="inscription">
@@ -197,7 +197,7 @@ if(isset($_POST['type'])){
 						</select>
 					</div>
 				</div>
-				<!-- Parcours -->
+				<!-- Parcours 
 				<div class="form-group" id="parcoursMAM" style="display: none;">
 					<label for="parcoursMAM" class="col-sm-4 control-label">Parcours</label>
 					<div class="col-sm-8">	
@@ -209,7 +209,6 @@ if(isset($_POST['type'])){
 						</select>
 					</div>
 				</div>
-				<!-- Parcours -->
 				<div class="form-group" id="parcoursSI" style="display: none;">
 					<label for="parcoursSI" class="col-sm-4 control-label">Parcours</label>
 					<div class="col-sm-8">
@@ -226,7 +225,6 @@ if(isset($_POST['type'])){
 						</select>
 					</div>
 				</div>
-				<!-- Parcours -->
 				<div class="form-group" id="parcoursELEC" style="display: none;">
 					<label for="parcoursELEC" class="col-sm-4 control-label">Parcours</label>
 					<div class="col-sm-8">
@@ -239,7 +237,7 @@ if(isset($_POST['type'])){
 						</select>
 					</div>
 				</div>
-				
+				-->
 				<!-- EMAIL -->
 				<div class="form-group">
 					<label for="mail" class="col-sm-4 control-label">E-mail</label>

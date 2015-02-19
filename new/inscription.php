@@ -43,8 +43,8 @@ include("header.php");
 			}
 			if($_GET['type'] == 'etudiant'){
 				
-				$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
-				$elec = array('GSE','TNS', 'CCS', 'TR');
+				//$si = array('IAM', 'IMAFA', 'IHM', 'KIS', 'UN', 'VIM', 'AL', 'CSSR');
+				//$elec = array('GSE','TNS', 'CCS', 'TR');
 				?>
 
 				
@@ -82,9 +82,9 @@ include("header.php");
 							</div>
 						</div>
 						<!-- Parcours -->
-						<div class="form-group" id="parcours">
+						<!--<div class="form-group" id="parcours">
 
-						</div>
+						</div>-->
 
 
 						
@@ -223,7 +223,7 @@ include("header.php");
 </div><!-- container -->
 </div><!-- jumbotron -->
 <script type="text/javascript"> 
-	function changerspe(){ 
+	/*function changerspe(){ 
 		var type = document.getElementById('promotion').options[document.getElementById('promotion').selectedIndex].value; 
 		if(type == 'SI5' || type == 'IFI'){ 
 			document.getElementById('parcours').innerHTML = '<label for="parcours" class="col-sm-4 control-label">Parcours</label><div class="col-sm-8"><select name="parcours" id="parcours" class="form-control" ><option value="" disabled selected>Sélectionnez votre parcours</option><option value="IAM">IAM</option><option value="IMAFA">IMAFA</option><option value="IHM">IHM</option><option value="KIS">KIS</option><option value="UN">UN</option><option value="VIM">VIM</option><option value="AL">AL</option><option value="CSSR">CSSR</option></select></div>';
@@ -253,6 +253,6 @@ include("header.php");
 		else{
 			document.getElementById('parcours').innerHTML='';
 		}
-	} 
+	} */
 </script>
 <?php include("footer.php") ?>
