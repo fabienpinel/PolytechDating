@@ -18,7 +18,9 @@ if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && is
 	$r5 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['priseRdvActive'].'" WHERE nom = "priseRDVActive"');
 	$r6 = $bdd->exec('UPDATE infosite SET contenu = "'.utf8_decode($_POST['mailContact']).'" WHERE nom = "mailContact"');
 	$r7 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['inscriptionsOuvertes'].'" WHERE nom = "inscriptionsOuvertes"');
-	if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5 && !$r6 && !$r7){
+	$r8 = $bdd->exec('UPDATE infosite SET contenu = "'.$_POST['edition'].'" WHERE nom = "edition"');
+	if(!$r1 && !$r2 && !$r3 && !$r4 && !$r5 && !$r6 && !$r7 && !r8){
+		//echo "r1: ".$r1."r2: ".$r2."r3: ".$r3."r4: ".$r4."r5: ".$r5."r6: ".$r6."r7: ".$r7."r8: ".$r8;
 		redirect("./compte.php?code=3","0");
 	}else{
 				//Tout s'est bien passé
@@ -31,6 +33,12 @@ if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && is
 	<div class="container">
 		<h1>Modifier le site</h1>
 		<form data-toggle="validator" role="form" class="form-horizontal" id="modificationSite" action="modification_site.php" method="post" enctype="multipart/form-data">
+		<div class="form-group">
+				<label for="edition" class="col-sm-4 control-label">Edition</label>
+				<div class="col-sm-8">
+					<input type="text" name="edition" id="edition" class="form-control" value="<?php echo getInfoSiteInformation("edition"); ?>" required />
+				</div>
+			</div>
 			<div class="form-group">
 				<label for="inscriptionsOuvertes" class="col-sm-4 control-label">Ouvrir les inscriptions</label>
 				<div class="col-sm-8">
