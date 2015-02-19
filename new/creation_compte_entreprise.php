@@ -60,7 +60,7 @@ echo '<div class="jumbotron">
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée
            			$req = $bdd->exec('	INSERT INTO entreprise(nom, com, mail, website, nomImage, formatLogo, pass)
-           				VALUES("' .$_POST['nom']. '", "' .$_POST['promotionr']. '", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
+           				VALUES("' .$_POST['nom']. '", "", "' .$_POST['mail']. '", "'.$_POST['website']. '","' .$_POST['nom']. '", "'.$extension_upload. '", "' .md5($_POST['passEntreprise']).'")');
            			if($req){
 						//L'utilisateur est bien entré dans la BDD
 						//Il faut maintenant créer la ligne de rendez vous qui lui est consacrée dans la bdd

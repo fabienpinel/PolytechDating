@@ -9,14 +9,14 @@ if(isset($_POST['type'])){
 		//On a reçu un formulaire
 	if($_POST['type'] == "entreprise"){
 			//une entreprise a modifiée son compte
-		$requete = $bdd->exec('UPDATE entreprise SET nom = "'.$_POST['nom'].'", mail = "'.$_POST['mail'].'", website = "'.$_POST['website'].'", com = "'.$_POST['com'].'", pass = "'.md5($_POST['passEntreprise']).'" WHERE id = "'.$_SESSION['id'].'"');
+		$requete = $bdd->exec('UPDATE entreprise SET nom = "'.$_POST['nom'].'", mail = "'.$_POST['mail'].'", website = "'.$_POST['website'].'", com = "", pass = "'.md5($_POST['passEntreprise']).'" WHERE id = "'.$_SESSION['id'].'"');
 
 		if(!$requete){
 			redirect("./compte.php?code=1","0");
 		}else{
 			$_SESSION['mail'] = $_POST['mail'];
 			$_SESSION['nom'] = $_POST['nom'];
-			$_SESSION['com'] = $_POST['promotionr'];
+			//$_SESSION['com'] = $_POST['promotionr'];
 			$_SESSION['website'] = $_POST['website'];
 			redirect("./compte.php?code=0", "0");
 		}
@@ -79,7 +79,7 @@ if(isset($_POST['type'])){
 							<input type="text" name="website" id="website" class="form-control" value="<?php echo ''.$res['website'] ?>" required/>
 						</div>
 					</div>
-					<!-- Promotion -->
+					<!-- Promotion
 					<div class="form-group">
 						<label for="promotionr" class="col-sm-4 control-label">Promotion recherchée</label>
 						<div class="col-sm-8">
@@ -92,7 +92,7 @@ if(isset($_POST['type'])){
 								<option value="IFI">M2 IFI</option>
 							</select>
 						</div>
-					</div>
+					</div> -->
 					<!-- LOGO input -->
 					<!--<div class="form-group">
 						<label for="logo" class="col-sm-4 control-label">Logo (image)</label>
@@ -105,14 +105,14 @@ if(isset($_POST['type'])){
 					<div class="form-group">
 						<label for="passEntreprise" class="col-sm-4 control-label">Mot de passe</label>
 						<div class="col-sm-8">
-							<input type="password" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
+							<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre"  pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" name="passEntreprise" id="passEntreprise" class="form-control"  required/>
 						</div>
 					</div>
 					<!-- Confirmation -->
 					<div class="form-group">
 						<label for="pass2" class="col-sm-4 control-label">Confirmation</label>
 						<div class="col-sm-8">
-							<input type="password" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
+							<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="pass2" id="pass2" class="form-control" data-match="#passEntreprise" data-match-error="Les 2 mot de passe sont différents" required/>
 						</div>
 						<div class="help-block with-errors col-sm-4"></div>
 					</div>
@@ -261,14 +261,14 @@ if(isset($_POST['type'])){
 				<div class="form-group">
 					<label for="passEtudiant" class="col-sm-4 control-label">Mot de passe</label>
 					<div class="col-sm-8">
-						<input type="password" name="passEtudiant" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
+						<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="passEtudiant" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
 					</div>
 				</div>
 				<!-- Confirmation -->
 				<div class="form-group">
 					<label for="pass2Etudiant" class="col-sm-4 control-label">Confirmation</label>
 					<div class="col-sm-8">
-						<input type="password" name="pass2Etudiant" id="pass2Etudiant" placeholder="Confirmation" class="form-control" data-match="#passEtudiant" data-match-error="Les 2 mot de passe sont différents" required/>
+						<input type="password" name="pass2Etudiant"  placeholder="Minimum 8 caractères avec 1 chiffre" id="pass2Etudiant" placeholder="Confirmation" class="form-control" data-match="#passEtudiant" data-match-error="Les 2 mot de passe sont différents" required/>
 					</div>
 					<div class="help-block with-errors col-sm-4"></div>
 				</div>

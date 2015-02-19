@@ -168,7 +168,7 @@ include("header.php");
 								<input type="text" name="website" id="website" class="form-control" placeholder="Website" required/>
 							</div>
 						</div>
-						<!-- Promotion -->
+						<!-- Promotion
 						<div class="form-group">
 							<label for="promotionr" class="col-sm-4 control-label">Promotion recherchée</label>
 							<div class="col-sm-8">
@@ -181,7 +181,7 @@ include("header.php");
 									<option value="IFI">M2 IFI</option>
 								</select>
 							</div>
-						</div>
+						</div> -->
 						<!-- LOGO input -->
 						<div class="form-group">
 							<label for="logo" class="col-sm-4 control-label">Logo (image)</label>

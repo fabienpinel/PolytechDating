@@ -212,7 +212,7 @@ session_start();
 			//lister la table entreprise
 		$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
 		echo '<table id="listingEntreprise" class="table table-hover">';
-		echo '<th>Nom</th><th>Mail</th><th>Spécialité visée</th><th>Site</th><th>Compte validé</th><th></th>';
+		echo '<th>Nom</th><th>Mail</th><th>Site</th><th>Compte validé</th><th></th>';
 		while($uneEntreprise = $requeteEntreprise->fetch()){
 				//afficher l'etat de chaque entreprise
 			?>
@@ -222,8 +222,6 @@ session_start();
 				echo ''.$uneEntreprise['nom'];
 				echo '</td><td>';
 				echo ''.$uneEntreprise['mail'];
-				echo '</td><td>';
-				echo ''.$uneEntreprise['com'];
 				echo '</td><td>';
 				echo '<a href="'.$uneEntreprise['website'].'" target="_blanck">'.$uneEntreprise['website'].'</a>';
 				echo '</td><td>';
@@ -335,7 +333,7 @@ session_start();
 					<p>Bonjour <b><?php echo $_SESSION['nom']; ?></b> !</p>
 					<p>E-mail : <b><?php echo $_SESSION['mail']; ?></b></p>
 					<p>Site web : <a href="<?php echo $_SESSION['website']; ?>" target="_blanck"><?php echo $_SESSION['website']; ?></a></p>
-					<p>Vous recherchez des étudiants en : <b><?php echo $_SESSION['com']; ?></b></p>
+					<!--<p>Vous recherchez des étudiants en : <b><?php /*echo $_SESSION['com'];*/ ?></b></p>-->
 				</div>
 			</div>
 			
