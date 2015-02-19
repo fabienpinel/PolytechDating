@@ -118,6 +118,10 @@ session_start();
 		}else{
 			echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
 		}
+	}else if(isset($_POST['supprimerEntreprise'])){
+		$first = $bdd->exec('DELETE FROM heure WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
+		$second = $bdd->exec('DELETE FROM rdv WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
+		$third = $bdd->exec('DELETE FROM entreprise WHERE id = "'.$_POST['supprimerEntreprise'].'"');
 	}
 			/*
 				A REVOIR !!!
@@ -212,7 +216,7 @@ session_start();
 			//lister la table entreprise
 		$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');
 		echo '<table id="listingEntreprise" class="table table-hover">';
-		echo '<th>Nom</th><th>Mail</th><th>Site</th><th>Compte validé</th><th></th>';
+		echo '<th>Nom</th><th>Mail</th><th>Site</th><th>Compte validé</th><th></th><th><button class="btn btn-danger" style="width:200px;" onclick="showSupressButton();" id="suppressionBouton" >Supprimer des entreprises</button><button class="btn btn-primary" onclick="hideSupressButton();" id="finishBouton" >Terminé</button></th>';
 		while($uneEntreprise = $requeteEntreprise->fetch()){
 				//afficher l'etat de chaque entreprise
 			?>
@@ -240,7 +244,11 @@ session_start();
 					
 				}
 				
-				echo '</form></td></tr>';
+				echo '</form></td><td>';
+				echo '<form action="compte.php" method="POST" id="suppressionEntreprise">
+				<input type="hidden" name="supprimerEntreprise" id="supprimerEntreprise" value="'.$uneEntreprise['id'].'" />';
+				echo'<button type="submit" class="btn btn-danger">Supprimer</button>';
+				echo'</td></tr>';
 			}
 			echo '</table>';
 		}
@@ -408,6 +416,7 @@ session_start();
 			reduire('#rdvEtudiants');
 			reduire('#etudiants');
 			*/
+			hideSupressButton();
 		}
 
 		function reduire(divi){
@@ -430,6 +439,26 @@ session_start();
 				$(messages).fadeIn(200, null);
 				$(listingEntreprise).fadeIn(200, null);
 			}
+		}
+		function showSupressButton(){
+				//Afficher le bouton vert terminé
+				$(finishBouton).fadeIn(200, null);
+				//cacher le bouton rouge de suppression
+				$(suppressionBouton).fadeOut(200, null);
+			//afficher les boutons de suppression
+				$(suppressionEntreprise).fadeIn(200, null);
+			
+		}
+		function hideSupressButton(){
+			//afficher le bouton rouge de suppression
+				$(suppressionBouton).fadeIn(200, null);
+					//Cacher le bouton vert terminé
+				$(finishBouton).fadeOut(200, null);
+
+			//cacher les boutons de suppression
+				$(suppressionEntreprise).fadeOut(200, null);
+			
+				
 		}
 	</script>
 	<?php include("footer.php"); ?>

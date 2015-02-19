@@ -27,14 +27,14 @@ function razEtudiants(){
 }
 	function downloadCVTheque(){
 	// On instancie la classe.
-		chmod($dossier, 755);
+		//chmod($dossier, 755);
 		$zip = new ZipArchive();
 		
 		if(is_dir('./_/cv/'))
 		{
         // On teste si le dossier existe, car sans ça le script risque de provoquer des erreurs.
 			
-			if($zip->open('CVTheque.zip', ZipArchive::CREATE) == TRUE)
+			if($zip->open('./_/cvarchive/CVTheque.zip', ZipArchive::CREATE) == TRUE)
 			{
 	  // Ouverture de l’archive réussie.
 
@@ -61,7 +61,7 @@ function razEtudiants(){
 	  header('Content-Disposition: attachment; filename="CVTheque.zip"'); //Nom du fichier.
 	  header('Content-Length: '.filesize('CVTheque.zip')); //Taille du fichier.
 	  
-	  readfile('CVTheque.zip');
+	  readfile('./_/cvarchive/CVTheque.zip');
 	}
 	else
 	{
