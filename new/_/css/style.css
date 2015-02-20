@@ -151,9 +151,10 @@ margin: auto;
 
 .OneEntreprise{
 	display: inline-block;
-	width: 120px;
+	width: auto;
 	height: auto;
 	padding: 15px;
+	max-width: 210px;
 }
 #listentreprises{
 	max-width: 80%;
