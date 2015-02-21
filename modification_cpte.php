@@ -25,7 +25,6 @@ if(isset($_POST['type'])){
 
 		$requete = $bdd->exec('UPDATE membre SET nom = "'.$_POST['nom'].'", prenom = "'.$_POST['prenom'].'", mail = "'.$_POST['mail'].'", promotion = "'.$_POST['promotion'].'", pass = "'.md5($_POST['passEtudiant']).'", motcles1 = "'.$_POST['motcles1'].'", motcles2 = "'.$_POST['motcles2'].'" WHERE id = "'.$_SESSION['id'].'"');
 		
-			// PARCOURS a REVOIR
 		if(!$requete){
 			redirect("./compte.php?code=1","0");
 		}else{
@@ -36,6 +35,19 @@ if(isset($_POST['type'])){
 			$_SESSION['promotion'] = $_POST['promotion'];
 			$_SESSION['motcles1'] = $_POST['motcles1'];
 			$_SESSION['motcles2'] = $_POST['motcles2'];
+			redirect("./compte.php?code=0", "0");
+		}
+
+	}else if($_POST['type'] == "root"){
+			//modification du compte root.
+
+		$requete = $bdd->exec('UPDATE membre SET pass = "'.md5($_POST['passRoot']).'" WHERE id = "'.$_SESSION['id'].'"');
+		
+		if(!$requete){
+			//Si ça s'est mal passé -> retour compte avec code erreur 
+			redirect("./compte.php?code=1","0");
+		}else{
+			//si ça s'est bien passé retour compte.php avec code OK
 			redirect("./compte.php?code=0", "0");
 		}
 
@@ -237,54 +249,86 @@ if(isset($_POST['type'])){
 						</select>
 					</div>
 				</div>
-				-->
-				<!-- EMAIL -->
-				<div class="form-group">
-					<label for="mail" class="col-sm-4 control-label">E-mail</label>
-					<div class="col-sm-8">	
-						<input type="text" class="form-control" name="mail" id="mail" value="<?php echo ''.$res['mail'] ?>" required/>
-					</div>
-					
+			-->
+			<!-- EMAIL -->
+			<div class="form-group">
+				<label for="mail" class="col-sm-4 control-label">E-mail</label>
+				<div class="col-sm-8">	
+					<input type="text" class="form-control" name="mail" id="mail" value="<?php echo ''.$res['mail'] ?>" required/>
 				</div>
-				
-				<!-- 2 mots caractéristiques  -->
-				<div class="form-group">
-					<label for="motscles" class="col-sm-4 control-label">2 mots qui vous caractérisent (libre expression)</label>
-					<div class="col-sm-4">
-						<input type="text" name="motcles1" id="motcles1" value="<?php echo ''.$res['motcles1'] ?>" class="form-control" required/>
-					</div>
-					<div class="col-sm-4">
-						<input type="text" name="motcles2" id="motcles2" value="<?php echo ''.$res['motcles2'] ?>" class="form-control" required/>
-					</div>
+
+			</div>
+
+			<!-- 2 mots caractéristiques  -->
+			<div class="form-group">
+				<label for="motscles" class="col-sm-4 control-label">2 mots qui vous caractérisent (libre expression)</label>
+				<div class="col-sm-4">
+					<input type="text" name="motcles1" id="motcles1" value="<?php echo ''.$res['motcles1'] ?>" class="form-control" required/>
 				</div>
-				<!-- Mot de passe -->
-				<div class="form-group">
-					<label for="passEtudiant" class="col-sm-4 control-label">Mot de passe</label>
-					<div class="col-sm-8">
-						<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="passEtudiant" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}"pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
-					</div>
+				<div class="col-sm-4">
+					<input type="text" name="motcles2" id="motcles2" value="<?php echo ''.$res['motcles2'] ?>" class="form-control" required/>
 				</div>
-				<!-- Confirmation -->
-				<div class="form-group">
-					<label for="pass2Etudiant" class="col-sm-4 control-label">Confirmation</label>
-					<div class="col-sm-8">
-						<input type="password" name="pass2Etudiant"  placeholder="Minimum 8 caractères avec 1 chiffre" id="pass2Etudiant" placeholder="Confirmation" class="form-control" data-match="#passEtudiant" data-match-error="Les 2 mot de passe sont différents" required/>
-					</div>
-					<div class="help-block with-errors col-sm-4"></div>
+			</div>
+			<!-- Mot de passe -->
+			<div class="form-group">
+				<label for="passEtudiant" class="col-sm-4 control-label">Mot de passe</label>
+				<div class="col-sm-8">
+					<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="passEtudiant" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" id="passEtudiant" class="form-control" placeholder="Mot de passe" required/>
 				</div>
-				<!-- champ caché pour indiquer que c'est un membre -->
-				<input type="hidden" name="type" value="membre" />
-				<!-- Envoi ou remise � z�ro -->
-				<div style="text-align: right">
-					<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
-					<a href="./compte.php" ><input class="btn btn-danger" value="Annuler" style="width:110px;" /></a>
+			</div>
+			<!-- Confirmation -->
+			<div class="form-group">
+				<label for="pass2Etudiant" class="col-sm-4 control-label">Confirmation</label>
+				<div class="col-sm-8">
+					<input type="password" name="pass2Etudiant"  placeholder="Minimum 8 caractères avec 1 chiffre" id="pass2Etudiant" placeholder="Confirmation" class="form-control" data-match="#passEtudiant" data-match-error="Les 2 mot de passe sont différents" required/>
 				</div>
-			</form>
-			<!-- Fin du formulaire ETUDIANT -->
-			
-		</div>
-		<?php } ?>
+				<div class="help-block with-errors col-sm-4"></div>
+			</div>
+			<!-- champ caché pour indiquer que c'est un membre -->
+			<input type="hidden" name="type" value="membre" />
+			<!-- Envoi ou remise � z�ro -->
+			<div style="text-align: right">
+				<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
+				<a href="./compte.php" ><input class="btn btn-danger" value="Annuler" style="width:110px;" /></a>
+			</div>
+		</form>
+		<!-- Fin du formulaire ETUDIANT -->
+
 	</div>
+	<?php }else if($_SESSION['type'] == 'root'){
+			//Formulaire changement de mdp (passRoot)
+	?>	
+		<div id="inscription">
+			<!-- Debut du formulaire ETUDIANT -->
+			<form data-toggle="validator" role="form" class="form-horizontal" id="modificationCompteRoot" action="modification_cpte.php" method="post" enctype="multipart/form-data">
+			<!-- Mot de passe -->
+			<div class="form-group">
+				<label for="passRoot" class="col-sm-4 control-label">Mot de passe</label>
+				<div class="col-sm-8">
+					<input type="password" placeholder="Minimum 8 caractères avec 1 chiffre" name="passRoot" pattern="(?=.*\d)(?=.*[a-zA-Z]).{8,}" id="passRoot" class="form-control" placeholder="Mot de passe" required/>
+				</div>
+			</div>
+			<!-- Confirmation -->
+			<div class="form-group">
+				<label for="pass2Etudiant" class="col-sm-4 control-label">Confirmation</label>
+				<div class="col-sm-8">
+					<input type="password" name="passRoot2"  placeholder="Minimum 8 caractères avec 1 chiffre" id="passRoot2" placeholder="Confirmation" class="form-control" data-match="#passRoot" data-match-error="Les 2 mot de passe sont différents" required/>
+				</div>
+				<div class="help-block with-errors col-sm-4"></div>
+			</div>
+			<!-- champ caché pour indiquer que c'est un membre -->
+			<input type="hidden" name="type" value="root" />
+			<!-- Envoi ou remise � z�ro -->
+			<div style="text-align: right">
+				<input class="btn btn-primary" name="send" type="submit" value="Envoyer" />
+				<a href="./compte.php" ><input class="btn btn-danger" value="Annuler" style="width:110px;" /></a>
+			</div>
+		</form>
+		<!-- Fin du formulaire ETUDIANT -->
+
+
+	<?php } ?>
+</div>
 </div>
 <?php
 include('footer.php');

@@ -78,6 +78,7 @@ if(isset($_POST['descriptionLongue']) && isset($_POST['descriptionEleve']) && is
 
 				<div class="boutonsCompte">
 					<button class="btn btn-primary " name="send" type="submit"><span class="glyphicon glyphicon-floppy-save"></span> Enregistrer</button>
+					<a href="./modification_cpte.php" ><button type="button"  class="btn btn-warning"><span class="glyphicon glyphicon-cog"></span> Changer Mot de passe Root</button></a>
 					<a href="./compte.php" ><button type="button"  class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Annuler</button></a>
 				</div>
 			</form>

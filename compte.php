@@ -442,21 +442,21 @@ session_start();
 		}
 		function showSupressButton(){
 				//Afficher le bouton vert terminé
-				$(finishBouton).fadeIn(50, null);
+				$(finishBouton).fadeIn(0, null);
 				//cacher le bouton rouge de suppression
-				$(suppressionBouton).fadeOut(50, null);
+				$(suppressionBouton).fadeOut(0, null);
 			//afficher les boutons de suppression
-				$(suppressionEntreprise).fadeIn(50, null);
+				$(suppressionEntreprise).fadeIn(0, null);
 			
 		}
 		function hideSupressButton(){
 			//afficher le bouton rouge de suppression
-				$(suppressionBouton).fadeIn(50, null);
+				$(suppressionBouton).fadeIn(0, null);
 					//Cacher le bouton vert terminé
-				$(finishBouton).fadeOut(50, null);
+				$(finishBouton).fadeOut(0, null);
 
 			//cacher les boutons de suppression
-				$(suppressionEntreprise).fadeOut(50, null);
+				$(suppressionEntreprise).fadeOut(0, null);
 			
 				
 		}
