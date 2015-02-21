@@ -1,13 +1,17 @@
 <?php 
-	session_start();
- 	include("header.php");
+session_start();
+include("header.php");
+include("variables.php");
+$bdd = connect_database();
+echo '  
+<div class="jumbotron">
+	<div class="container">';
+		
+		$bdd->exec( 'INSERT INTO message
+			VALUES (NULL, "' .utf8_decode($_POST['nom']). '", "' .utf8_decode($_POST['prenom']). '", "'.utf8_decode($_POST['mail']). '", "' .utf8_decode($_POST['message']). '")');
+		mail(''.getInfoSiteInformation("mailContact"), $_POST['prenom'].' prend contact avec Polytech Dating', $_POST['nom'].' '.$_POST['prenom'].' ----- '.$_POST['message']);
+		echo '<b>L\'équipe du Polytech Dating répondra à votre requête sur votre boite mail le plus rapidement possible.</b>';
+		echo '</div></div>';
 
-	$bdd = connect_database();
-	
-	$bdd->exec( 'INSERT INTO message
-				VALUES (NULL, "' .$_POST['nom']. '", "' .$_POST['prenom']. '", "' .$_POST['promotion']. '", "' .$_POST['mail']. '@polytech.unice.fr", "' .$_POST['message']. '")');
-	echo 'L\'&eacute;quipe du Polytech Dating r&eacute;pondra &agrave; votre requete sur votre boite mail le plus rapidement possible.';
-	include("footer.php") ?>
-
-</body>
-</html>
+		include("footer.php");
+		?>
