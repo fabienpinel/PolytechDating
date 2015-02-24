@@ -1,4 +1,14 @@
 <?php
+/**
+ * \file      function.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     fichier contenant des fonctions utiles pour le site. Actions sur la bdd, connexion à la bdd etc.
+ *
+ * \details  
+ */
+
 function razbdd(){
 	/*
 		desactiver toutes les entreprises

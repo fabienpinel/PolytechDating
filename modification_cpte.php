@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      modification_cpte.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page de modification des informations de compte pour etudiant ou entreprise
+ *
+ * \details  
+ */
+
 session_start(); 
 include("header.php");
 $encours="modifier_compte"; 

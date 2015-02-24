@@ -1,3 +1,14 @@
+ <?php
+/**
+ * \file      footer.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Footer du site, informations de contact, adresse. 
+ *
+ * \details  
+ */
+ ?>
       <footer>
         <p>© Polytech Nice 2014 - 930 Route des Colles - 06903 Sophia Antipolis</p>
         <p>Contact : <?php echo getMailContact(); ?></p>

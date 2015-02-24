@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      heure.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Choix de l'heure lors de la procédure de prise de rendez-vous par un étudiant.
+ *
+ * \details  
+ */
+
 session_start();
 include("header.php");
 $encours="heure"; 

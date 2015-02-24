@@ -1,4 +1,13 @@
 <?php 
+/**
+ * \file      modifierrdv.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page permettant la modification et notamment (pour le moment) la suppression d'un rdv.
+ * \details   Réception par methode POST du rdv à supprimer
+ */
+
 session_start();
 include("header.php");
 checkLogin();

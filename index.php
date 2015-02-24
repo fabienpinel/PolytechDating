@@ -1,4 +1,14 @@
 <?php
+/**
+ * \file      index.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page d'index du site contenant les informations sur l'événement.
+ *
+ * \details  
+ */
+
 session_start(); 
 $encours="index"; 
 include("header.php");

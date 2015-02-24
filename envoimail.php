@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      envoimail.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Réception du formulaire de contact ici. Insertion du msg dans la bdd et envoi du mail à l'adresse de contact.
+ *
+ * \details  
+ */
+
 session_start();
 include("header.php");
 include("variables.php");

@@ -1,4 +1,12 @@
 <?php 
+/**
+ * \file      rdv.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Choix de l'entreprise lors de la procédure de prise de rendez-vous par l'étudiant
+ * \details   
+ */
 session_start();
 include("header.php");
 $encours="rdv"; 

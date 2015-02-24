@@ -1,4 +1,15 @@
 <?php 
+/**
+ * \file      creation_compte_entreprise.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page de traitement du formulaire d'inscription d'une entreprise. 
+ *            Vérification des informations et création du compte dans la bdd. (table entreprise et heure) 
+ *            et upload du logo
+ *
+ * \details  
+ */
 session_start();
 include("header.php");
 echo '<div class="jumbotron">

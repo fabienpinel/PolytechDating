@@ -1,4 +1,15 @@
 <?php 
+/**
+ * \file      connexion.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Reception du formulaire de connexion venant de la page compte ou index.
+ *				Vérification des informations et remplissage de la session le cas échéant.
+ *
+ * \details  
+ */
+
 session_start();
 include("header.php");
 

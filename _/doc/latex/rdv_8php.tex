@@ -1,0 +1,61 @@
+\hypertarget{rdv_8php}{\section{Référence du fichier rdv.\-php}
+\label{rdv_8php}\index{rdv.\-php@{rdv.\-php}}
+}
+
+
+Choix de l'entreprise lors de la procédure de prise de rendez-\/vous par l'étudiant.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{rdv_8php_af7b0e56292699e6983c24fbbf70ce08d}{{\bfseries \$encours} =\char`\"{}rdv\char`\"{}}\label{rdv_8php_af7b0e56292699e6983c24fbbf70ce08d}
+
+\item 
+\hypertarget{rdv_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{rdv_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+\hypertarget{rdv_8php_a63a7a283ea5dee8af1e2d5a3435bf370}{{\bfseries \$req} = \$bdd-\/$>$query('select $\ast$ from infosite where nom=\char`\"{}prise\-R\-D\-V\-Active\char`\"{}')}\label{rdv_8php_a63a7a283ea5dee8af1e2d5a3435bf370}
+
+\item 
+\hypertarget{rdv_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}{{\bfseries \$donnes} = \$req-\/$>$fetch()}\label{rdv_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}
+
+\item 
+\hypertarget{rdv_8php_aca8360b8df321ac8835d086335f18a12}{{\bfseries \$nombre\-R\-D\-V\-Par\-Personne} = \$donnes\mbox{[}'contenu'\mbox{]}}\label{rdv_8php_aca8360b8df321ac8835d086335f18a12}
+
+\item 
+\hypertarget{rdv_8php_a83018d9153d17d91fbcf3bc10158d34f}{{\bfseries \$i} =0}\label{rdv_8php_a83018d9153d17d91fbcf3bc10158d34f}
+
+\item 
+\hypertarget{rdv_8php_a14c4c4c77ecbb15064067e2fd1696b85}{while(\$donnes=\$req-\/$>$fetch()) {\bfseries if} (\$i $>$=\$nombre\-R\-D\-V\-Par\-Personne)}\label{rdv_8php_a14c4c4c77ecbb15064067e2fd1696b85}
+
+\item 
+\hypertarget{rdv_8php_a6d3423f147c69f4f47f014654a57fc93}{{\bfseries \$entreprise} = \$bdd-\/$>$query('S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M entreprise W\-H\-E\-R\-E active=T\-R\-U\-E O\-R\-D\-E\-R B\-Y nom')}\label{rdv_8php_a6d3423f147c69f4f47f014654a57fc93}
+
+\item 
+while(\$donnes=\$entreprise-\/$>$\\*
+fetch()) if(\$i==0) {\bfseries else}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Choix de l'entreprise lors de la procédure de prise de rendez-\/vous par l'étudiant. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des variables}
+\hypertarget{rdv_8php_af36a3114d024cefc6470a45e7847dc51}{\index{rdv.\-php@{rdv.\-php}!else@{else}}
+\index{else@{else}!rdv.php@{rdv.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}while (\$donnes=\$entreprise-\/$>$fetch()) if (\$i==0) else}}\label{rdv_8php_af36a3114d024cefc6470a45e7847dc51}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+\{
+        echo\textcolor{stringliteral}{'<input class="submit btn btn-primary" name="send" type="submit" value="Valider" />'}
+\end{DoxyCode}

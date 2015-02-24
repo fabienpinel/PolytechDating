@@ -1,4 +1,13 @@
 <?php 
+/**
+ * \file      contact.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page contact avec formulaire permettant l'envoi d'un mail. Stockage du message dans la bdd également 
+ *
+ * \details  
+ */
 session_start(); 
 $encours="contact";
 include("header.php") 

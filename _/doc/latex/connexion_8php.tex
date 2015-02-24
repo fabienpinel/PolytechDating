@@ -1,0 +1,85 @@
+\hypertarget{connexion_8php}{\section{Référence du fichier connexion.\-php}
+\label{connexion_8php}\index{connexion.\-php@{connexion.\-php}}
+}
+
+
+Reception du formulaire de connexion venant de la page compte ou index. Vérification des informations et remplissage de la session le cas échéant.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{connexion_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{connexion_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+\hypertarget{connexion_8php_a12ec2780b52bd1c54d38c2f981c0349f}{{\bfseries \$pass} = md5(\$\-\_\-\-P\-O\-S\-T\mbox{[}'pass'\mbox{]})}\label{connexion_8php_a12ec2780b52bd1c54d38c2f981c0349f}
+
+\item 
+\hypertarget{connexion_8php_a63a7a283ea5dee8af1e2d5a3435bf370}{{\bfseries \$req} = \$bdd-\/$>$prepare('S\-E\-L\-E\-C\-T id F\-R\-O\-M membre W\-H\-E\-R\-E mail = \char`\"{}' .\$\-\_\-\-P\-O\-S\-T\mbox{[}'mail'\mbox{]}. '\char`\"{} A\-N\-D pass = \char`\"{}' .\$pass. '\char`\"{}')}\label{connexion_8php_a63a7a283ea5dee8af1e2d5a3435bf370}
+
+\item 
+\hypertarget{connexion_8php_ab105533b60f7700245ebaa60e4d41336}{{\bfseries \$resultat} = \$req-\/$>$fetch()}\label{connexion_8php_ab105533b60f7700245ebaa60e4d41336}
+
+\item 
+if(!\$resultat) {\bfseries else}
+\item 
+\hypertarget{connexion_8php_aa000a46a528298c316b1fdf788402a63}{{\bfseries \$membre} = \$req-\/$>$fetch()}\label{connexion_8php_aa000a46a528298c316b1fdf788402a63}
+
+\item 
+{\bfseries \$req2}
+\item 
+\hypertarget{connexion_8php_a6d3423f147c69f4f47f014654a57fc93}{{\bfseries \$entreprise} = \$req2-\/$>$fetch()}\label{connexion_8php_a6d3423f147c69f4f47f014654a57fc93}
+
+\item 
+\hypertarget{connexion_8php_afb530a60b1bccbc57206a33730fc8005}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'mail'\mbox{]} = \$membre\mbox{[}'mail'\mbox{]}}\label{connexion_8php_afb530a60b1bccbc57206a33730fc8005}
+
+\item 
+\hypertarget{connexion_8php_a06fa3ed0b0b20f341aaffdd11d778856}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'nom'\mbox{]} = \$membre\mbox{[}'nom'\mbox{]}}\label{connexion_8php_a06fa3ed0b0b20f341aaffdd11d778856}
+
+\item 
+\hypertarget{connexion_8php_af786fa4cdfc30fe2f84ae5c536ac9dd4}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'prenom'\mbox{]} = \$membre\mbox{[}'prenom'\mbox{]}}\label{connexion_8php_af786fa4cdfc30fe2f84ae5c536ac9dd4}
+
+\item 
+\hypertarget{connexion_8php_a25249d2d49dea117dda9476cc15daafc}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'promotion'\mbox{]} = \$membre\mbox{[}'promotion'\mbox{]}}\label{connexion_8php_a25249d2d49dea117dda9476cc15daafc}
+
+\item 
+\hypertarget{connexion_8php_a9c900cc96004a880a8c7fc296dce7f48}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'parcours'\mbox{]} = \$membre\mbox{[}'parcours'\mbox{]}}\label{connexion_8php_a9c900cc96004a880a8c7fc296dce7f48}
+
+\item 
+\hypertarget{connexion_8php_a3bedf210a47aa6ad6d2a7113f8937ba6}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'entreprise'\mbox{]} = \$entreprise\mbox{[}'entreprise'\mbox{]}}\label{connexion_8php_a3bedf210a47aa6ad6d2a7113f8937ba6}
+
+\item 
+\hypertarget{connexion_8php_a7025258b2f2387d0205ca08d0e512ec6}{{\bfseries \$\-\_\-\-S\-E\-S\-S\-I\-O\-N} \mbox{[}'heure'\mbox{]} = \$entreprise\mbox{[}'heure'\mbox{]}}\label{connexion_8php_a7025258b2f2387d0205ca08d0e512ec6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Reception du formulaire de connexion venant de la page compte ou index. Vérification des informations et remplissage de la session le cas échéant. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des variables}
+\hypertarget{connexion_8php_a7ca1585a5f3ef438efdf8b51d390282b}{\index{connexion.\-php@{connexion.\-php}!\$req2@{\$req2}}
+\index{\$req2@{\$req2}!connexion.php@{connexion.\-php}}
+\subsubsection[{\$req2}]{\setlength{\rightskip}{0pt plus 5cm}\$req2}}\label{connexion_8php_a7ca1585a5f3ef438efdf8b51d390282b}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+= $bdd->query(\textcolor{stringliteral}{'SELECT entreprise, heure FROM rdv}
+\textcolor{stringliteral}{                WHERE membre='} .$\_SESSION[\textcolor{stringliteral}{'id'}]. \textcolor{stringliteral}{''})
+\end{DoxyCode}
+\hypertarget{connexion_8php_a26918388d4c6e2a1bb1736a8b054db94}{\index{connexion.\-php@{connexion.\-php}!else@{else}}
+\index{else@{else}!connexion.php@{connexion.\-php}}
+\subsubsection[{else}]{\setlength{\rightskip}{0pt plus 5cm}if (\$membre\mbox{[}'mail'\mbox{]}==\char`\"{}root@root.\-root\char`\"{}) else}}\label{connexion_8php_a26918388d4c6e2a1bb1736a8b054db94}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+\{
+            $\_SESSION[\textcolor{stringliteral}{'id'}] = $resultat[\textcolor{stringliteral}{'id'}]
+\end{DoxyCode}

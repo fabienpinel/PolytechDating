@@ -1,32 +1,39 @@
 <?php 
+/**
+ * \file      compte.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Affichage des informations de compte entreprise ou utilisateur ou root
+ *
+ * \details   **TODO
+ *				-bouton raz rdv entreprise par entreprise
+ *				-historique d'une année sur l'autre
+ */
+
 session_start(); 
-	/*
-	TODO
-	bouton raz rdv entreprise par entreprise
-	historique d'une année sur l'autre
-	*/
-	$encours="compte";
-	include("header.php");
-	include("variables.php");
+$encours="compte";
+include("header.php");
+include("variables.php");
 
-	
-	echo '  
-	<div class="jumbotron">
-		<div class="container">';
 
-			/*	Prise en compte des codes retours */
-			if(isset($_GET['code'])){
-				switch($_GET['code']){
-					case 0:
+echo '  
+<div class="jumbotron">
+	<div class="container">';
+
+		/*	Prise en compte des codes retours */
+		if(isset($_GET['code'])){
+			switch($_GET['code']){
+				case 0:
     			//Tout s'est bien passé
-					echo ' <div class="alert alert-success" role="alert">La modification du compte s\'est terminée avec succès.</div>';
-					break;
-					case 1:
+				echo ' <div class="alert alert-success" role="alert">La modification du compte s\'est terminée avec succès.</div>';
+				break;
+				case 1:
     			//Il y a eu des erreurs
-					echo ' <div class="alert alert-danger" role="alert">La modification du compte ne s\'est pas bien terminée. Veuillez recommencer.</div>';
-					break;
-				}
+				echo ' <div class="alert alert-danger" role="alert">La modification du compte ne s\'est pas bien terminée. Veuillez recommencer.</div>';
+				break;
 			}
+		}
 
 
 	/*
@@ -98,7 +105,7 @@ session_start();
 				document.location.href="?razEtudiants" ;
 			}
 		}
-		</script>';
+	</script>';
 	
 
 
@@ -446,19 +453,19 @@ session_start();
 				//cacher le bouton rouge de suppression
 				$(suppressionBouton).fadeOut(0, null);
 			//afficher les boutons de suppression
-				$(suppressionEntreprise).fadeIn(0, null);
+			$(suppressionEntreprise).fadeIn(0, null);
 			
 		}
 		function hideSupressButton(){
 			//afficher le bouton rouge de suppression
-				$(suppressionBouton).fadeIn(0, null);
+			$(suppressionBouton).fadeIn(0, null);
 					//Cacher le bouton vert terminé
-				$(finishBouton).fadeOut(0, null);
+					$(finishBouton).fadeOut(0, null);
 
 			//cacher les boutons de suppression
-				$(suppressionEntreprise).fadeOut(0, null);
+			$(suppressionEntreprise).fadeOut(0, null);
 			
-				
+			
 		}
 	</script>
 	<?php include("footer.php"); ?>

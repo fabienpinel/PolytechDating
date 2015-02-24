@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      entreprises.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Affichage de la liste d'entreprises activée avec leur logo et lien vers le site.
+ *
+ * \details  
+ */
+
 session_start(); 
 $encours="entreprises";
 include("header.php");

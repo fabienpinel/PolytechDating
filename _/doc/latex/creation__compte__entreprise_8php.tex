@@ -1,0 +1,45 @@
+\hypertarget{creation__compte__entreprise_8php}{\section{Référence du fichier creation\-\_\-compte\-\_\-entreprise.\-php}
+\label{creation__compte__entreprise_8php}\index{creation\-\_\-compte\-\_\-entreprise.\-php@{creation\-\_\-compte\-\_\-entreprise.\-php}}
+}
+
+
+Page de traitement du formulaire d'inscription d'une entreprise. Vérification des informations et création du compte dans la bdd. (table entreprise et heure) et upload du logo.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{creation__compte__entreprise_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{creation__compte__entreprise_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+\hypertarget{creation__compte__entreprise_8php_aa000a46a528298c316b1fdf788402a63}{{\bfseries \$membre} = \$bdd-\/$>$query('S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M entreprise')}\label{creation__compte__entreprise_8php_aa000a46a528298c316b1fdf788402a63}
+
+\item 
+\hypertarget{creation__compte__entreprise_8php_a3289caad8efe0a8b4dffdfc5d252d16f}{{\bfseries \$existant} = false}\label{creation__compte__entreprise_8php_a3289caad8efe0a8b4dffdfc5d252d16f}
+
+\item 
+{\bfseries if} (!\$existant)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Page de traitement du formulaire d'inscription d'une entreprise. Vérification des informations et création du compte dans la bdd. (table entreprise et heure) et upload du logo. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des variables}
+\hypertarget{creation__compte__entreprise_8php_ac003630a5e61de0d658f49f6add17eef}{\index{creation\-\_\-compte\-\_\-entreprise.\-php@{creation\-\_\-compte\-\_\-entreprise.\-php}!if@{if}}
+\index{if@{if}!creation_compte_entreprise.php@{creation\-\_\-compte\-\_\-entreprise.\-php}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if}}\label{creation__compte__entreprise_8php_ac003630a5e61de0d658f49f6add17eef}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+\{
+                $\_SESSION[\textcolor{stringliteral}{'type'}] = \textcolor{stringliteral}{"membre"}
+\end{DoxyCode}

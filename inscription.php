@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      inscription.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page d'inscription pour étudiant ou entreprise
+ *
+ * \details  le parametre GET "type" permet de différencier le formulaire "etudiant" et "entreprise"
+ */
+
 session_start(); 
 $encours="inscription"; 
 include("header.php");

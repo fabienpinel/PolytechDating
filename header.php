@@ -1,4 +1,14 @@
 <?php 
+/**
+ * \file      header.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Header du site. Fichier contenant la première partie de la page avec notamment le menu.
+ *
+ * \details  
+ */
+
 include('function.php');
 ?>
 <!--

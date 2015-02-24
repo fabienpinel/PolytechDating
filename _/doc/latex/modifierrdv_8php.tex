@@ -1,0 +1,43 @@
+\hypertarget{modifierrdv_8php}{\section{Référence du fichier modifierrdv.\-php}
+\label{modifierrdv_8php}\index{modifierrdv.\-php@{modifierrdv.\-php}}
+}
+
+
+Page permettant la modification et notamment (pour le moment) la suppression d'un rdv.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{modifierrdv_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{modifierrdv_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+{\bfseries \$req}
+\item 
+\hypertarget{modifierrdv_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}{{\bfseries \$donnes} = \$req-\/$>$fetch()}\label{modifierrdv_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Page permettant la modification et notamment (pour le moment) la suppression d'un rdv. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015
+\end{DoxyDate}
+Réception par methode P\-O\-S\-T du rdv à supprimer 
+
+\subsection{Documentation des variables}
+\hypertarget{modifierrdv_8php_a63a7a283ea5dee8af1e2d5a3435bf370}{\index{modifierrdv.\-php@{modifierrdv.\-php}!\$req@{\$req}}
+\index{\$req@{\$req}!modifierrdv.php@{modifierrdv.\-php}}
+\subsubsection[{\$req}]{\setlength{\rightskip}{0pt plus 5cm}\$req}}\label{modifierrdv_8php_a63a7a283ea5dee8af1e2d5a3435bf370}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+= $bdd->query(\textcolor{stringliteral}{' SELECT *  }
+\textcolor{stringliteral}{            FROM rdv}
+\textcolor{stringliteral}{            WHERE id = '} .$\_POST[\textcolor{stringliteral}{'id'}]. \textcolor{stringliteral}{''})
+\end{DoxyCode}

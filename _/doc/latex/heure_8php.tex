@@ -1,0 +1,67 @@
+\hypertarget{heure_8php}{\section{Référence du fichier heure.\-php}
+\label{heure_8php}\index{heure.\-php@{heure.\-php}}
+}
+
+
+Choix de l'heure lors de la procédure de prise de rendez-\/vous par un étudiant.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{heure_8php_af7b0e56292699e6983c24fbbf70ce08d}{{\bfseries \$encours} =\char`\"{}heure\char`\"{}}\label{heure_8php_af7b0e56292699e6983c24fbbf70ce08d}
+
+\item 
+\hypertarget{heure_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{heure_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+\hypertarget{heure_8php_a63a7a283ea5dee8af1e2d5a3435bf370}{{\bfseries \$req} = \$bdd-\/$>$query('S\-E\-L\-E\-C\-T $\ast$ F\-R\-O\-M membre W\-H\-E\-R\-E id=\char`\"{}' .\$\-\_\-\-S\-E\-S\-S\-I\-O\-N\mbox{[}'id'\mbox{]}. '\char`\"{}')}\label{heure_8php_a63a7a283ea5dee8af1e2d5a3435bf370}
+
+\item 
+\hypertarget{heure_8php_aa000a46a528298c316b1fdf788402a63}{{\bfseries \$membre} = \$req-\/$>$fetch()}\label{heure_8php_aa000a46a528298c316b1fdf788402a63}
+
+\item 
+{\bfseries \$rendez\-Vous}
+\item 
+\hypertarget{heure_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}{{\bfseries \$donnes} = \$rendez\-Vous-\/$>$fetch()}\label{heure_8php_a93720f3d7a3eb4aabe4bb2053895b6b6}
+
+\item 
+\hypertarget{heure_8php_a93bba7b1cd7e64470e2f407c224a445f}{neau de passage$<$/p $>$$<$ formdata-\/toggle=\char`\"{}validator\char`\"{}method=\char`\"{}post\char`\"{}action=\char`\"{}validation.\-php\char`\"{}role=\char`\"{}form\char`\"{}class=\char`\"{}form-\/horizontalformulaire\-R\-D\-V\char`\"{}$>$\\*
+$<$ divclass=\char`\"{}radio\char`\"{}$>$$<$ label $>$\\*
+$<$ inputtype=\char`\"{}radio\char`\"{}name=\char`\"{}heure\char`\"{}value=\char`\"{}'.\$heures\mbox{[}\$i\mbox{]}.'\char`\"{}id=\char`\"{}'.\$heures\mbox{[}\$i\mbox{]}.'\char`\"{}required $>$\\*
+ De \& {\bfseries agrave}}\label{heure_8php_a93bba7b1cd7e64470e2f407c224a445f}
+
+\item 
+\hypertarget{heure_8php_a2f6686199a0eeffed7beddb0823f0aba}{$<$/label $>$$<$/div $>$$<$ inputtype=\char`\"{}hidden\char`\"{}name=\char`\"{}entreprise\char`\"{}value=\char`\"{}'.\$\-\_\-\-P\-O\-S\-T\mbox{[}'choix'\mbox{]}.'\char`\"{}/$>$\\*
+$<$ inputtype=\char`\"{}submit\char`\"{}value=\char`\"{}Valider\char`\"{}class=\char`\"{}btnbtn-\/primary\char`\"{}/$>$\\*
+$<$ ahref=\char`\"{}rdv.\-php\char`\"{}$>$$<$ buttontype=\char`\"{}button\char`\"{}style=\char`\"{}margin-\/left\-:2px;\char`\"{}class=\char`\"{}btnbtn-\/warning\char`\"{}$>$\\*
+ Retour au choix de {\bfseries l}}\label{heure_8php_a2f6686199a0eeffed7beddb0823f0aba}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Choix de l'heure lors de la procédure de prise de rendez-\/vous par un étudiant. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015 
+\end{DoxyDate}
+
+
+\subsection{Documentation des variables}
+\hypertarget{heure_8php_ab2121b509659a3365505c8df09e3d379}{\index{heure.\-php@{heure.\-php}!\$rendez\-Vous@{\$rendez\-Vous}}
+\index{\$rendez\-Vous@{\$rendez\-Vous}!heure.php@{heure.\-php}}
+\subsubsection[{\$rendez\-Vous}]{\setlength{\rightskip}{0pt plus 5cm}\$rendez\-Vous}}\label{heure_8php_ab2121b509659a3365505c8df09e3d379}
+{\bfseries Valeur initiale \-:}
+\begin{DoxyCode}
+= $bdd->query(\textcolor{stringliteral}{'SELECT heure.14h00, heure.14h20, heure.14h40, heure.15h00, heure.15h20, heure.15h40,
+       heure.16h00, heure.16h20, heure.16h40, heure.17h00}
+\textcolor{stringliteral}{        FROM heure}
+\textcolor{stringliteral}{        INNER JOIN entreprise}
+\textcolor{stringliteral}{        ON heure.entreprise = entreprise.id}
+\textcolor{stringliteral}{        WHERE entreprise.nom = "'} .$\_POST[\textcolor{stringliteral}{'choix'}]. \textcolor{charliteral}{'"'})
+\end{DoxyCode}

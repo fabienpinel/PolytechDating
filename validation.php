@@ -1,4 +1,12 @@
 <?php 
+/**
+ * \file      validation.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Dernière étape dans la procédure de prise de rdv par l'étudiant. Affichage du réacapitulatif de rendez-vous
+ * \details   Envoir du mail de confirmation à l'étudiant de son rdv
+ */
 session_start();
 include("header.php");
 checkLogin();

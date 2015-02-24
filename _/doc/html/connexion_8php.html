@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>polytechdating: Référence du fichier connexion.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">polytechdating
+   </div>
+   <div id="projectbrief">Polytech Dating - Site de gestion de l&#39;événement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier connexion.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Reception du formulaire de connexion venant de la page compte ou index. Vérification des informations et remplissage de la session le cas échéant.  
+<a href="#details">Plus de détails...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a94f91e878bce0991e2cd595c5dd79b3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a94f91e878bce0991e2cd595c5dd79b3f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$bdd</b> = connect_database()</td></tr>
+<tr class="separator:a94f91e878bce0991e2cd595c5dd79b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ec2780b52bd1c54d38c2f981c0349f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12ec2780b52bd1c54d38c2f981c0349f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$pass</b> = md5($_POST['pass'])</td></tr>
+<tr class="separator:a12ec2780b52bd1c54d38c2f981c0349f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63a7a283ea5dee8af1e2d5a3435bf370"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63a7a283ea5dee8af1e2d5a3435bf370"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$req</b> = $bdd-&gt;prepare('SELECT id FROM membre WHERE mail = &quot;' .$_POST['mail']. '&quot; AND pass = &quot;' .$pass. '&quot;')</td></tr>
+<tr class="separator:a63a7a283ea5dee8af1e2d5a3435bf370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab105533b60f7700245ebaa60e4d41336"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab105533b60f7700245ebaa60e4d41336"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$resultat</b> = $req-&gt;fetch()</td></tr>
+<tr class="separator:ab105533b60f7700245ebaa60e4d41336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26918388d4c6e2a1bb1736a8b054db94"><td class="memItemLeft" align="right" valign="top">if(!$resultat)&#160;</td><td class="memItemRight" valign="bottom"><b>else</b></td></tr>
+<tr class="separator:a26918388d4c6e2a1bb1736a8b054db94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa000a46a528298c316b1fdf788402a63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa000a46a528298c316b1fdf788402a63"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$membre</b> = $req-&gt;fetch()</td></tr>
+<tr class="separator:aa000a46a528298c316b1fdf788402a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ca1585a5f3ef438efdf8b51d390282b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><b>$req2</b></td></tr>
+<tr class="separator:a7ca1585a5f3ef438efdf8b51d390282b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d3423f147c69f4f47f014654a57fc93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d3423f147c69f4f47f014654a57fc93"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$entreprise</b> = $req2-&gt;fetch()</td></tr>
+<tr class="separator:a6d3423f147c69f4f47f014654a57fc93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb530a60b1bccbc57206a33730fc8005"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb530a60b1bccbc57206a33730fc8005"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['mail'] = $membre['mail']</td></tr>
+<tr class="separator:afb530a60b1bccbc57206a33730fc8005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06fa3ed0b0b20f341aaffdd11d778856"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06fa3ed0b0b20f341aaffdd11d778856"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['nom'] = $membre['nom']</td></tr>
+<tr class="separator:a06fa3ed0b0b20f341aaffdd11d778856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af786fa4cdfc30fe2f84ae5c536ac9dd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af786fa4cdfc30fe2f84ae5c536ac9dd4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['prenom'] = $membre['prenom']</td></tr>
+<tr class="separator:af786fa4cdfc30fe2f84ae5c536ac9dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25249d2d49dea117dda9476cc15daafc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25249d2d49dea117dda9476cc15daafc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['promotion'] = $membre['promotion']</td></tr>
+<tr class="separator:a25249d2d49dea117dda9476cc15daafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c900cc96004a880a8c7fc296dce7f48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c900cc96004a880a8c7fc296dce7f48"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['parcours'] = $membre['parcours']</td></tr>
+<tr class="separator:a9c900cc96004a880a8c7fc296dce7f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bedf210a47aa6ad6d2a7113f8937ba6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bedf210a47aa6ad6d2a7113f8937ba6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['entreprise'] = $entreprise['entreprise']</td></tr>
+<tr class="separator:a3bedf210a47aa6ad6d2a7113f8937ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7025258b2f2387d0205ca08d0e512ec6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7025258b2f2387d0205ca08d0e512ec6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$_SESSION</b> ['heure'] = $entreprise['heure']</td></tr>
+<tr class="separator:a7025258b2f2387d0205ca08d0e512ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Reception du formulaire de connexion venant de la page compte ou index. Vérification des informations et remplissage de la session le cas échéant. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Fabien Pinel </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>24 Février 2015 </dd></dl>
+</div><h2 class="groupheader">Documentation des variables</h2>
+<a class="anchor" id="a7ca1585a5f3ef438efdf8b51d390282b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$req2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= $bdd-&gt;query(<span class="stringliteral">&#39;SELECT entreprise, heure FROM rdv</span></div>
+<div class="line"><span class="stringliteral">                WHERE membre=&#39;</span> .$_SESSION[<span class="stringliteral">&#39;id&#39;</span>]. <span class="stringliteral">&#39;&#39;</span>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a class="anchor" id="a26918388d4c6e2a1bb1736a8b054db94"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">if ($membre['mail']==&quot;root@root.root&quot;) else</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">{</div>
+<div class="line">            $_SESSION[<span class="stringliteral">&#39;id&#39;</span>] = $resultat[<span class="stringliteral">&#39;id&#39;</span>]</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mardi 24 Février 2015 15:00:43 pour polytechdating par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.6
+</small></address>
+</body>
+</html>

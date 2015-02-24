@@ -1,0 +1,39 @@
+\hypertarget{modification__site_8php}{\section{Référence du fichier modification\-\_\-site.\-php}
+\label{modification__site_8php}\index{modification\-\_\-site.\-php@{modification\-\_\-site.\-php}}
+}
+
+
+Page de modification des informations du site.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{modification__site_8php_af7b0e56292699e6983c24fbbf70ce08d}{{\bfseries \$encours} =\char`\"{}modifier\-\_\-site\char`\"{}}\label{modification__site_8php_af7b0e56292699e6983c24fbbf70ce08d}
+
+\item 
+\hypertarget{modification__site_8php_a94f91e878bce0991e2cd595c5dd79b3f}{{\bfseries \$bdd} = connect\-\_\-database()}\label{modification__site_8php_a94f91e878bce0991e2cd595c5dd79b3f}
+
+\item 
+\hypertarget{modification__site_8php_ad97683d78021f370388582d4859033f2}{{\bfseries if} (isset(\$\-\_\-\-P\-O\-S\-T\mbox{[}'description\-Longue'\mbox{]})\&\&isset(\$\-\_\-\-P\-O\-S\-T\mbox{[}'description\-Eleve'\mbox{]})\&\&isset(\$\-\_\-\-P\-O\-S\-T\mbox{[}'description\-Entreprise'\mbox{]}))}\label{modification__site_8php_ad97683d78021f370388582d4859033f2}
+
+\item 
+\hypertarget{modification__site_8php_a495cb0b7764beb4970118e5a0ae62190}{if(get\-Info\-Site\-Information(\char`\"{}prise\-R\-D\-V\-Active\char`\"{})) {\bfseries \$requete} = \$bdd-\/$>$query('S\-E\-L\-E\-C\-T $\ast$ from infosite W\-H\-E\-R\-E nom L\-I\-K\-E \char`\"{}description\%\char`\"{}')}\label{modification__site_8php_a495cb0b7764beb4970118e5a0ae62190}
+
+\item 
+\hypertarget{modification__site_8php_abb9024608005245d5e5c1c5de27f9fd5}{{\bfseries while} (\$res=\$requete-\/$>$fetch())}\label{modification__site_8php_abb9024608005245d5e5c1c5de27f9fd5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Page de modification des informations du site. \begin{DoxyAuthor}{Auteur}
+Fabien Pinel 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+24 Février 2015
+\end{DoxyDate}
+(ouverture des inscriptions, ouverture de la prise de rdv, changement des txts de la page d'acceuil, changement du mail de contact, changement du nb de rdv, changement de l'edition) 

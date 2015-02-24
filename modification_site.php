@@ -1,4 +1,15 @@
 <?php 
+/**
+ * \file      modification_site.php
+ * \author    Fabien Pinel
+ * \version   1.0
+ * \date      24 Février 2015
+ * \brief     Page de modification des informations du site  
+ * \details  (ouverture des inscriptions, ouverture de la prise de rdv,
+ *			 changement des txts de la page d'acceuil, changement du mail de contact, 
+ *			changement du nb de rdv, changement de l'edition)
+ */
+
 session_start(); 
 include("header.php");
 $encours="modifier_site"; 
