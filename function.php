@@ -9,6 +9,13 @@
  * \details  
  */
 
+/**
+ * \fn razbdd
+ * \brief Fonction de remise à zero du site. Désactive les entreprises, supprime les rendez-vous, supprimes les messages.
+ *
+ * \param 
+ * \return 
+ */ 
 function razbdd(){
 	/*
 		desactiver toutes les entreprises
@@ -28,6 +35,12 @@ function razbdd(){
 	//supprimer les messages de la BDD
 		$req = $bdd->exec('DELETE FROM message WHERE 1=1;');
 }
+/**
+ * \fn razEtudiants
+ * \brief Fonction de remise à zero des étudiants. Supprime les compte étudiants, supprime donc aussi les rendez-vous associés et les messages laissés.
+ * \param 
+ * \return 
+ */ 
 function razEtudiants(){
 	$bdd = connect_database();
 	//supprimer tous les étudiants et en cascade supprimer tous les rdv/messages etc.
@@ -35,6 +48,12 @@ function razEtudiants(){
 	$req = $bdd->exec('UPDATE heure SET 14h00=0, 14h20=0, 14h40=0, 15h00=0, 15h20=0,15h40=1, 16h00=0, 16h20=0, 16h40=0, 17h00=0 where 1=1;');
 	//supprimer les CVs ?
 }
+/**
+ * \fn downloadCVTheque
+ * \brief Fonction permettant de télécharger la CVTheque. Elle s'occupe de faire une archive avec les CV et de les télécharger.
+ * \param 
+ * \return 
+ */ 
 	function downloadCVTheque(){
 	// On instancie la classe.
 		//chmod($dossier, 755);
@@ -86,12 +105,24 @@ else
 	echo 'Le dossier &quot;upload/&quot; n\'existe pas.';
 }
 }
+/**
+ * \fn entrepriseEncoreDisponible
+ * \brief Fonction permettant de savoir si une entreprise est encore disponible ou non (elle a encore au moins 1 rendez-vous de libre)
+ * \param id de l'entreprise
+ * \return 
+ */ 
 function entrepriseEncoreDisponible($id){
 	$bdd = connect_database();
 	$entreprise = $bdd->query('SELECT * FROM heure where entreprise='.$id);
 	$donnees = $entreprise->fetch();
 	return !($donnees['14h00'] && $donnees['14h20'] && $donnees['14h40'] && $donnees['15h00'] && $donnees['15h40'] && $donnees['16h00'] && $donnees['16h20'] && $donnees['16h40'] && $donnees['17h00']);
 }
+/**
+ * \fn connect_database
+ * \brief Fonction permettant de se connecter à la base de donnée.
+ * \param 
+ * \return la variable de connexion
+ */ 
 function connect_database(){
 	include('variables.php');
 	try
@@ -104,12 +135,24 @@ function connect_database(){
 	}
 	return $bdd;
 }
+/**
+ * \fn checkLogin
+ * \brief Fonction permettant de vérifier que l'utilisateur est connecté
+ * \param 
+ * \return 
+ */
 function checkLogin(){
 	if(!isset($_SESSION['id']) || !isset($_SESSION['mail'])){
 		redirect("./index.php","0");
 	}
 }
-
+/**
+ * \fn entParPromo
+ * \brief Fonction listant les entreprises pour une promotion précise
+ * \param promotion correspondant  à la promotion voulue
+ *	\param bdd variable de connexion à la bdd
+ * \return 
+ */
 function entParPromo($promotion, $bdd)
 {
 	$sql = 'SELECT * FROM entreprise WHERE promotion = "' . $promotion . '"';
@@ -123,6 +166,12 @@ function entParPromo($promotion, $bdd)
 	$entreprise->closeCursor();
 }
 
+/**
+ * \fn tempsRestantPhases (deprecated)
+ * \brief Fonction qui permetait de connaître le temps restant avant une date donnée
+ * \param 
+ * \return 
+ */
 function tempsRestantPhases()
 {	
 	$tps_restant1 = mktime(0, 0, 0, 10, 22, 2012) - time();
@@ -148,7 +197,12 @@ function tempsRestantPhases()
 		echo' 	Il reste <strong>'. $d_restants2 .' jours</strong> et <strong>'. $H_restantes2 .' heures</strong> avant l\'ouverture de la phase 2.';
 	echo '</ul>';
 }
-
+/**
+ * \fn tempsRestantEvenement 
+ * \brief Fonction permetant de connaître le temps restant avant une date donnée (fonction à revoir car il faudrait pouvoir passer la date en paramètre) 
+ * \param 
+ * \return 
+ */
 function tempsRestantEvenement()
 {
 	$tps_restant = mktime(13, 0, 0, 12, 5, 2013) - time();
@@ -167,29 +221,13 @@ function tempsRestantEvenement()
 	Il reste <strong>'. $d_restants .' jours</strong> et <strong>'. $H_restantes .' heures</strong> avant l\'évènement.</p>';
 }
 
-function toStringFormPhases()
-{
-	$jour = 28;//date('j');
-	$mois = 10;//date('n');
-	
-	if($mois == 10)
-	{
-		if($jour > 24)
-			formulaire('phase1');
-		elseif($jour > 17 && $jour < 25)
-			formulaire('phase2');
-		else
-			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est fermé. Elle ouvrira dès le 18 octobre 2012.</p>';
-	}
-	else
-	{
-		if($mois < 10)
-			echo '<p> Nous sommes le ' . date('j F Y') . '. L\'inscription pour la phase1 est fermé. Elle ouvrira dès le 18 octobre 2012.</p>';
-		else
-			echo 'Les phases d\'inscriptions sont désormais terminées. Cependant vous avez la possibilité de prendre contact avec les organisateurs via l\'onglet Contact. Merci de votre compréhension.';
-	}
-}
-
+/**
+ * \fn redirect 
+ * \brief Fonction permetant de faire une redirection rapidement
+ * \param url de redirection
+  * \param temps voulu avant la redirection (3 si non spécifié)
+ * \return 
+ */
 function redirect($url, $time=3) 
 {      
    //On v�rifie si aucun en-t�te n'a d�j� �t� envoy�     
@@ -203,6 +241,12 @@ function redirect($url, $time=3)
 		echo '<meta http-equiv="refresh" content="',$time,';url=',$url,'">'; 
 	} 
 }
+/**
+ * \fn getInfoSiteInformation 
+ * \brief Fonction permetant de connâitre une information du site venant de la table infosite (mailContact, InscriptionOuvertes, Edition,DescriptionLongue, DescriptionEleve, DescriptionEntreprise...)
+ * \param info Information désirée
+ * \return valeur de l'information
+ */
 function getInfoSiteInformation($info){
 	$bdd= connect_database();
 	$req = $bdd->query('SELECT * FROM infosite WHERE nom="'.$info.'";');

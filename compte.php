@@ -66,70 +66,72 @@ echo '
 </div><!-- fermeture jumbotron -->';
 
 /*	##########	FONCTIONS NECESSAIRES AU CONTENU DE LA PAGE    ############# */
-
-/*
-	Fonction affichant le contenu de la page 
-	"Compte" lorsque l'utilisateur est root
-*/
-	function getRootContent($bdd){
-		/*	Prise en compte des codes retours */
-		if(isset($_GET['code'])){
-			switch($_GET['code']){
-				case 2:
+/**
+ * \fn getRootContent
+ * \brief Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur est root
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */
+function getRootContent($bdd){
+	/*	Prise en compte des codes retours */
+	if(isset($_GET['code'])){
+		switch($_GET['code']){
+			case 2:
     			//Tout s'est bien passé
-				echo ' <div class="alert alert-success" role="alert">La modification du site s\'est terminée avec succès.</div>';
-				break;
-				case 3:
+			echo ' <div class="alert alert-success" role="alert">La modification du site s\'est terminée avec succès.</div>';
+			break;
+			case 3:
     			//Il y a eu des erreurs
-				echo ' <div class="alert alert-danger" role="alert">La modification du site ne s\'est pas bien terminée. Veuillez recommencer.</div>';
-				break;
-			}
+			echo ' <div class="alert alert-danger" role="alert">La modification du site ne s\'est pas bien terminée. Veuillez recommencer.</div>';
+			break;
 		}
-		if(isset($_GET['dlcvtheque'])){
-			downloadCVTheque();
-		}else if(isset($_GET['raz'])){
-			razbdd();
-			redirect("./compte.php","0");
-		}else if(isset($_GET['razEtudiants'])){
-			razEtudiants();
-			redirect("./compte.php","0");
-		}
-		echo '<script>
-		function raz(){
-			if(confirm("êtes vous sûr de vouloir tout remettre à zéro ? ->rdv, messages...")){
-				document.location.href="?raz" ;
-			}
-		}
-		function razEtudiants(){
-			if(confirm("êtes vous sûr de vouloir supprimer tous les étudiants ? ->rdv, messages...")){
-				document.location.href="?razEtudiants" ;
-			}
-		}
-	</script>';
-	
-
-
-	/* Traitement du formumlaire de changememt d'état si présent */
-	if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
-		if($_POST['activation']){
-			$resultat = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE id = "'.$_POST['idEntreprise'].'"');
-		}else{
-			$resultat = $bdd->exec('UPDATE entreprise SET active = TRUE WHERE id = "'.$_POST['idEntreprise'].'"');
-		}
-		
-		if($resultat){
-			$m = $bdd->query('SELECT mail FROM entreprise WHERE id = "'.$_POST['idEntreprise'].'"');
-			$mail = $m->fetch();
-			echo '<div class="alert alert-success" role="alert">Le changement d\'état de l\'entreprise s\'est terminée avec succès. Notification à '.$mail['mail'].'</div>';
-			mail(''.$mail['mail'], "Activation de votre compte Polytech Dating", "Bonjour, Votre compte a été activé sur le site du Polytech Dating. Les étudiants peuvent désormais prendre des rendez-vous avec vous.");
-		}else{
-			echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
-		}
-	}else if(isset($_POST['supprimerEntreprise'])){
-		$first = $bdd->exec('DELETE FROM heure WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
-		$second = $bdd->exec('DELETE FROM rdv WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
-		$third = $bdd->exec('DELETE FROM entreprise WHERE id = "'.$_POST['supprimerEntreprise'].'"');
 	}
+	if(isset($_GET['dlcvtheque'])){
+		downloadCVTheque();
+	}else if(isset($_GET['raz'])){
+		razbdd();
+		redirect("./compte.php","0");
+	}else if(isset($_GET['razEtudiants'])){
+		razEtudiants();
+		redirect("./compte.php","0");
+	}
+	echo '<script>
+	function raz(){
+		if(confirm("êtes vous sûr de vouloir tout remettre à zéro ? ->rdv, messages...")){
+			document.location.href="?raz" ;
+		}
+	}
+	function razEtudiants(){
+		if(confirm("êtes vous sûr de vouloir supprimer tous les étudiants ? ->rdv, messages...")){
+			document.location.href="?razEtudiants" ;
+		}
+	}
+</script>';
+
+
+
+/* Traitement du formumlaire de changememt d'état si présent */
+if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
+	if($_POST['activation']){
+		$resultat = $bdd->exec('UPDATE entreprise SET active = FALSE WHERE id = "'.$_POST['idEntreprise'].'"');
+	}else{
+		$resultat = $bdd->exec('UPDATE entreprise SET active = TRUE WHERE id = "'.$_POST['idEntreprise'].'"');
+	}
+
+	if($resultat){
+		$m = $bdd->query('SELECT mail FROM entreprise WHERE id = "'.$_POST['idEntreprise'].'"');
+		$mail = $m->fetch();
+		echo '<div class="alert alert-success" role="alert">Le changement d\'état de l\'entreprise s\'est terminée avec succès. Notification à '.$mail['mail'].'</div>';
+		mail(''.$mail['mail'], "Activation de votre compte Polytech Dating", "Bonjour, Votre compte a été activé sur le site du Polytech Dating. Les étudiants peuvent désormais prendre des rendez-vous avec vous.");
+	}else{
+		echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
+	}
+}else if(isset($_POST['supprimerEntreprise'])){
+	$first = $bdd->exec('DELETE FROM heure WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
+	$second = $bdd->exec('DELETE FROM rdv WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
+	$third = $bdd->exec('DELETE FROM entreprise WHERE id = "'.$_POST['supprimerEntreprise'].'"');
+}
 			/*
 				A REVOIR !!!
 				TODO
@@ -153,9 +155,14 @@ echo '
 			/* LISTE DES ENTREPRISES */
 			getListCompanyWithRootAccount($bdd);
 		}
-/*
-	Affichage des étudiants inscrits pour le compte root
-*/
+
+/**
+ * \fn getListRegisteredStudentWithRoot
+ * \brief Affichage des étudiants inscrits pour le compte root
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */
 	function getListRegisteredStudentWithRoot($bdd){
 		echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 		$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
@@ -172,9 +179,13 @@ echo '
 		echo'</table>';
 	}
 
-/*
-	Affichage des rendez vous pris pour le compte root
-*/
+/**
+ * \fn getListMeetingsWithRoot
+ * \brief Affichage des rendez vous pris pour le compte root
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */
 	function getListMeetingsWithRoot($bdd){
 		echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
@@ -214,9 +225,14 @@ echo '
 
 								echo '</div>';
 							}
-/*
-	Affichage de la liste des entreprises pour le compte root
-*/    
+   
+/**
+ * \fn getListCompanyWithRootAccount
+ * \brief Affichage de la liste des entreprises pour le compte root
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */ 
 	function getListCompanyWithRootAccount($bdd){
 		echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 		echo '<p>Une fois l\'entreprise validée, elle apparaît dans le listing des entreprises sur la page "entreprises" avec son logo et elle est accessible dans la prise de rendez vous pour les étudiants.</p>';
@@ -259,10 +275,13 @@ echo '
 			}
 			echo '</table>';
 		}
-/*
-	Fonction affichant le contenu de la page 
-	"Compte" lorsque l'utilisateur est un étudiant "user"
-*/
+/**
+ * \fn getUserContent
+ * \brief Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur est un étudiant "user"
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */ 	
 	function getUserContent($bdd){
 		$req = $bdd->query('	SELECT entreprise.nom AS entreprise, rdv.heure AS heure
 			FROM rdv
@@ -324,10 +343,14 @@ echo '
 		getEditAccountButton();
 	}
 
-/*
-	Fonction affichant le contenu de la page 
-	"Compte" lorsque l'utilisateur est une entreprise
-*/
+
+/**
+ * \fn getCompanyContent
+ * \brief Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur est une entreprise
+ *
+ * \param bdd Référence de l'objet bdd servant à la connexion bdd afin de ne pas recréer une connexion à chaque méthode
+ * \return 
+ */ 
 	function getCompanyContent($bdd){
 		if(!$_SESSION['active']){ ?>
 		<div class="alert alert-danger" role="alert">
@@ -381,10 +404,13 @@ echo '
 		<?php
 	}
 
-/*
-	Fonction affichant le contenu de la page 
-	"Compte" lorsque l'utilisateur n'est pas connecté
-*/
+/**
+ * \fn getNotConnectedContent
+ * \brief Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur n'est pas connecté
+ *
+ * \param 
+ * \return 
+ */ 
 	function getNotConnectedContent(){
 		?>
 		<div id="compte">
@@ -403,9 +429,13 @@ echo '
 		<?php
 	}
 
-/*
-	Affichage du bouton "Modifier mon compte"
-*/
+/**
+ * \fn getEditAccountButton
+ * \brief Affichage du bouton "Modifier mon compte"
+ *
+ * \param 
+ * \return 
+ */ 
 	function getEditAccountButton(){
 		?>
 		<div class="boutonsCompte">
