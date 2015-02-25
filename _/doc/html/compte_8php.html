@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fonctions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,11 +111,11 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ae7495dbc87a3bbf1f9ed0d432164dded"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7495dbc87a3bbf1f9ed0d432164dded"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>getCompanyContent</b> ($bdd)</td></tr>
 <tr class="separator:ae7495dbc87a3bbf1f9ed0d432164dded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6864a2cabe7ba32b7dbe321b7dd63553"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6864a2cabe7ba32b7dbe321b7dd63553"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>getNotConnectedContent</b> ()</td></tr>
+<tr class="memitem:a6864a2cabe7ba32b7dbe321b7dd63553"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compte_8php.html#a6864a2cabe7ba32b7dbe321b7dd63553">getNotConnectedContent</a> ()</td></tr>
+<tr class="memdesc:a6864a2cabe7ba32b7dbe321b7dd63553"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur n'est pas connecté  <a href="#a6864a2cabe7ba32b7dbe321b7dd63553">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a6864a2cabe7ba32b7dbe321b7dd63553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d7f27faf8419a21fd9f5e98f5e318e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18d7f27faf8419a21fd9f5e98f5e318e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>getEditAccountButton</b> ()</td></tr>
+<tr class="memitem:a18d7f27faf8419a21fd9f5e98f5e318e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compte_8php.html#a18d7f27faf8419a21fd9f5e98f5e318e">getEditAccountButton</a> ()</td></tr>
+<tr class="memdesc:a18d7f27faf8419a21fd9f5e98f5e318e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du bouton "Modifier mon compte".  <a href="#a18d7f27faf8419a21fd9f5e98f5e318e">Plus de détails...</a><br/></td></tr>
 <tr class="separator:a18d7f27faf8419a21fd9f5e98f5e318e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -132,7 +133,54 @@ AND isset($_SESSION['mail']))&#160;</td><td class="memItemRight" valign="bottom"
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>24 Février 2015</dd></dl>
 <p>**TODO -bouton raz rdv entreprise par entreprise -historique d'une année sur l'autre </p>
-</div><h2 class="groupheader">Documentation des variables</h2>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a18d7f27faf8419a21fd9f5e98f5e318e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getEditAccountButton </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du bouton "Modifier mon compte". </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">\return</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6864a2cabe7ba32b7dbe321b7dd63553"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getNotConnectedContent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction affichant le contenu de la page "Compte" lorsque l'utilisateur n'est pas connecté </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">\return</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
 <a class="anchor" id="ab7c6f74ade7b2cd00198262b9bae01a9"></a>
 <div class="memitem">
 <div class="memproto">
@@ -144,14 +192,15 @@ AND isset($_SESSION['mail']))&#160;</td><td class="memItemRight" valign="bottom"
 </div><div class="memdoc">
 <b>Valeur initiale :</b><div class="fragment"><div class="line">{   </div>
 <div class="line">        </div>
-<div class="line">        getNotConnectedContent()</div>
+<div class="line">        <a class="code" href="compte_8php.html#a6864a2cabe7ba32b7dbe321b7dd63553">getNotConnectedContent</a>()</div>
+<div class="ttc" id="compte_8php_html_a6864a2cabe7ba32b7dbe321b7dd63553"><div class="ttname"><a href="compte_8php.html#a6864a2cabe7ba32b7dbe321b7dd63553">getNotConnectedContent</a></div><div class="ttdeci">getNotConnectedContent()</div><div class="ttdoc">Fonction affichant le contenu de la page &quot;Compte&quot; lorsque l&#39;utilisateur n&#39;est pas connecté ...</div><div class="ttdef"><b>Definition:</b> compte.php:414</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 24 Février 2015 15:00:43 pour polytechdating par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mercredi 25 Février 2015 16:37:38 pour polytechdating par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

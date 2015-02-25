@@ -7,14 +7,16 @@
 
 var indexSectionsWithContent =
 {
-  0: "cdefhimrstv",
-  1: "cdefhimrstv"
+  0: "cdefghimrstv",
+  1: "cdefhimrstv",
+  2: "cdgrt"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "files"
+  1: "files",
+  2: "functions"
 };
 
 function convertToId(search)

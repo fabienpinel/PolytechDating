@@ -9,36 +9,27 @@ fichier contenant des fonctions utiles pour le site. Actions sur la bdd, connexi
 \subsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{function_8php_a03c93c7f5fb072f73ce3708919a866a8}{{\bfseries razbdd} ()}\label{function_8php_a03c93c7f5fb072f73ce3708919a866a8}
-
-\item 
-\hypertarget{function_8php_a7d4f9fc4bec979b07f55f932d37d54a8}{{\bfseries raz\-Etudiants} ()}\label{function_8php_a7d4f9fc4bec979b07f55f932d37d54a8}
-
-\item 
-\hypertarget{function_8php_a84f5d05a79bfe6359f8567c9e758131d}{{\bfseries download\-C\-V\-Theque} ()}\label{function_8php_a84f5d05a79bfe6359f8567c9e758131d}
-
-\item 
+\hyperlink{function_8php_a03c93c7f5fb072f73ce3708919a866a8}{razbdd} ()
+\begin{DoxyCompactList}\small\item\em Fonction de remise à zero du site. Désactive les entreprises, supprime les rendez-\/vous, supprimes les messages. \end{DoxyCompactList}\item 
+\hyperlink{function_8php_a7d4f9fc4bec979b07f55f932d37d54a8}{raz\-Etudiants} ()
+\begin{DoxyCompactList}\small\item\em Fonction de remise à zero des étudiants. Supprime les compte étudiants, supprime donc aussi les rendez-\/vous associés et les messages laissés. \end{DoxyCompactList}\item 
+\hyperlink{function_8php_a84f5d05a79bfe6359f8567c9e758131d}{download\-C\-V\-Theque} ()
+\begin{DoxyCompactList}\small\item\em Fonction permettant de télécharger la C\-V\-Theque. Elle s'occupe de faire une archive avec les C\-V et de les télécharger. \end{DoxyCompactList}\item 
 \hypertarget{function_8php_afedf546732a97f1d7f7b051519ecdb6b}{{\bfseries entreprise\-Encore\-Disponible} (\$id)}\label{function_8php_afedf546732a97f1d7f7b051519ecdb6b}
 
 \item 
-\hypertarget{function_8php_a1f56f7efe8c1222675d8715c259957d5}{{\bfseries connect\-\_\-database} ()}\label{function_8php_a1f56f7efe8c1222675d8715c259957d5}
-
-\item 
-\hypertarget{function_8php_ab8e90adf3e4b15eea283c4ea450a4288}{{\bfseries check\-Login} ()}\label{function_8php_ab8e90adf3e4b15eea283c4ea450a4288}
-
-\item 
+\hyperlink{function_8php_a1f56f7efe8c1222675d8715c259957d5}{connect\-\_\-database} ()
+\begin{DoxyCompactList}\small\item\em Fonction permettant de se connecter à la base de donnée. \end{DoxyCompactList}\item 
+\hyperlink{function_8php_ab8e90adf3e4b15eea283c4ea450a4288}{check\-Login} ()
+\begin{DoxyCompactList}\small\item\em Fonction permettant de vérifier que l'utilisateur est connecté \end{DoxyCompactList}\item 
 \hypertarget{function_8php_aa9bba2e669d4e2612a16cf05b84ff3e6}{{\bfseries ent\-Par\-Promo} (\$promotion, \$bdd)}\label{function_8php_aa9bba2e669d4e2612a16cf05b84ff3e6}
 
 \item 
 \hypertarget{function_8php_ad6f79d8c143ad0f2e5ad98b72dc704c6}{{\bfseries temps\-Restant\-Phases} ()}\label{function_8php_ad6f79d8c143ad0f2e5ad98b72dc704c6}
 
 \item 
-\hypertarget{function_8php_aab960eb2647ea0acdae908f5e266f0b7}{{\bfseries temps\-Restant\-Evenement} ()}\label{function_8php_aab960eb2647ea0acdae908f5e266f0b7}
-
-\item 
-\hypertarget{function_8php_a41cb5b8c5f9c311e60a9c1fda868b400}{{\bfseries to\-String\-Form\-Phases} ()}\label{function_8php_a41cb5b8c5f9c311e60a9c1fda868b400}
-
-\item 
+\hyperlink{function_8php_aab960eb2647ea0acdae908f5e266f0b7}{temps\-Restant\-Evenement} ()
+\begin{DoxyCompactList}\small\item\em Fonction permetant de connaître le temps restant avant une date donnée (fonction à revoir car il faudrait pouvoir passer la date en paramètre) \end{DoxyCompactList}\item 
 \hypertarget{function_8php_a05f4bb6d10cc6111be0ac7ef6d64afe2}{{\bfseries redirect} (\$url, \$time=3)}\label{function_8php_a05f4bb6d10cc6111be0ac7ef6d64afe2}
 
 \item 
@@ -75,3 +66,102 @@ Fabien Pinel
 \begin{DoxyDate}{Date}
 24 Février 2015 
 \end{DoxyDate}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{function_8php_ab8e90adf3e4b15eea283c4ea450a4288}{\index{function.\-php@{function.\-php}!check\-Login@{check\-Login}}
+\index{check\-Login@{check\-Login}!function.php@{function.\-php}}
+\subsubsection[{check\-Login}]{\setlength{\rightskip}{0pt plus 5cm}check\-Login (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_ab8e90adf3e4b15eea283c4ea450a4288}
+
+
+Fonction permettant de vérifier que l'utilisateur est connecté 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8php_a1f56f7efe8c1222675d8715c259957d5}{\index{function.\-php@{function.\-php}!connect\-\_\-database@{connect\-\_\-database}}
+\index{connect\-\_\-database@{connect\-\_\-database}!function.php@{function.\-php}}
+\subsubsection[{connect\-\_\-database}]{\setlength{\rightskip}{0pt plus 5cm}connect\-\_\-database (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_a1f56f7efe8c1222675d8715c259957d5}
+
+
+Fonction permettant de se connecter à la base de donnée. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & la variable de connexion \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8php_a84f5d05a79bfe6359f8567c9e758131d}{\index{function.\-php@{function.\-php}!download\-C\-V\-Theque@{download\-C\-V\-Theque}}
+\index{download\-C\-V\-Theque@{download\-C\-V\-Theque}!function.php@{function.\-php}}
+\subsubsection[{download\-C\-V\-Theque}]{\setlength{\rightskip}{0pt plus 5cm}download\-C\-V\-Theque (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_a84f5d05a79bfe6359f8567c9e758131d}
+
+
+Fonction permettant de télécharger la C\-V\-Theque. Elle s'occupe de faire une archive avec les C\-V et de les télécharger. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8php_a03c93c7f5fb072f73ce3708919a866a8}{\index{function.\-php@{function.\-php}!razbdd@{razbdd}}
+\index{razbdd@{razbdd}!function.php@{function.\-php}}
+\subsubsection[{razbdd}]{\setlength{\rightskip}{0pt plus 5cm}razbdd (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_a03c93c7f5fb072f73ce3708919a866a8}
+
+
+Fonction de remise à zero du site. Désactive les entreprises, supprime les rendez-\/vous, supprimes les messages. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8php_a7d4f9fc4bec979b07f55f932d37d54a8}{\index{function.\-php@{function.\-php}!raz\-Etudiants@{raz\-Etudiants}}
+\index{raz\-Etudiants@{raz\-Etudiants}!function.php@{function.\-php}}
+\subsubsection[{raz\-Etudiants}]{\setlength{\rightskip}{0pt plus 5cm}raz\-Etudiants (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_a7d4f9fc4bec979b07f55f932d37d54a8}
+
+
+Fonction de remise à zero des étudiants. Supprime les compte étudiants, supprime donc aussi les rendez-\/vous associés et les messages laissés. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{function_8php_aab960eb2647ea0acdae908f5e266f0b7}{\index{function.\-php@{function.\-php}!temps\-Restant\-Evenement@{temps\-Restant\-Evenement}}
+\index{temps\-Restant\-Evenement@{temps\-Restant\-Evenement}!function.php@{function.\-php}}
+\subsubsection[{temps\-Restant\-Evenement}]{\setlength{\rightskip}{0pt plus 5cm}temps\-Restant\-Evenement (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{function_8php_aab960eb2647ea0acdae908f5e266f0b7}
+
+
+Fonction permetant de connaître le temps restant avant une date donnée (fonction à revoir car il faudrait pouvoir passer la date en paramètre) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \textbackslash{}return} & \\
+\hline
+\end{DoxyParams}
