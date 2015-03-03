@@ -83,9 +83,9 @@ include("header.php");
 							<div class="col-sm-8">
 								<select name="promotion" id="promotion"   onchange="changerspe()" class="form-control" required>
 									<option value="" disabled selected>Sélectionnez votre promotion</option>
-									<option value="SI5">INGENIEUR INFORMATIQUE</option>
-									<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
-									<option value="MAM5">INGENIEUR MAM</option>
+									<option value="SI">INGENIEUR INFORMATIQUE</option>
+									<option value="ELEC">INGENIEUR ELECTRONIQUE</option>
+									<option value="MAM">INGENIEUR MAM</option>
 									<option value="M2 IMAFA">M2 IMAFA</option>
 									<option value="IFI">M2 IFI</option>
 								</select>
@@ -109,7 +109,7 @@ include("header.php");
 						<div class="form-group">
 							<label for="cv" class="col-sm-4 control-label">CV (en .pdf)</label>
 							<div class="col-sm-8">
-								<input type="hidden" name="MAX_FILE_SIZE" value="2097152" class="form-control" />
+								<input type="hidden" name="MAX_FILE_SIZE" value="4194304" class="form-control" />
 								<input type="file" name="cv" id="cv" required/>
 							</div>
 						</div>
@@ -235,9 +235,9 @@ include("header.php");
 <script type="text/javascript"> 
 	/*function changerspe(){ 
 		var type = document.getElementById('promotion').options[document.getElementById('promotion').selectedIndex].value; 
-		if(type == 'SI5' || type == 'IFI'){ 
+		if(type == 'SI' || type == 'IFI'){ 
 			document.getElementById('parcours').innerHTML = '<label for="parcours" class="col-sm-4 control-label">Parcours</label><div class="col-sm-8"><select name="parcours" id="parcours" class="form-control" ><option value="" disabled selected>Sélectionnez votre parcours</option><option value="IAM">IAM</option><option value="IMAFA">IMAFA</option><option value="IHM">IHM</option><option value="KIS">KIS</option><option value="UN">UN</option><option value="VIM">VIM</option><option value="AL">AL</option><option value="CSSR">CSSR</option></select></div>';
-		}else if(type == 'ELEC5'){ 
+		}else if(type == 'ELEC'){ 
 			document.getElementById('parcours').innerHTML='<label for="parcours" class="col-sm-4 control-label">Parcours</label>'
 			+'<div class="col-sm-8">'
 			+'<select name="parcours" id="parcours" class="form-control" >'

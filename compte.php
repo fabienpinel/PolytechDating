@@ -318,7 +318,7 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
 				echo '	<div class="alert alert-info" role="info">
 				<form method="post" action="modifierrdv.php">
 					<p>Vous avez rendez-vous avec ' .$donnes['entreprise']. ' &agrave; ' .$donnes['heure']. '
-						<br/>Pour le supprimer et en choisir un autre parmis ceux encore disponible, cliquez sur <strong>Supprimer</strong>.
+						<br/>Pour le supprimer et en choisir un autre parmi ceux encore disponibles, cliquez sur <strong>Supprimer</strong>.
 						<input type="hidden" name="id" value="' .$donnes['id']. '"/>
 						<input name="send" type="submit" value="Supprimer" class="btn btn-danger" />
 					</form>
