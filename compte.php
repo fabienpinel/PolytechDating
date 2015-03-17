@@ -164,7 +164,7 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
  * \return 
  */
 	function getListRegisteredStudentWithRoot($bdd){
-		echo'<h2 class="titleetudiants">Liste des étudiants inscrits <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
+		echo'<h2 class="titleetudiants">Liste des étudiants inscrits ('.getNumberRegisteredStudent().') <button class="btn btn-default" onClick="reduire(etudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 		$req = $bdd->query('SELECT * from membre WHERE mail<>"root@root.root"');
 		echo'<table class="table table-hover" id="etudiants">';
 		echo '<th>Nom</th><th>Prénom</th><th>Mail</th><th>Promotion</th><th>Mot clés 1</th><th>Mot clés 2</th><th>CV</th>';
@@ -187,7 +187,7 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
  * \return 
  */
 	function getListMeetingsWithRoot($bdd){
-		echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
+		echo'<h2 class="titlerdvEtudiants">Liste des rendez-vous pris par les étudiants ('.getNumberOfMeetings().') <button class="btn btn-default" onClick="reduire(rdvEtudiants);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 			/*SELECT membre.nom, membre.prenom, membre.promotion, membre.parcours,  membre.motcles1, membre.motcles2 AS membre, heure AS rdv, entreprise.nom AS entreprise
 									FROM rdv
 									INNER JOIN entreprise
@@ -234,7 +234,7 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
  * \return 
  */ 
 	function getListCompanyWithRootAccount($bdd){
-		echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
+		echo '<h2 class="titlelistingEntreprise">Liste des entreprises inscrites ('.getNumberOfCompanies().') <button class="btn btn-default" onClick="reduire(listingEntreprise);"><span class="glyphicon glyphicon-minus" id="up" ></span></button></h2>';
 		echo '<p>Une fois l\'entreprise validée, elle apparaît dans le listing des entreprises sur la page "entreprises" avec son logo et elle est accessible dans la prise de rendez vous pour les étudiants.</p>';
 			//lister la table entreprise
 		$requeteEntreprise = $bdd->query('SELECT * FROM entreprise');

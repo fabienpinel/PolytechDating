@@ -69,7 +69,7 @@ echo '<div class="jumbotron">
            		$fichier = $_POST['nom'].'-'.$_POST['prenom'].'-'.$_POST['promotion'].'.'.$extension_upload;
            		chmod($dossier, 0755);
            		$resultat = move_uploaded_file($_FILES['cv']['tmp_name'], $dossier.$fichier);
-           		chmod($dossier.$fichier, 0644);
+           		chmod($dossier.$fichier, 0755);
            		if ($resultat){
 					//La copie s'est bien déroulée
 					// Insertion dans la base de donnée

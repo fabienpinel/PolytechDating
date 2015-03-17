@@ -56,14 +56,15 @@ function razEtudiants(){
  */ 
 	function downloadCVTheque(){
 	// On instancie la classe.
-		//chmod($dossier, 755);
+		//chmod("./_/cvarchive/", 0755);
+		
 		$zip = new ZipArchive();
 		
-		if(is_dir('./_/cv/'))
+		if(is_dir('./_/cv/') && is_writable('./_/cv/'))
 		{
         // On teste si le dossier existe, car sans ça le script risque de provoquer des erreurs.
 			
-			if($zip->open('./_/cvarchive/CVTheque.zip', ZipArchive::CREATE) == TRUE)
+			if($zip->open('./_/cvarchive/CVTheque.zip', ZIPARCHIVE::OVERWRITE | ZIPARCHIVE::CREATE ) == TRUE)
 			{
 	  // Ouverture de l’archive réussie.
 
@@ -76,6 +77,7 @@ function razEtudiants(){
 				{
 	    // On ajoute chaque fichier à l’archive en spécifiant l’argument optionnel.
 	    // Pour ne pas créer de dossier dans l’archive.
+					chmod('./_/cv/'.$f, 0755);
 					if(!$zip->addFile('./_/cv/'.$f, $f))
 					{
 						echo 'Impossible d&#039;ajouter &quot;'.$f.'&quot;.<br/>';
@@ -84,12 +86,14 @@ function razEtudiants(){
 				
 	  // On ferme l’archive.
 				$zip->close();
-				
-	  // On peut ensuite, comme dans le tuto de DHKold, proposer le téléchargement.
+
+	chmod("./_/cvarchive/CVTheque.zip", 0644);
+
 	  header('Content-Transfer-Encoding: binary'); //Transfert en binaire (fichier).
 	  header('Content-Disposition: attachment; filename="CVTheque.zip"'); //Nom du fichier.
-	  header('Content-Length: '.filesize('CVTheque.zip')); //Taille du fichier.
-	  
+	  //header('Content-Length: '.filesize('./_/cvarchive/CVTheque.zip'));
+	  header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+	  header('Pragma: no-cache');
 	  readfile('./_/cvarchive/CVTheque.zip');
 	}
 	else
@@ -270,5 +274,23 @@ function getDescriptionEleve(){
 }
 function getDescriptionEntreprise(){
 	return getInfoSiteInformation("descriptionEntreprise");
+}
+function getNumberRegisteredStudent(){
+	$bdd= connect_database();
+	$req = $bdd->query('SELECT count(*) from membre WHERE mail<>"root@root.root"');
+	$donnees = $req->fetch();
+	return utf8_encode($donnees['count(*)']);
+}
+function getNumberOfMeetings(){
+	$bdd= connect_database();
+	$req = $bdd->query('SELECT count(*) from rdv WHERE 1=1');
+	$donnees = $req->fetch();
+	return utf8_encode($donnees['count(*)']);
+}
+function getNumberOfCompanies(){
+	$bdd= connect_database();
+	$req = $bdd->query('SELECT count(*) from entreprise WHERE 1=1');
+	$donnees = $req->fetch();
+	return utf8_encode($donnees['count(*)']);
 }
 ?>

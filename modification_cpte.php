@@ -211,9 +211,9 @@ if(isset($_POST['type'])){
 					<div class="col-sm-8">
 						<select name="promotion" id="promotion"   onchange="changerspe()" class="form-control" required>
 							<option value="" disabled selected>Sélectionnez votre promotion</option>
-							<option value="SI5">INGENIEUR INFORMATIQUE</option>
-							<option value="ELEC5">INGENIEUR ELECTRONIQUE</option>
-							<option value="MAM5">INGENIEUR MAM</option>
+							<option value="SI">INGENIEUR INFORMATIQUE</option>
+							<option value="ELEC">INGENIEUR ELECTRONIQUE</option>
+							<option value="MAM">INGENIEUR MAM</option>
 							<option value="M2 IMAFA">M2 IMAFA</option>
 							<option value="IFI">M2 IFI</option>
 						</select>
