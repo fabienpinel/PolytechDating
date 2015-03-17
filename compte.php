@@ -218,9 +218,9 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
 									$req = $bdd->query('SELECT * FROM message');
 									
 									while($message = $req->fetch())
-										echo'<p><b>' .$message['nom']. ' ' .$message['prenom']. '</b> a laiss&eacute; un message.<br/>
+										echo'<p><b>' .utf8_encode($message['nom']). ' ' .utf8_encode($message['prenom']). '</b> a laiss&eacute; un message.<br/>
 									E-mail: <b>' .$message['mail']. '</b><br/>
-									Message: ' .$message['texte']. '
+									Message: ' .utf8_encode($message['texte']). '
 								</p>';	
 
 								echo '</div>';
