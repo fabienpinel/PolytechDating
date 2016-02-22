@@ -125,7 +125,7 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
 		echo '<div class="alert alert-success" role="alert">Le changement d\'état de l\'entreprise s\'est terminée avec succès. Notification à '.$mail['mail'].'</div>';
 		mail(''.$mail['mail'], "Activation de votre compte Polytech Dating", "Bonjour, Votre compte a été activé sur le site du Polytech Dating. Les étudiants peuvent désormais prendre des rendez-vous avec vous.");
 	}else{
-		echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminée.</div>';	
+		echo '<div class="alert alert-danger" role="alert">Le changement d\'état de l\'entreprise ne s\'est pas bien terminé.</div>';	
 	}
 }else if(isset($_POST['supprimerEntreprise'])){
 	$first = $bdd->exec('DELETE FROM heure WHERE entreprise = "'.$_POST['supprimerEntreprise'].'"');
@@ -268,9 +268,10 @@ if(isset($_POST['idEntreprise']) && isset($_POST['activation'])){
 				}
 				
 				echo '</form></td><td>';
+				
 				echo '<form action="compte.php" method="POST" id="suppressionEntreprise">
 				<input type="hidden" name="supprimerEntreprise" id="supprimerEntreprise" value="'.$uneEntreprise['id'].'" />';
-				echo'<button type="submit" class="btn btn-danger">Supprimer</button>';
+				echo'<button type="submit" class="btn btn-danger">Supprimer</button></form>';
 				echo'</td></tr>';
 			}
 			echo '</table>';
